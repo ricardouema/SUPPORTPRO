@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cateli | Construção Civil & Soluções Industriais no Japão</title>
-    <!-- Tailwind CSS para Estilização Moderna -->
+    <title>Cateli | Especialistas em Demolição, Andaimes e Serviços Industriais</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Alpine.js para Controle de Idioma e Interatividade -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <!-- Google Fonts - Inter & Noto Sans JP -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -20,16 +17,13 @@
 </head>
 <body class="bg-slate-50 text-slate-800 scroll-smooth" x-data="languageManager()">
 
-    <!-- HEADER & NAVEGAÇÃO -->
     <header class="bg-slate-900/95 backdrop-blur-md text-white sticky top-0 z-50 border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Logo -->
             <div class="flex items-center space-x-2">
                 <span class="text-2xl font-black tracking-wider text-amber-500">CATELI</span>
-                <span class="text-xs uppercase tracking-widest text-slate-400 border-l border-slate-700 pl-2 hidden sm:inline" x-text="t[lang].subLogo">CONSTRUCTION</span>
+                <span class="text-xs uppercase tracking-widest text-slate-400 border-l border-slate-700 pl-2 hidden sm:inline" x-text="t[lang].subLogo">SERVICES</span>
             </div>
 
-            <!-- Menu Desktop -->
             <nav class="hidden md:flex space-x-8 text-sm font-medium">
                 <a href="#about" class="hover:text-amber-500 transition-colors" x-text="t[lang].navAbout"></a>
                 <a href="#services" class="hover:text-amber-500 transition-colors" x-text="t[lang].navServices"></a>
@@ -37,7 +31,6 @@
                 <a href="#contact" class="hover:text-amber-500 transition-colors" x-text="t[lang].navContact"></a>
             </nav>
 
-            <!-- Seletor de Idiomas & CTA -->
             <div class="hidden md:flex items-center space-x-4">
                 <div class="relative" x-data="{ open: false }">
                     <button @click="open = !open" class="flex items-center space-x-1 text-sm bg-slate-800 px-3 py-1.5 rounded border border-slate-700 hover:bg-slate-700 transition">
@@ -53,9 +46,7 @@
                 <a href="#contact" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-semibold px-4 py-2 rounded text-sm transition" x-text="t[lang].ctaQuote"></a>
             </div>
 
-            <!-- Botão Mobile -->
             <div class="md:hidden flex items-center space-x-4">
-                <!-- Seletor Rápido Mobile -->
                 <select @change="setLang($event.target.value)" class="bg-slate-800 text-white text-xs rounded px-2 py-1 border border-slate-700">
                     <option value="jp" :selected="lang === 'jp'">JP</option>
                     <option value="en" :selected="lang === 'en'">EN</option>
@@ -67,7 +58,6 @@
             </div>
         </div>
 
-        <!-- Menu Mobile Dropdown -->
         <div x-show="mobileMenu" class="md:hidden bg-slate-900 border-t border-slate-800 px-4 py-4 space-y-3" x-cloak>
             <a href="#about" @click="mobileMenu = false" class="block text-slate-300 hover:text-white" x-text="t[lang].navAbout"></a>
             <a href="#services" @click="mobileMenu = false" class="block text-slate-300 hover:text-white" x-text="t[lang].navServices"></a>
@@ -77,18 +67,17 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
     <section class="relative bg-slate-950 text-white h-[85vh] flex items-center overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=1920" alt="Japan Construction" class="w-full h-full object-cover opacity-30 object-center">
+            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=1920" alt="Industrial Construction" class="w-full h-full object-cover opacity-35 object-center">
             <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent"></div>
         </div>
         
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div class="max-w-2xl">
+            <div class="max-w-3xl">
                 <span class="text-amber-500 uppercase tracking-widest font-semibold text-sm block mb-3" x-text="t[lang].heroTag"></span>
                 <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6 leading-tight" x-html="t[lang].heroTitle"></h1>
-                <p class="text-lg text-slate-300 mb-8" x-text="t[lang].heroDesc"></p>
+                <p class="text-lg sm:text-xl text-slate-300 mb-8 font-light" x-text="t[lang].heroDesc"></p>
                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                     <a href="#services" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-8 py-3.5 rounded shadow-lg text-center transition" x-text="t[lang].heroBtn1"></a>
                     <a href="#careers" class="border border-white hover:bg-white hover:text-slate-950 font-bold px-8 py-3.5 rounded text-center transition" x-text="t[lang].heroBtn2"></a>
@@ -97,7 +86,6 @@
         </div>
     </section>
 
-    <!-- SOBRE A EMPRESA (CONTRATANDO ETNIAS MISTAS) -->
     <section id="about" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -113,7 +101,7 @@
                             <span class="text-xs text-slate-500 uppercase tracking-wider" x-text="t[lang].stat1"></span>
                         </div>
                         <div>
-                            <span class="block text-2xl font-bold text-slate-900">+15</span>
+                            <span class="block text-2xl font-bold text-slate-900">10</span>
                             <span class="text-xs text-slate-500 uppercase tracking-wider" x-text="t[lang].stat2"></span>
                         </div>
                         <div>
@@ -122,18 +110,13 @@
                         </div>
                     </div>
                 </div>
-                <!-- Imagem com trabalhadores japoneses e estrangeiros (Multietnico) -->
                 <div class="relative h-[450px] rounded-xl overflow-hidden shadow-2xl">
-                    <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&q=80&w=1200" alt="Cateli Diverse Team" class="w-full h-full object-cover">
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-950/80 to-transparent p-6 text-white">
-                        <p class="italic text-sm">"Strength through diversity, safety through discipline."</p>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&q=80&w=1200" alt="Industrial Team" class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- NOSSOS SERVIÇOS -->
     <section id="services" class="py-20 bg-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -141,13 +124,11 @@
                 <p class="text-slate-600 mt-4" x-text="t[lang].servicesSub"></p>
             </div>
 
-            <!-- Grid de 10 Serviços com Imagens Alternadas -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <!-- Card 1 -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-md group hover:shadow-xl transition">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Demolição">
+                        <img src="https://images.unsplash.com/photo-1541625602330-2277a4c46182?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Demolição Kaitai">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2" x-text="t[lang].s1_title"></h3>
@@ -155,10 +136,9 @@
                     </div>
                 </div>
 
-                <!-- Card 2 -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-md group hover:shadow-xl transition">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Andaimes">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Prédio com Andaimes">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2" x-text="t[lang].s2_title"></h3>
@@ -166,10 +146,9 @@
                     </div>
                 </div>
 
-                <!-- Card 3 -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-md group hover:shadow-xl transition">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Limpeza">
+                        <img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Caminhão Dump de Entulho">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2" x-text="t[lang].s3_title"></h3>
@@ -177,10 +156,9 @@
                     </div>
                 </div>
 
-                <!-- Card 4 -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-md group hover:shadow-xl transition">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Reforma">
+                        <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Reforma Comercial">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2" x-text="t[lang].s4_title"></h3>
@@ -188,10 +166,9 @@
                     </div>
                 </div>
 
-                <!-- Card 5 -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-md group hover:shadow-xl transition">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Corte Concreto">
+                        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Corte de Concreto Profissional">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2" x-text="t[lang].s5_title"></h3>
@@ -199,10 +176,9 @@
                     </div>
                 </div>
 
-                <!-- Card 6 -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-md group hover:shadow-xl transition">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Transporte">
+                        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Logística Industrial">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2" x-text="t[lang].s6_title"></h3>
@@ -210,10 +186,9 @@
                     </div>
                 </div>
 
-                <!-- Card 7 -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-md group hover:shadow-xl transition">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Reciclagem">
+                        <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Reciclagem de Metais">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2" x-text="t[lang].s7_title"></h3>
@@ -221,10 +196,9 @@
                     </div>
                 </div>
 
-                <!-- Card 8 -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-md group hover:shadow-xl transition">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1584467541268-b040f83be3fd?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Amianto">
+                        <img src="https://images.unsplash.com/photo-1584467541268-b040f83be3fd?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Remoção Especializada de Amianto">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2" x-text="t[lang].s8_title"></h3>
@@ -232,10 +206,9 @@
                     </div>
                 </div>
 
-                <!-- Card 9 -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-md group hover:shadow-xl transition">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1513828583835-c5417117a4d9?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Desmontagem">
+                        <img src="https://images.unsplash.com/photo-1513828583835-c5417117a4d9?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Desmontagem de Linha Industrial">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2" x-text="t[lang].s9_title"></h3>
@@ -243,10 +216,9 @@
                     </div>
                 </div>
 
-                <!-- Card 10 -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-md group hover:shadow-xl transition md:col-span-2 lg:col-span-3 lg:max-w-md lg:mx-auto w-full">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Gerenciamento">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Planejamento Operacional">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2" x-text="t[lang].s10_title"></h3>
@@ -258,47 +230,36 @@
         </div>
     </section>
 
-    <!-- TRABALHE CONOSCO / RECRUITMENT -->
     <section id="careers" class="py-20 bg-slate-900 text-white relative">
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1920" class="w-full h-full object-cover opacity-10" alt="Background recruitment">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1920" class="w-full h-full object-cover opacity-5" alt="Background recruitment">
         </div>
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
                     <span class="text-amber-500 font-bold text-sm uppercase tracking-wider" x-text="t[lang].recruitSub"></span>
                     <h2 class="text-3xl sm:text-4xl font-bold mt-2 mb-6" x-text="t[lang].recruitTitle"></h2>
-                    <p class="text-slate-300 mb-6" x-text="t[lang].recruitDesc"></p>
+                    <p class="text-slate-300 mb-8" x-text="t[lang].recruitDesc"></p>
                     
                     <div class="space-y-4">
-                        <div class="flex items-start space-x-3">
-                            <div class="bg-slate-800 p-2 rounded text-amber-500 mt-1">✔</div>
-                            <div>
-                                <h4 class="font-bold text-white" x-text="t[lang].rec1_h"></h4>
-                                <p class="text-sm text-slate-400" x-text="t[lang].rec1_d"></p>
-                            </div>
+                        <div class="flex items-center space-x-4 bg-slate-800/50 p-4 rounded-lg border border-slate-700/50">
+                            <div class="text-amber-500 text-xl font-bold">✔</div>
+                            <h4 class="font-bold text-lg text-white" x-text="t[lang].rec1_h"></h4>
                         </div>
-                        <div class="flex items-start space-x-3">
-                            <div class="bg-slate-800 p-2 rounded text-amber-500 mt-1">✔</div>
-                            <div>
-                                <h4 class="font-bold text-white" x-text="t[lang].rec2_h"></h4>
-                                <p class="text-sm text-slate-400" x-text="t[lang].rec2_d"></p>
-                            </div>
+                        <div class="flex items-center space-x-4 bg-slate-800/50 p-4 rounded-lg border border-slate-700/50">
+                            <div class="text-amber-500 text-xl font-bold">✔</div>
+                            <h4 class="font-bold text-lg text-white" x-text="t[lang].rec2_h"></h4>
                         </div>
-                        <div class="flex items-start space-x-3">
-                            <div class="bg-slate-800 p-2 rounded text-amber-500 mt-1">✔</div>
-                            <div>
-                                <h4 class="font-bold text-white" x-text="t[lang].rec3_h"></h4>
-                                <p class="text-sm text-slate-400" x-text="t[lang].rec3_d"></p>
-                            </div>
+                        <div class="flex items-center space-x-4 bg-slate-800/50 p-4 rounded-lg border border-slate-700/50">
+                            <div class="text-amber-500 text-xl font-bold">✔</div>
+                            <h4 class="font-bold text-lg text-white" x-text="t[lang].rec3_h"></h4>
                         </div>
                     </div>
                 </div>
 
-                <!-- Formulário de Candidatura -->
                 <div class="bg-white text-slate-900 p-8 rounded-xl shadow-xl">
                     <h3 class="text-xl font-bold mb-6" x-text="t[lang].formRecruitTitle"></h3>
-                    <form @submit.prevent="alert('Candidatura enviada com sucesso!')" class="space-y-4">
+                    <form @submit.prevent="alert('Candidatura enviada com sucesso!')" class="space-y-4" enctype="multipart/form-data">
                         <div>
                             <label class="block text-xs font-semibold uppercase text-slate-500 mb-1" x-text="t[lang].fName"></label>
                             <input type="text" required class="w-full bg-slate-50 border border-slate-200 rounded px-4 py-2.5 focus:outline-none focus:border-amber-500">
@@ -314,13 +275,17 @@
                                     <option>Português</option>
                                     <option>English</option>
                                     <option>日本語</option>
-                                    <option>Other / Outro</option>
+                                    <option>Other</option>
                                 </select>
                             </div>
                         </div>
                         <div>
+                            <label class="block text-xs font-semibold uppercase text-slate-500 mb-1" x-text="t[lang].fFile"></label>
+                            <input type="file" class="w-full bg-slate-50 border border-slate-200 rounded px-2 py-2 text-sm focus:outline-none file:mr-4 file:py-1 file:px-4 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-amber-500 file:text-slate-950 hover:file:bg-amber-600 cursor-pointer">
+                        </div>
+                        <div>
                             <label class="block text-xs font-semibold uppercase text-slate-500 mb-1" x-text="t[lang].fMsg"></label>
-                            <textarea rows="3" class="w-full bg-slate-50 border border-slate-200 rounded px-4 py-2.5 focus:outline-none focus:border-amber-500"></textarea>
+                            <textarea rows="2" class="w-full bg-slate-50 border border-slate-200 rounded px-4 py-2.5 focus:outline-none focus:border-amber-500"></textarea>
                         </div>
                         <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-3 rounded transition uppercase tracking-wider text-sm" x-text="t[lang].fBtnSubmit"></button>
                     </form>
@@ -329,12 +294,10 @@
         </div>
     </section>
 
-    <!-- CONTATO & ORÇAMENTO -->
     <section id="contact" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
                 
-                <!-- Informações de Contato -->
                 <div class="lg:col-span-1">
                     <span class="text-amber-600 font-bold text-sm uppercase tracking-wider" x-text="t[lang].contactSub"></span>
                     <h2 class="text-3xl font-bold text-slate-900 mt-2 mb-6" x-text="t[lang].contactTitle"></h2>
@@ -351,12 +314,11 @@
                         </div>
                         <div class="flex items-center space-x-3">
                             <span class="text-amber-500 font-bold">✉</span>
-                            <span class="text-sm text-slate-700">contact@cateli-construction.jp</span>
+                            <span class="text-sm text-slate-700">contact@cateli.jp</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Formulário de Orçamento Comercial -->
                 <div class="lg:col-span-2 bg-slate-50 p-8 rounded-xl border border-slate-200">
                     <h3 class="text-xl font-bold text-slate-900 mb-6" x-text="t[lang].formContactTitle"></h3>
                     <form @submit.prevent="alert('Mensagem enviada!')" class="space-y-4">
@@ -397,13 +359,12 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
             <div class="flex flex-col sm:flex-row justify-between items-center mb-8">
                 <div class="mb-4 sm:mb-0">
                     <span class="text-xl font-black tracking-wider text-amber-500">CATELI</span>
-                    <p class="text-xs text-slate-500 mt-1">Industrial & Construction Excellence in Japan</p>
+                    <p class="text-xs text-slate-500 mt-1">Industrial & Construction Excellence</p>
                 </div>
                 <div class="flex space-x-6 text-sm">
                     <a href="#about" class="hover:text-white transition">About</a>
@@ -413,165 +374,163 @@
                 </div>
             </div>
             <hr class="border-slate-900 my-6">
-            <p class="text-xs text-center text-slate-600">&copy; 2026 Cateli Construction. All rights reserved. Developed for approval.</p>
+            <p class="text-xs text-center text-slate-600">&copy; 2026 Cateli. All rights reserved. Developed for approval.</p>
         </div>
     </footer>
 
-    <!-- LOGIC SYSTEM (MULTILANGUAGE DIC) -->
     <script>
         function languageManager() {
             return {
-                lang: 'jp', // Padrão: Japonês devido ao mercado de atuação
+                lang: 'pt', // Inicializado em Português para sua conferência facilitada
                 mobileMenu: false,
                 setLang(l) { this.lang = l; },
                 t: {
-                    jp: {
-                        subLogo: "総合建設・解体",
-                        navAbout: "会社概要", navServices: "事業内容", navCareers: "採用情報", navContact: "お問い合わせ",
-                        ctaQuote: "御見積り依頼",
-                        heroTag: "安全・品質・信頼の施工",
-                        heroTitle: "日本のインフラを支え、<br><span class='text-amber-500'>未来を解体・創造する。</span>",
-                        heroDesc: "カテリ（Cateli）は、解体工事から足場組立て、アスベスト除去、産業メンテナンスまで、高度な技術力と多国籍なチーム力で日本の現場をリードします。",
-                        heroBtn1: "サービス一覧", heroBtn2: "採用情報を見る",
-                        aboutSub: "私たちについて",
-                        aboutTitle: "多様な人材が躍動する、日本の建設パートナー",
-                        aboutP1: "株式会社カテリは、高度な施工管理能力と、国内外の優秀な技術者からなるハイブリッドチームを強みとしています。現場の安全第一（安全第一）を徹底し、日本の厳しい建設基準を満たす最高品質のサービスを提供しています。",
-                        aboutP2: "日本人スタッフと外国人技術者が一丸となり、コミュニケーションの壁を越えた迅速なオペレーションを展開。大型インフラから住宅リフォームまで柔軟に対応いたします。",
-                        stat1: "安全遵守率", stat2: "主要サービス", stat3: "実績件数",
-                        servicesTitle: "事業内容",
-                        servicesSub: "あらゆるフェーズに対応する総合建設・産業ソリューション",
-                        recruitSub: "一緒に働きませんか？",
-                        recruitTitle: "グローバルなチームで、プロフェッショナルへ",
-                        recruitDesc: "カテリでは、日本人・外国人を問わず、建設業界で活躍したい意欲ある人材を募集しています。未経験者でも安心の研修制度と、安全な職場環境を約束します。",
-                        rec1_h: "安全ファーストの環境", rec1_d: "徹底した安全装備の支給と安全教育の実施。",
-                        rec2_h: "多様性の尊重", rec2_d: "様々な文化や背景を持つ仲間が、互いに支え合う職場です。",
-                        rec3_h: "キャリアアップ支援", rec3_d: "資格取得支援制度や現場リーダーへの登用制度あり。",
-                        formRecruitTitle: "応募・エントリーフォーム",
-                        fName: "お名前", fPhone: "電話番号", fLang: "対応可能言語", fMsg: "自己PR・職務経歴など", fBtnSubmit: "エントリーする",
-                        contactSub: "アクセス", contactTitle: "ご相談・御見積り",
-                        contactDesc: "工事のご依頼、お見積りのご相談など、お気軽にお問い合わせください。担当者が迅速に対応いたします。",
-                        formContactTitle: "工事・サービスのお問い合わせ",
-                        fServiceSelect: "ご希望のサービス", fBtnSubmit2: "送信する",
-                        
-                        // Lista de Serviços traduzidas
-                        s1_title: "1. 解体工事 / Kaitai",
-                        s1_list: "<li>・住宅解体工事</li><li>・商業ビル解体</li><li>・工場・プラント解体</li><li>・構造物撤去・各種撤去</li><li>・コンクリートガラ・基礎破砕</li><li>・造成工事・土地引き渡し準備</li>",
-                        s2_title: "2. 足場組立・解体",
-                        s2_list: "<li>・足場組立・解体一式</li><li>・新築・改修工事用足場</li><li>・次世代足場・吊り足場</li><li>・ビルメンテナンス用足場</li><li>・仮設構造物設置</li>",
-                        s3_title: "3. 現場清掃・産業廃棄物収集",
-                        s3_list: "<li>・建設廃材・がれき撤去</li><li><li>・産業廃棄物収集運搬</li><li>・竣工後・お引渡し清掃</li><li>・土地・造成地清掃</li><li>・不要物・残置物処分</li><li>・リサイクル素材の分別</li>",
-                        s4_title: "4. リフォーム・メンテナンス",
-                        s4_list: "<li>・各種塗装工事</li><li>・内装ドライウォール工事</li><li>・床材・タイル施工</li><li>・小規模リフォーム</li><li>・ビル・マンション補修</li><li>・外壁・屋根メンテナンス</li><li>・内外装仕上げ工事</li>",
-                        s5_title: "5. コンクリートカッター・コア穿孔",
-                        s5_list: "<li>・コンクリート切断・カッター</li><li>・ダイヤモンドコア穿孔</li><li>・スラブ切断・開口部設置</li><li>・配管・配線用穴あけ</li><li>・構造変更・耐震改修補助</li>",
-                        s6_title: "6. 重量物据付・各種運搬",
-                        s6_list: "<li>・資材搬入・搬出</li><li>・重機・建機運搬</li><li>・工場設備・重量物移設</li><li>・現場ロジスティクス支援</li><li>・積込・荷降ろしオペレーション</li>",
-                        s7_title: "7. 資材リサイクル管理",
-                        s7_list: "<li>・鉄・銅・アルミ等分別</li><li><li>・現場廃材適正管理</li><li>・再利用可能資材の整理</li><li>・工業スクラップマネジメント</li>",
-                        s8_title: "8. アスベスト（石綿）除去",
-                        s8_list: "<li>・事前調査・含有診断</li><li>・アスベスト除去・封じ込め</li><li><li>・隔離養生・負圧管理</li><li>・特別管理産業廃棄物処分</li><li>・環境安全管理の徹底</li>",
-                        s9_title: "9. 工場設備解体・クリーンアップ",
-                        s9_list: "<li>・製造機械解体・撤去</li><li>・生産ライン撤去・処分</li><li>・工場・倉庫まるごと清掃</li><li>・大型設備搬出・運搬</li><li>・産業エリアの環境整備</li>",
-                        s10_title: "10. 施工管理・オペレーション",
-                        s10_list: "<li>・工程管理・計画策定</li><li>・多国籍チームのチーム管理</li><li>・廃棄物処理マネジメント</li><li>・現場安全・品質監督</li><li>・改修・新築工事の総合サポート</li>"
-                    },
-                    en: {
-                        subLogo: "Demolition & Construction",
-                        navAbout: "About Us", navServices: "Services", navCareers: "Careers", navContact: "Contact",
-                        ctaQuote: "Get a Quote",
-                        heroTag: "Safety, Quality, and Trust in Japan",
-                        heroTitle: "Supporting Infrastructure,<br><span class='text-amber-500'>Demolishing & Shaping Tomorrow.</span>",
-                        heroDesc: "Cateli blends advanced engineering with a diverse, professional workforce to deliver elite demolition, scaffolding, and industrial services across Japan.",
-                        heroBtn1: "Our Services", heroBtn2: "Join Our Team",
-                        aboutSub: "Who We Are",
-                        aboutTitle: "A Multinational Force Driving Japanese Construction Excellence",
-                        aboutP1: "Cateli Construction stands out by matching rigid Japanese safety standards with a flexible, multilingual workforce. We specialize in complex engineering projects, providing continuous high performance for local and global enterprises in Japan.",
-                        aboutP2: "With a strong base of expert Japanese supervisors and highly skilled global operators, we solve logistical and linguistic barriers on-site, providing exceptional agility.",
-                        stat1: "Safety Score", stat2: "Core Sectors", stat3: "Done Projects",
-                        servicesTitle: "Our Expertise",
-                        servicesSub: "Comprehensive construction and civil solutions from start to finish",
-                        recruitSub: "Work With Us",
-                        recruitTitle: "Build a Global Career in Japan",
-                        recruitDesc: "We hire both Japanese nationals and global talents. No matter your background, we offer safe conditions, proper training, and professional growth.",
-                        rec1_h: "Safety First Protocols", rec1_d: "Full equipment and continuous safety education.",
-                        rec2_h: "Inclusive Culture", rec2_d: "A dynamic workforce where all backgrounds are respected.",
-                        rec3_h: "Career Progression", rec3_d: "Support for getting official licenses and leader positions.",
-                        formRecruitTitle: "Application Form",
-                        fName: "Full Name", fPhone: "Phone Number", fLang: "Languages Spoken", fMsg: "Message / Experience", fBtnSubmit: "Submit Application",
-                        contactSub: "Location", contactTitle: "Let's Talk Business",
-                        contactDesc: "Reach out today for commercial solutions, technical inquiries, or detailed project quoting.",
-                        formContactTitle: "Request Service Information",
-                        fServiceSelect: "Select Service", fBtnSubmit2: "Send Message",
-
-                        s1_title: "1. Demolition / Kaitai",
-                        s1_list: "<li>・Residential Demolition</li><li>・Commercial Demolition</li><li>・Industrial Demolition</li><li>・Structure Removal</li><li><li>・Concrete & Foundation Crushing</li><li>・Land Preparation</li>",
-                        s2_title: "2. Scaffolding Installation",
-                        s2_list: "<li>・Assembly & Disassembly</li><li>・Construction & Renovation Frames</li><li>・Industrial Scaffolding</li><li>・Building Maintenance Scaffolding</li><li>・Temporary On-site Structures</li>",
-                        s3_title: "3. Waste Management & Cleanup",
-                        s3_list: "<li>・Debris Removal</li><li>・Industrial Waste Hauling</li><li>・Post-construction Cleaning</li><li>・Land Cleanses</li><li>・Scrap Sorting & Disposal</li>",
-                        s4_title: "4. Renovation & Maintenance",
-                        s4_list: "<li>・Industrial Painting</li><li>・Drywall Installation</li><li>・Flooring & Finishing</li><li>・Minor Remodeling</li><li>・Facade & Roof Maintenance</li>",
-                        s5_title: "5. Concrete Cutting & Drilling",
-                        s5_list: "<li>・Precision Concrete Cutting</li><li>・Diamond Core Drilling</li><li>・Slab Cutting</li><li>・Pipe Openings</li><li>・Structural Adjustments</li>",
-                        s6_title: "6. Logistics & Heavy Transport",
-                        s6_list: "<li>・Material Hauling</li><li>・Machinery Transport</li><li>・Industrial Moving</li><li>・Loading & Unloading Assist</li>",
-                        s7_title: "7. Metal Recycling",
-                        s7_list: "<li>・Iron, Copper & Aluminum Sorting</li><li><li>・Waste Management</li><li>・Reusable Materials Organization</li>",
-                        s8_title: "8. Asbestos Removal",
-                        s8_list: "<li>・Contaminated Inspections</li><li>・Safe Asbestos Abatement</li><li><li>・Area Isolation & Negative Pressure</li><li>・Specialized Waste Disposal</li>",
-                        s9_title: "9. Industrial Dismantling",
-                        s9_list: "<li>・Machine Dismantling</li><li>・Production Line Removal</li><li>・Factory & Warehouse Deep Clean</li><li>・Heavy Machinery Lifting</li>",
-                        s10_title: "10. Project Management",
-                        s10_list: "<li>・Operational Planning</li><li>・Multilingual Team Coordination</li><li>・Supervision & Safety Assurance</li>"
-                    },
                     pt: {
-                        subLogo: "Construção & Demolição",
+                        subLogo: "Serviços Industriais",
                         navAbout: "Sobre Nós", navServices: "Serviços", navCareers: "Trabalhe Conosco", navContact: "Contato",
                         ctaQuote: "Orçamento",
-                        heroTag: "Segurança, Qualidade e Confiança no Japão",
-                        heroTitle: "Sustentando a Infraestrutura,<br><span class='text-amber-500'>Demolindo e Criando o Amanhã.</span>",
-                        heroDesc: "A Cateli une alta tecnologia de engenharia com uma equipe multinacional qualificada para entregar serviços de demolição, andaimes e manutenção industrial de alto padrão no Japão.",
-                        heroBtn1: "Ver Serviços", heroBtn2: "Vagas Disponíveis",
+                        heroTag: "Segurança, Qualidade e Eficiência",
+                        heroTitle: "Especialistas em Demolição, Andaimes e Serviços Industriais.",
+                        heroDesc: "Equipe especializada em kaitai, andaimes e manutenção industrial com foco em segurança, qualidade e eficiência no Japão.",
+                        heroBtn1: "Ver Serviços", heroBtn2: "Vagas (Kojin)",
                         aboutSub: "Nossa Empresa",
-                        aboutTitle: "Força Global Impulsionando a Construção Civil Japonesa",
-                        aboutP1: "A Cateli se destaca por alinhar as rigorosas normas de segurança e engenharia do Japão com uma equipe altamente capaz, flexível e multilíngue. Atendemos desde construtoras locais até complexos industriais com total eficiência.",
-                        aboutP2: "Composta por supervisores japoneses experientes e operadores estrangeiros qualificados, quebramos barreiras linguísticas e logísticas no canteiro de obras, garantindo velocidade e precisão.",
-                        stat1: "Índice de Segurança", stat2: "Especialidades", stat3: "Obras Concluídas",
+                        aboutTitle: "Soluções Técnicas e Operacionais de Alto Desempenho",
+                        aboutP1: "A Cateli une processos bem estruturados e equipes multidisciplinares prontas para atender aos canteiros de obras e plantas fabris mais exigentes. Atuamos com as melhores práticas de gerenciamento operativo e cumprimento técnico do setor.",
+                        aboutP2: "Seja em infraestruturas industriais complexas ou reformas comerciais, garantimos uma gestão de campo focada na mitigação de riscos, agilidade de execução e alto padrão nas entregas.",
+                        stat1: "Eficiência", stat2: "Especialidades", stat3: "Projetos",
                         servicesTitle: "Áreas de Atuação",
-                        servicesSub: "Soluções completas de engenharia, infraestrutura e suporte operacional",
+                        servicesSub: "Atendimento completo e especializado em soluções estruturais e industriais",
                         recruitSub: "Recrutamento",
-                        recruitTitle: "Construa sua Carreira no Japão",
-                        recruitDesc: "Recrutamos profissionais japoneses e estrangeiros determinados. Oferecemos treinamento especializado, suporte para vistos/licenças, e um ambiente focado no bem-estar e na segurança.",
-                        rec1_h: "Segurança Absoluta", rec1_d: "Equipamentos de ponta e treinamentos de prevenção contínuos.",
-                        rec2_h: "Ambiente Global", rec2_d: "Integração real entre trabalhadores de diversas nacionalidades.",
-                        rec3_h: "Evolução Profissional", rec3_d: "Plano de carreira para cargos de liderança e suporte a licenças.",
+                        recruitTitle: "Trabalhe Conosco como Kojin",
+                        recruitDesc: "Se você busca um ambiente de alto nível operacional, junte-se à nossa rede de prestadores de serviços independentes (Kojin).",
+                        rec1_h: "Segurança Absoluta",
+                        rec2_h: "Ambiente Global",
+                        rec3_h: "Evolução Profissional",
                         formRecruitTitle: "Formulário de Candidatura",
-                        fName: "Nome Completo", fPhone: "Telefone", fLang: "Idiomas que Fala", fMsg: "Mensagem / Experiência", fBtnSubmit: "Enviar Candidatura",
-                        contactSub: "Atendimento", contactTitle: "Fale com Nossos Especialistas",
-                        contactDesc: "Entre em contato para agendar vistorias, solicitar orçamentos técnicos ou obter suporte comercial.",
-                        formContactTitle: "Solicitar Orçamento Comercial",
-                        fServiceSelect: "Serviço Desejado", fBtnSubmit2: "Enviar Mensagem",
+                        fName: "Nome Completo", fPhone: "Telefone", fLang: "Idioma Principal", fMsg: "Mensagem ou Breve Histórico", fFile: "Anexar Documento, Certificado ou Currículo", fBtnSubmit: "Enviar Informações",
+                        contactSub: "Atendimento", contactTitle: "Fale Conosco",
+                        contactDesc: "Entre em contato para vistorias em campo, dúvidas operacionais ou cotações comerciais detalhadas.",
+                        formContactTitle: "Solicitar Atendimento Técnico",
+                        fServiceSelect: "Selecione o Serviço", fBtnSubmit2: "Enviar Mensagem",
 
                         s1_title: "1. Demolição / Kaitai",
                         s1_list: "<li>・Demolição residencial</li><li>・Demolição comercial</li><li>・Demolição industrial</li><li>・Remoção de estruturas</li><li>・Remoção de concreto e fundações</li><li>・Preparação de terrenos</li>",
                         s2_title: "2. Montagem de Andaimes",
-                        s2_list: "<li>・Montagem e desmontagem</li><li>・Estruturas para construção/reforma</li><li>・Andaimes industriais e prediais</li><li>・Estruturas temporárias para obras</li>",
+                        s2_list: "<li>・Montagem e desmontagem</li><li>・Estruturas para construção e reforma</li><li>・Andaimes industriais</li><li>・Manutenção predial e fachadas</li>",
                         s3_title: "3. Limpeza e Retirada de Resíduos",
-                        s3_list: "<li>・Retirada de entulho</li><li>・Transporte de resíduos industriais</li><li>・Limpeza pós-obra e terrenos</li><li>・Separação de recicláveis</li>",
+                        s3_list: "<li>・Retirada de entulho</li><li>・Transporte em caminhões dump</li><li>・Limpeza pós-obra de alto padrão</li><li>・Gerenciamento de descarte</li>",
                         s4_title: "4. Reforma e Manutenção",
-                        s4_list: "<li>・Pintura e acabamento</li><li>・Drywall e instalação de pisos</li><li>・Pequenas reformas e reparos</li><li>・Manutenção de fachadas e telhados</li>",
+                        s4_list: "<li>・Pintura técnica</li><li>・Drywall e divisórias</li><li>・Instalação de pisos e acabamento</li><li>・Reforma de salas comerciais</li>",
                         s5_title: "5. Corte e Perfuração de Concreto",
-                        s5_list: "<li>・Corte técnico de concreto</li><li>・Perfuração diamantada (Core)</li><li>・Corte de lajes e abertura de tubulações</li><li>・Ajustes estruturais</li>",
-                        s6_title: "6. Transporte e Movimentação Industrial",
-                        s6_list: "<li>・Transporte de materiais e máquinas</li><li>・Movimentação de equipamentos pesados</li><li>・Apoio logístico para obras</li>",
-                        s7_title: "7. Reciclagem e Gerenciamento",
-                        s7_list: "<li>・Separação de ferro, cobre e alumínio</li><li>・Gerenciamento de resíduos e sucata</li>",
+                        s5_list: "<li>・Corte de lajes com serras técnicas</li><li>・Perfuração diamantada (Core drill)</li><li>・Aberturas estruturais para tubulação</li>",
+                        s6_title: "6. Transporte e Movimentação",
+                        s6_list: "<li>・Movimentação de máquinas pesadas</li><li>・Transporte de materiais industriais</li><li>・Apoio logístico em canteiros</li>",
+                        s7_title: "7. Reciclagem e Materiais",
+                        s7_list: "<li>・Separação de ferros e metais nobres</li><li>・Gerenciamento de sucatas comerciais</li>",
                         s8_title: "8. Remoção de Amianto / Asbestos",
-                        s8_list: "<li>・Inspeção de materiais contaminados</li><li>・Remoção e isolamento de áreas</li><li>・Descarte especializado de risco</li>",
+                        s8_list: "<li>・Isolamento total e contenção de pó</li><li>・Remoção com roupas de isolamento e máscaras</li><li>・Descarte especializado sob normas rígidas</li>",
                         s9_title: "9. Desmontagem e Limpeza Industrial",
-                        s9_list: "<li>・Desmontagem de linhas de produção</li><li>・Limpeza técnica de fábricas/galpões</li><li>・Remoção de maquinário pesado</li>",
+                        s9_list: "<li>・Desativação técnica de maquinários</li><li>・Limpeza pesada de galpões e fábricas</li><li>・Remoção e destinação de detritos de linhas</li>",
                         s10_title: "10. Gerenciamento de Obras",
-                        s10_list: "<li>・Planejamento operacional</li><li>・Coordenação de equipes multilíngues</li><li><li>・Supervisão e auditoria de segurança</li>"
+                        s10_list: "<li>・Planejamento tático de processos</li><li><li>・Coordenação de frentes de trabalho</li><li><li>・Supervisão de campo contínua</li>"
+                    },
+                    jp: {
+                        subLogo: "インダストリアルサービス",
+                        navAbout: "会社概要", navServices: "事業内容", navCareers: "採用情報", navContact: "お問い合わせ",
+                        ctaQuote: "御見積り依頼",
+                        heroTag: "安全・品質・効率の徹底",
+                        heroTitle: "Especialistas em Demolição, Andaimes e Serviços Industriais.",
+                        heroDesc: "Equipe especializada em kaitai, andaimes e manutenção industrial com foco em segurança, qualidade e eficiência no Japão.",
+                        heroBtn1: "サービス一覧", heroBtn2: "募集要項 (個人事業主)",
+                        aboutSub: "私たちについて",
+                        aboutTitle: "ハイパフォーマンスを追求するテクニカルソリューション",
+                        aboutP1: "カテリは、適切に構築されたプロセスと多角的な専門チームを擁し、最も要求の厳しい建設現場や工場プラントのニーズに応えます。最高水準のオペレーション管理と技術コンプライアンスを徹底しています。",
+                        aboutP2: "複雑な産業インフラから商業施設の改修にいたるまで、現場のリスク低減、迅速な施工、そして高い引渡し品質をお約束いたします。",
+                        stat1: "遵守率", stat2: "専門分野", stat3: "実績件数",
+                        servicesTitle: "事業内容",
+                        servicesSub: "構造・産業ソリューションに対応する総合技術サービス",
+                        recruitSub: "採用情報",
+                        recruitTitle: "個人事業主（Kojin）として共に働くパートナー募集",
+                        recruitDesc: "高いプロ意識を持ってトップレベルの現場で活躍したい方、当社の独立パートナーネットワークへご参加ください。",
+                        rec1_h: "Segurança Absoluta",
+                        rec2_h: "Ambiente Global",
+                        rec3_h: "Evolução Profissional",
+                        formRecruitTitle: "エントリーフォーム",
+                        fName: "氏名", fPhone: "電話番号", fLang: "主要言語", fMsg: "メッセージ・職歴など", fFile: "書類・証明書・履歴書の添付", fBtnSubmit: "送信する",
+                        contactSub: "アクセス", contactTitle: "ご相談・お問い合わせ",
+                        contactDesc: "現場調査、業務内容に関するご質問、詳細な御見積りなど、お気軽にご連絡ください。",
+                        formContactTitle: "サービスお申し込み・お問い合わせ",
+                        fServiceSelect: "ご希望のサービス", fBtnSubmit2: "送信する",
+
+                        s1_title: "1. 解体工事 / Kaitai",
+                        s1_list: "<li>・住宅解体工事</li><li>・商業ビル解体</li><li>・工場・プラント解体</li><li>・構造物・基礎撤去</li>",
+                        s2_title: "2. 足場組立・解体",
+                        s2_list: "<li>・足場組立・解体一式</li><li>・新築・改修工事用足場</li><li>・産業・高所吊り足場</li>",
+                        s3_title: "3. 現場清掃・産業廃棄物収集",
+                        s3_list: "<li>・建設廃材撤去</li><li>・ダンプトラック運搬</li><li>・竣工・引渡しクリーニング</li>",
+                        s4_title: "4. リフォーム・メンテナンス",
+                        s4_list: "<li>・塗装・各種仕上げ</li><li><li>・内装ドライウォール工事</li><li>・テナント・商業スペース改修</li>",
+                        s5_title: "5. コンクリートカッター・コア穿孔",
+                        s5_list: "<li>・専用機によるスラブ切断</li><li>・ダイヤモンドコア精密穿孔</li><li>・配管用開口部設置</li>",
+                        s6_title: "6. 重量物据付・各種運搬",
+                        s6_list: "<li>・重量機材・プラント運搬</li><li>・現場ロジスティクス支援</li>",
+                        s7_title: "7. 資材リサイクル管理",
+                        s7_list: "<li>・鉄・非鉄金属の厳密分別</li><li>・スクラップの適正管理</li>",
+                        s8_title: "8. アスベスト（石綿）除去",
+                        s8_list: "<li>・完全隔離・負圧養生</li><li>・防護服・専用マスクでの除去</li><li>・特別管理産業廃棄物処分</li>",
+                        s9_title: "9. 工場設備解体・クリーンアップ",
+                        s9_list: "<li>・製造ラインの系統解体</li><li>・工場・倉庫まるごと清掃</li>",
+                        s10_title: "10. 施工管理・オペレーション",
+                        s10_list: "<li>・工程・品質マネジメント</li><li>・多国籍現場チームの監督</li>"
+                    },
+                    en: {
+                        subLogo: "Industrial Services",
+                        navAbout: "About Us", navServices: "Services", navCareers: "Careers", navContact: "Contact",
+                        ctaQuote: "Get a Quote",
+                        heroTag: "Safety, Quality, and Efficiency",
+                        heroTitle: "Especialistas em Demolição, Andaimes e Serviços Industriais.",
+                        heroDesc: "Equipe especializada em kaitai, andaimes e manutenção industrial com foco em segurança, qualidade e eficiência no Japão.",
+                        heroBtn1: "Our Services", heroBtn2: "Jobs (Kojin)",
+                        aboutSub: "Our Company",
+                        aboutTitle: "High-Performance Technical and Operational Solutions",
+                        aboutP1: "Cateli brings together well-structured workflows and multidisciplinary teams ready to serve the most demanding jobsites and industrial production plants. We operate under elite field management practices.",
+                        aboutP2: "Whether working on complex industrial infrastructure or commercial space renovations, we guarantee robust risk mitigation, execution agility, and outstanding deliverables.",
+                        stat1: "Efficiency", stat2: "Sectors", stat3: "Projects Done",
+                        servicesTitle: "Areas of Expertise",
+                        servicesSub: "Comprehensive engineering and operational support solutions",
+                        recruitSub: "Recruitment",
+                        recruitTitle: "Join Us as an Independent Contractor (Kojin)",
+                        recruitDesc: "If you seek an advanced professional environment, join our network of elite independent field operators.",
+                        rec1_h: "Segurança Absoluta",
+                        rec2_h: "Ambiente Global",
+                        rec3_h: "Evolução Profissional",
+                        formRecruitTitle: "Application Form",
+                        fName: "Full Name", fPhone: "Phone Number", fLang: "Primary Language", fMsg: "Message / Background Summary", fFile: "Attach Document, Certificate or Resume", fBtnSubmit: "Submit Information",
+                        contactSub: "Location", contactTitle: "Contact Us",
+                        contactDesc: "Reach out today for commercial solutions, technical inquiries, or detailed project quoting.",
+                        formContactTitle: "Request Technical Service Info",
+                        fServiceSelect: "Select Service", fBtnSubmit2: "Send Message",
+
+                        s1_title: "1. Demolition / Kaitai",
+                        s1_list: "<li>・Residential Demolition</li><li>・Commercial Demolition</li><li>・Industrial Demolition</li><li>・Structure Removal</li>",
+                        s2_title: "2. Scaffolding Services",
+                        s2_list: "<li>・Assembly & Disassembly</li><li>・Construction & Renovation Scaffolds</li><li>・Industrial Site Framing</li>",
+                        s3_title: "3. Debris & Waste Cleanup",
+                        s3_list: "<li><li>・Waste Hauling via Dump Trucks</li><li>・Post-construction Cleaning</li>",
+                        s4_title: "4. Renovation & Fit-Outs",
+                        s4_list: "<li>・Technical Painting</li><li>・Drywall & Partitions</li><li>・Commercial Space Remodeling</li>",
+                        s5_title: "5. Concrete Cutting & Drilling",
+                        s5_list: "<li>・Slab & Wall Concrete Cutting</li><li>・Diamond Core Drilling</li><li>・Utility Openings</li>",
+                        s6_title: "6. Machinery Transport & Rigging",
+                        s6_list: "<li>・Heavy Equipment Relocation</li><li>・Jobsite Logistics Support</li>",
+                        s7_title: "7. Metal Recycling & Scrap",
+                        s7_list: "<li>・Ferrous & Non-Ferrous Sorting</li><li>・Scrap Management</li>",
+                        s8_title: "8. Asbestos Abatement",
+                        s8_list: "<li>・Full Area Isolation</li><li>・Hazmat Suit & Respirator Removal</li><li>・Regulated Risk Disposal</li>",
+                        s9_title: "9. Factory Decommissioning",
+                        s9_list: "<li>・Production Line Dismantling</li><li>・Industrial Facility Deep Clean</li>",
+                        s10_title: "10. Project Management",
+                        s10_list: "<li><li>・Operational Planning</li><li>・Field Support & Quality Audits</li>"
                     }
                 }
             }
