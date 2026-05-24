@@ -33,24 +33,24 @@
 
             <div class="hidden md:flex items-center space-x-4">
                 <div class="relative" x-data="{ open: false }">
-                    <button @click="open = !open" class="flex items-center space-x-1 text-sm bg-slate-800 px-3 py-1.5 rounded border border-slate-700 hover:bg-slate-700 transition">
-                        <span x-text="lang.toUpperCase()"></span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <button @click="open = !open" class="flex items-center space-x-2 text-sm bg-slate-800 px-3 py-1.5 rounded border border-slate-700 hover:bg-slate-700 transition">
+                        <span class="font-bold text-amber-500" x-text="lang.toUpperCase()"></span>
+                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
-                    <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-28 bg-slate-800 rounded shadow-lg border border-slate-700 py-1" x-cloak>
-                        <button @click="setLang('jp'); open = false" class="w-full text-left px-4 py-2 text-sm hover:bg-slate-700">日本語</button>
-                        <button @click="setLang('en'); open = false" class="w-full text-left px-4 py-2 text-sm hover:bg-slate-700">English</button>
-                        <button @click="setLang('pt'); open = false" class="w-full text-left px-4 py-2 text-sm hover:bg-slate-700">Português</button>
+                    <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-32 bg-slate-800 rounded shadow-lg border border-slate-700 py-1" x-cloak>
+                        <button @click="setLang('pt'); open = false" class="w-full text-left px-4 py-2 text-sm hover:bg-slate-700 flex items-center justify-between">Português <span class="text-xs text-slate-400">PT</span></button>
+                        <button @click="setLang('jp'); open = false" class="w-full text-left px-4 py-2 text-sm hover:bg-slate-700 flex items-center justify-between">日本語 <span class="text-xs text-slate-400">JP</span></button>
+                        <button @click="setLang('en'); open = false" class="w-full text-left px-4 py-2 text-sm hover:bg-slate-700 flex items-center justify-between">English <span class="text-xs text-slate-400">EN</span></button>
                     </div>
                 </div>
                 <a href="#contact" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-semibold px-4 py-2 rounded text-sm transition" x-text="t[lang].ctaQuote"></a>
             </div>
 
             <div class="md:hidden flex items-center space-x-4">
-                <select @change="setLang($event.target.value)" class="bg-slate-800 text-white text-xs rounded px-2 py-1 border border-slate-700">
+                <select @change="setLang($event.target.value)" class="bg-slate-800 text-white text-xs rounded px-2 py-1 border border-slate-700 focus:outline-none focus:border-amber-500">
+                    <option value="pt" :selected="lang === 'pt'">PT</option>
                     <option value="jp" :selected="lang === 'jp'">JP</option>
                     <option value="en" :selected="lang === 'en'">EN</option>
-                    <option value="pt" :selected="lang === 'pt'">PT</option>
                 </select>
                 <button @click="mobileMenu = !mobileMenu" class="text-white focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
@@ -76,7 +76,7 @@
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="max-w-3xl">
                 <span class="text-amber-500 uppercase tracking-widest font-semibold text-sm block mb-3" x-text="t[lang].heroTag"></span>
-                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6 leading-tight" x-html="t[lang].heroTitle"></h1>
+                <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mb-6 leading-tight" x-text="t[lang].heroTitle"></h1>
                 <p class="text-lg sm:text-xl text-slate-300 mb-8 font-light" x-text="t[lang].heroDesc"></p>
                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                     <a href="#services" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-8 py-3.5 rounded shadow-lg text-center transition" x-text="t[lang].heroBtn1"></a>
@@ -128,7 +128,7 @@
                 
                 <div class="bg-white rounded-lg overflow-hidden shadow-md group hover:shadow-xl transition">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1541625602330-2277a4c46182?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Demolição Kaitai">
+                        <img src="https://images.unsplash.com/photo-1541625602330-2277a4c46182?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Demolição Profissional">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2" x-text="t[lang].s1_title"></h3>
@@ -239,302 +239,4 @@
                 <div>
                     <span class="text-amber-500 font-bold text-sm uppercase tracking-wider" x-text="t[lang].recruitSub"></span>
                     <h2 class="text-3xl sm:text-4xl font-bold mt-2 mb-6" x-text="t[lang].recruitTitle"></h2>
-                    <p class="text-slate-300 mb-8" x-text="t[lang].recruitDesc"></p>
-                    
-                    <div class="space-y-4">
-                        <div class="flex items-center space-x-4 bg-slate-800/50 p-4 rounded-lg border border-slate-700/50">
-                            <div class="text-amber-500 text-xl font-bold">✔</div>
-                            <h4 class="font-bold text-lg text-white" x-text="t[lang].rec1_h"></h4>
-                        </div>
-                        <div class="flex items-center space-x-4 bg-slate-800/50 p-4 rounded-lg border border-slate-700/50">
-                            <div class="text-amber-500 text-xl font-bold">✔</div>
-                            <h4 class="font-bold text-lg text-white" x-text="t[lang].rec2_h"></h4>
-                        </div>
-                        <div class="flex items-center space-x-4 bg-slate-800/50 p-4 rounded-lg border border-slate-700/50">
-                            <div class="text-amber-500 text-xl font-bold">✔</div>
-                            <h4 class="font-bold text-lg text-white" x-text="t[lang].rec3_h"></h4>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white text-slate-900 p-8 rounded-xl shadow-xl">
-                    <h3 class="text-xl font-bold mb-6" x-text="t[lang].formRecruitTitle"></h3>
-                    <form @submit.prevent="alert('Candidatura enviada com sucesso!')" class="space-y-4" enctype="multipart/form-data">
-                        <div>
-                            <label class="block text-xs font-semibold uppercase text-slate-500 mb-1" x-text="t[lang].fName"></label>
-                            <input type="text" required class="w-full bg-slate-50 border border-slate-200 rounded px-4 py-2.5 focus:outline-none focus:border-amber-500">
-                        </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-xs font-semibold uppercase text-slate-500 mb-1" x-text="t[lang].fPhone"></label>
-                                <input type="tel" required class="w-full bg-slate-50 border border-slate-200 rounded px-4 py-2.5 focus:outline-none focus:border-amber-500">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold uppercase text-slate-500 mb-1" x-text="t[lang].fLang"></label>
-                                <select class="w-full bg-slate-50 border border-slate-200 rounded px-4 py-2.5 focus:outline-none focus:border-amber-500">
-                                    <option>Português</option>
-                                    <option>English</option>
-                                    <option>日本語</option>
-                                    <option>Other</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold uppercase text-slate-500 mb-1" x-text="t[lang].fFile"></label>
-                            <input type="file" class="w-full bg-slate-50 border border-slate-200 rounded px-2 py-2 text-sm focus:outline-none file:mr-4 file:py-1 file:px-4 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-amber-500 file:text-slate-950 hover:file:bg-amber-600 cursor-pointer">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold uppercase text-slate-500 mb-1" x-text="t[lang].fMsg"></label>
-                            <textarea rows="2" class="w-full bg-slate-50 border border-slate-200 rounded px-4 py-2.5 focus:outline-none focus:border-amber-500"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-3 rounded transition uppercase tracking-wider text-sm" x-text="t[lang].fBtnSubmit"></button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-                
-                <div class="lg:col-span-1">
-                    <span class="text-amber-600 font-bold text-sm uppercase tracking-wider" x-text="t[lang].contactSub"></span>
-                    <h2 class="text-3xl font-bold text-slate-900 mt-2 mb-6" x-text="t[lang].contactTitle"></h2>
-                    <p class="text-slate-600 mb-8" x-text="t[lang].contactDesc"></p>
-                    
-                    <div class="space-y-4">
-                        <div class="flex items-center space-x-3">
-                            <span class="text-amber-500 font-bold">📍</span>
-                            <span class="text-sm text-slate-700">〒471-0025 Aichi-ken, Toyota-shi, Nishimachi 1-1 (Fictício)</span>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <span class="text-amber-500 font-bold">📞</span>
-                            <span class="text-sm text-slate-700">+81 (090) 0000-0000 (Fictício)</span>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <span class="text-amber-500 font-bold">✉</span>
-                            <span class="text-sm text-slate-700">contact@cateli.jp</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-2 bg-slate-50 p-8 rounded-xl border border-slate-200">
-                    <h3 class="text-xl font-bold text-slate-900 mb-6" x-text="t[lang].formContactTitle"></h3>
-                    <form @submit.prevent="alert('Mensagem enviada!')" class="space-y-4">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-xs font-semibold uppercase text-slate-500 mb-1">Name / Nome</label>
-                                <input type="text" required class="w-full bg-white border border-slate-200 rounded px-4 py-2.5 focus:outline-none focus:border-amber-500">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold uppercase text-slate-500 mb-1">Email</label>
-                                <input type="email" required class="w-full bg-white border border-slate-200 rounded px-4 py-2.5 focus:outline-none focus:border-amber-500">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold uppercase text-slate-500 mb-1" x-text="t[lang].fServiceSelect"></label>
-                            <select class="w-full bg-white border border-slate-200 rounded px-4 py-2.5 focus:outline-none focus:border-amber-500">
-                                <option x-text="t[lang].s1_title"></option>
-                                <option x-text="t[lang].s2_title"></option>
-                                <option x-text="t[lang].s3_title"></option>
-                                <option x-text="t[lang].s4_title"></option>
-                                <option x-text="t[lang].s5_title"></option>
-                                <option x-text="t[lang].s6_title"></option>
-                                <option x-text="t[lang].s7_title"></option>
-                                <option x-text="t[lang].s8_title"></option>
-                                <option x-text="t[lang].s9_title"></option>
-                                <option x-text="t[lang].s10_title"></option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold uppercase text-slate-500 mb-1">Message / Mensagem</label>
-                            <textarea rows="4" required class="w-full bg-white border border-slate-200 rounded px-4 py-2.5 focus:outline-none focus:border-amber-500"></textarea>
-                        </div>
-                        <button type="submit" class="bg-slate-900 hover:bg-slate-800 text-white font-bold px-6 py-3 rounded transition text-sm uppercase tracking-wider" x-text="t[lang].fBtnSubmit2"></button>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
-            <div class="flex flex-col sm:flex-row justify-between items-center mb-8">
-                <div class="mb-4 sm:mb-0">
-                    <span class="text-xl font-black tracking-wider text-amber-500">CATELI</span>
-                    <p class="text-xs text-slate-500 mt-1">Industrial & Construction Excellence</p>
-                </div>
-                <div class="flex space-x-6 text-sm">
-                    <a href="#about" class="hover:text-white transition">About</a>
-                    <a href="#services" class="hover:text-white transition">Services</a>
-                    <a href="#careers" class="hover:text-white transition">Careers</a>
-                    <a href="#contact" class="hover:text-white transition">Contact</a>
-                </div>
-            </div>
-            <hr class="border-slate-900 my-6">
-            <p class="text-xs text-center text-slate-600">&copy; 2026 Cateli. All rights reserved. Developed for approval.</p>
-        </div>
-    </footer>
-
-    <script>
-        function languageManager() {
-            return {
-                lang: 'pt', // Inicializado em Português para sua conferência facilitada
-                mobileMenu: false,
-                setLang(l) { this.lang = l; },
-                t: {
-                    pt: {
-                        subLogo: "Serviços Industriais",
-                        navAbout: "Sobre Nós", navServices: "Serviços", navCareers: "Trabalhe Conosco", navContact: "Contato",
-                        ctaQuote: "Orçamento",
-                        heroTag: "Segurança, Qualidade e Eficiência",
-                        heroTitle: "Especialistas em Demolição, Andaimes e Serviços Industriais.",
-                        heroDesc: "Equipe especializada em kaitai, andaimes e manutenção industrial com foco em segurança, qualidade e eficiência no Japão.",
-                        heroBtn1: "Ver Serviços", heroBtn2: "Vagas (Kojin)",
-                        aboutSub: "Nossa Empresa",
-                        aboutTitle: "Soluções Técnicas e Operacionais de Alto Desempenho",
-                        aboutP1: "A Cateli une processos bem estruturados e equipes multidisciplinares prontas para atender aos canteiros de obras e plantas fabris mais exigentes. Atuamos com as melhores práticas de gerenciamento operativo e cumprimento técnico do setor.",
-                        aboutP2: "Seja em infraestruturas industriais complexas ou reformas comerciais, garantimos uma gestão de campo focada na mitigação de riscos, agilidade de execução e alto padrão nas entregas.",
-                        stat1: "Eficiência", stat2: "Especialidades", stat3: "Projetos",
-                        servicesTitle: "Áreas de Atuação",
-                        servicesSub: "Atendimento completo e especializado em soluções estruturais e industriais",
-                        recruitSub: "Recrutamento",
-                        recruitTitle: "Trabalhe Conosco como Kojin",
-                        recruitDesc: "Se você busca um ambiente de alto nível operacional, junte-se à nossa rede de prestadores de serviços independentes (Kojin).",
-                        rec1_h: "Segurança Absoluta",
-                        rec2_h: "Ambiente Global",
-                        rec3_h: "Evolução Profissional",
-                        formRecruitTitle: "Formulário de Candidatura",
-                        fName: "Nome Completo", fPhone: "Telefone", fLang: "Idioma Principal", fMsg: "Mensagem ou Breve Histórico", fFile: "Anexar Documento, Certificado ou Currículo", fBtnSubmit: "Enviar Informações",
-                        contactSub: "Atendimento", contactTitle: "Fale Conosco",
-                        contactDesc: "Entre em contato para vistorias em campo, dúvidas operacionais ou cotações comerciais detalhadas.",
-                        formContactTitle: "Solicitar Atendimento Técnico",
-                        fServiceSelect: "Selecione o Serviço", fBtnSubmit2: "Enviar Mensagem",
-
-                        s1_title: "1. Demolição / Kaitai",
-                        s1_list: "<li>・Demolição residencial</li><li>・Demolição comercial</li><li>・Demolição industrial</li><li>・Remoção de estruturas</li><li>・Remoção de concreto e fundações</li><li>・Preparação de terrenos</li>",
-                        s2_title: "2. Montagem de Andaimes",
-                        s2_list: "<li>・Montagem e desmontagem</li><li>・Estruturas para construção e reforma</li><li>・Andaimes industriais</li><li>・Manutenção predial e fachadas</li>",
-                        s3_title: "3. Limpeza e Retirada de Resíduos",
-                        s3_list: "<li>・Retirada de entulho</li><li>・Transporte em caminhões dump</li><li>・Limpeza pós-obra de alto padrão</li><li>・Gerenciamento de descarte</li>",
-                        s4_title: "4. Reforma e Manutenção",
-                        s4_list: "<li>・Pintura técnica</li><li>・Drywall e divisórias</li><li>・Instalação de pisos e acabamento</li><li>・Reforma de salas comerciais</li>",
-                        s5_title: "5. Corte e Perfuração de Concreto",
-                        s5_list: "<li>・Corte de lajes com serras técnicas</li><li>・Perfuração diamantada (Core drill)</li><li>・Aberturas estruturais para tubulação</li>",
-                        s6_title: "6. Transporte e Movimentação",
-                        s6_list: "<li>・Movimentação de máquinas pesadas</li><li>・Transporte de materiais industriais</li><li>・Apoio logístico em canteiros</li>",
-                        s7_title: "7. Reciclagem e Materiais",
-                        s7_list: "<li>・Separação de ferros e metais nobres</li><li>・Gerenciamento de sucatas comerciais</li>",
-                        s8_title: "8. Remoção de Amianto / Asbestos",
-                        s8_list: "<li>・Isolamento total e contenção de pó</li><li>・Remoção com roupas de isolamento e máscaras</li><li>・Descarte especializado sob normas rígidas</li>",
-                        s9_title: "9. Desmontagem e Limpeza Industrial",
-                        s9_list: "<li>・Desativação técnica de maquinários</li><li>・Limpeza pesada de galpões e fábricas</li><li>・Remoção e destinação de detritos de linhas</li>",
-                        s10_title: "10. Gerenciamento de Obras",
-                        s10_list: "<li>・Planejamento tático de processos</li><li><li>・Coordenação de frentes de trabalho</li><li><li>・Supervisão de campo contínua</li>"
-                    },
-                    jp: {
-                        subLogo: "インダストリアルサービス",
-                        navAbout: "会社概要", navServices: "事業内容", navCareers: "採用情報", navContact: "お問い合わせ",
-                        ctaQuote: "御見積り依頼",
-                        heroTag: "安全・品質・効率の徹底",
-                        heroTitle: "Especialistas em Demolição, Andaimes e Serviços Industriais.",
-                        heroDesc: "Equipe especializada em kaitai, andaimes e manutenção industrial com foco em segurança, qualidade e eficiência no Japão.",
-                        heroBtn1: "サービス一覧", heroBtn2: "募集要項 (個人事業主)",
-                        aboutSub: "私たちについて",
-                        aboutTitle: "ハイパフォーマンスを追求するテクニカルソリューション",
-                        aboutP1: "カテリは、適切に構築されたプロセスと多角的な専門チームを擁し、最も要求の厳しい建設現場や工場プラントのニーズに応えます。最高水準のオペレーション管理と技術コンプライアンスを徹底しています。",
-                        aboutP2: "複雑な産業インフラから商業施設の改修にいたるまで、現場のリスク低減、迅速な施工、そして高い引渡し品質をお約束いたします。",
-                        stat1: "遵守率", stat2: "専門分野", stat3: "実績件数",
-                        servicesTitle: "事業内容",
-                        servicesSub: "構造・産業ソリューションに対応する総合技術サービス",
-                        recruitSub: "採用情報",
-                        recruitTitle: "個人事業主（Kojin）として共に働くパートナー募集",
-                        recruitDesc: "高いプロ意識を持ってトップレベルの現場で活躍したい方、当社の独立パートナーネットワークへご参加ください。",
-                        rec1_h: "Segurança Absoluta",
-                        rec2_h: "Ambiente Global",
-                        rec3_h: "Evolução Profissional",
-                        formRecruitTitle: "エントリーフォーム",
-                        fName: "氏名", fPhone: "電話番号", fLang: "主要言語", fMsg: "メッセージ・職歴など", fFile: "書類・証明書・履歴書の添付", fBtnSubmit: "送信する",
-                        contactSub: "アクセス", contactTitle: "ご相談・お問い合わせ",
-                        contactDesc: "現場調査、業務内容に関するご質問、詳細な御見積りなど、お気軽にご連絡ください。",
-                        formContactTitle: "サービスお申し込み・お問い合わせ",
-                        fServiceSelect: "ご希望のサービス", fBtnSubmit2: "送信する",
-
-                        s1_title: "1. 解体工事 / Kaitai",
-                        s1_list: "<li>・住宅解体工事</li><li>・商業ビル解体</li><li>・工場・プラント解体</li><li>・構造物・基礎撤去</li>",
-                        s2_title: "2. 足場組立・解体",
-                        s2_list: "<li>・足場組立・解体一式</li><li>・新築・改修工事用足場</li><li>・産業・高所吊り足場</li>",
-                        s3_title: "3. 現場清掃・産業廃棄物収集",
-                        s3_list: "<li>・建設廃材撤去</li><li>・ダンプトラック運搬</li><li>・竣工・引渡しクリーニング</li>",
-                        s4_title: "4. リフォーム・メンテナンス",
-                        s4_list: "<li>・塗装・各種仕上げ</li><li><li>・内装ドライウォール工事</li><li>・テナント・商業スペース改修</li>",
-                        s5_title: "5. コンクリートカッター・コア穿孔",
-                        s5_list: "<li>・専用機によるスラブ切断</li><li>・ダイヤモンドコア精密穿孔</li><li>・配管用開口部設置</li>",
-                        s6_title: "6. 重量物据付・各種運搬",
-                        s6_list: "<li>・重量機材・プラント運搬</li><li>・現場ロジスティクス支援</li>",
-                        s7_title: "7. 資材リサイクル管理",
-                        s7_list: "<li>・鉄・非鉄金属の厳密分別</li><li>・スクラップの適正管理</li>",
-                        s8_title: "8. アスベスト（石綿）除去",
-                        s8_list: "<li>・完全隔離・負圧養生</li><li>・防護服・専用マスクでの除去</li><li>・特別管理産業廃棄物処分</li>",
-                        s9_title: "9. 工場設備解体・クリーンアップ",
-                        s9_list: "<li>・製造ラインの系統解体</li><li>・工場・倉庫まるごと清掃</li>",
-                        s10_title: "10. 施工管理・オペレーション",
-                        s10_list: "<li>・工程・品質マネジメント</li><li>・多国籍現場チームの監督</li>"
-                    },
-                    en: {
-                        subLogo: "Industrial Services",
-                        navAbout: "About Us", navServices: "Services", navCareers: "Careers", navContact: "Contact",
-                        ctaQuote: "Get a Quote",
-                        heroTag: "Safety, Quality, and Efficiency",
-                        heroTitle: "Especialistas em Demolição, Andaimes e Serviços Industriais.",
-                        heroDesc: "Equipe especializada em kaitai, andaimes e manutenção industrial com foco em segurança, qualidade e eficiência no Japão.",
-                        heroBtn1: "Our Services", heroBtn2: "Jobs (Kojin)",
-                        aboutSub: "Our Company",
-                        aboutTitle: "High-Performance Technical and Operational Solutions",
-                        aboutP1: "Cateli brings together well-structured workflows and multidisciplinary teams ready to serve the most demanding jobsites and industrial production plants. We operate under elite field management practices.",
-                        aboutP2: "Whether working on complex industrial infrastructure or commercial space renovations, we guarantee robust risk mitigation, execution agility, and outstanding deliverables.",
-                        stat1: "Efficiency", stat2: "Sectors", stat3: "Projects Done",
-                        servicesTitle: "Areas of Expertise",
-                        servicesSub: "Comprehensive engineering and operational support solutions",
-                        recruitSub: "Recruitment",
-                        recruitTitle: "Join Us as an Independent Contractor (Kojin)",
-                        recruitDesc: "If you seek an advanced professional environment, join our network of elite independent field operators.",
-                        rec1_h: "Segurança Absoluta",
-                        rec2_h: "Ambiente Global",
-                        rec3_h: "Evolução Profissional",
-                        formRecruitTitle: "Application Form",
-                        fName: "Full Name", fPhone: "Phone Number", fLang: "Primary Language", fMsg: "Message / Background Summary", fFile: "Attach Document, Certificate or Resume", fBtnSubmit: "Submit Information",
-                        contactSub: "Location", contactTitle: "Contact Us",
-                        contactDesc: "Reach out today for commercial solutions, technical inquiries, or detailed project quoting.",
-                        formContactTitle: "Request Technical Service Info",
-                        fServiceSelect: "Select Service", fBtnSubmit2: "Send Message",
-
-                        s1_title: "1. Demolition / Kaitai",
-                        s1_list: "<li>・Residential Demolition</li><li>・Commercial Demolition</li><li>・Industrial Demolition</li><li>・Structure Removal</li>",
-                        s2_title: "2. Scaffolding Services",
-                        s2_list: "<li>・Assembly & Disassembly</li><li>・Construction & Renovation Scaffolds</li><li>・Industrial Site Framing</li>",
-                        s3_title: "3. Debris & Waste Cleanup",
-                        s3_list: "<li><li>・Waste Hauling via Dump Trucks</li><li>・Post-construction Cleaning</li>",
-                        s4_title: "4. Renovation & Fit-Outs",
-                        s4_list: "<li>・Technical Painting</li><li>・Drywall & Partitions</li><li>・Commercial Space Remodeling</li>",
-                        s5_title: "5. Concrete Cutting & Drilling",
-                        s5_list: "<li>・Slab & Wall Concrete Cutting</li><li>・Diamond Core Drilling</li><li>・Utility Openings</li>",
-                        s6_title: "6. Machinery Transport & Rigging",
-                        s6_list: "<li>・Heavy Equipment Relocation</li><li>・Jobsite Logistics Support</li>",
-                        s7_title: "7. Metal Recycling & Scrap",
-                        s7_list: "<li>・Ferrous & Non-Ferrous Sorting</li><li>・Scrap Management</li>",
-                        s8_title: "8. Asbestos Abatement",
-                        s8_list: "<li>・Full Area Isolation</li><li>・Hazmat Suit & Respirator Removal</li><li>・Regulated Risk Disposal</li>",
-                        s9_title: "9. Factory Decommissioning",
-                        s9_list: "<li>・Production Line Dismantling</li><li>・Industrial Facility Deep Clean</li>",
-                        s10_title: "10. Project Management",
-                        s10_list: "<li><li>・Operational Planning</li><li>・Field Support & Quality Audits</li>"
-                    }
-                }
-            }
-        }
-    </script>
-</body>
-</html>
+                    <p class="text-slate-300 mb-8" x-text="t[lang].recruitDesc
