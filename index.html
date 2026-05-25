@@ -1,228 +1,275 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cateli | Especialistas em Demolição, Andaimes e Serviços Industriais</title>
+    <title>Cateli | Engenharia & Construção no Japão</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+        .hero-gradient { 
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=2070'); 
+            background-size: cover; 
+            background-position: center; 
+        }
         [x-cloak] { display: none !important; }
+        html { scroll-behavior: smooth; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 scroll-smooth" x-data="languageManager()">
+<body class="bg-slate-50 font-sans text-slate-900 selection:bg-yellow-500 selection:text-slate-900" x-data="{ lang: 'pt', mobileMenu: false }">
 
-    <header class="bg-slate-900/95 backdrop-blur-md text-white sticky top-0 z-50 border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-                <span class="text-2xl font-black tracking-wider text-amber-500">CATELI</span>
-                <span class="text-xs uppercase tracking-widest text-slate-400 border-l border-slate-700 pl-2 hidden sm:inline" x-text="t[lang].subLogo">SERVICES</span>
-            </div>
-
-            <nav class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#about" class="hover:text-amber-500 transition-colors" x-text="t[lang].navAbout"></a>
-                <a href="#services" class="hover:text-amber-500 transition-colors" x-text="t[lang].navServices"></a>
-                <a href="#careers" class="hover:text-amber-500 transition-colors" x-text="t[lang].navCareers"></a>
-                <a href="#contact" class="hover:text-amber-500 transition-colors" x-text="t[lang].navContact"></a>
-            </nav>
-
-            <div class="hidden md:flex items-center space-x-4">
-                <div class="relative" x-data="{ open: false }">
-                    <button @click="open = !open" class="flex items-center space-x-2 text-sm bg-slate-800 px-3 py-1.5 rounded border border-slate-700 hover:bg-slate-700 transition">
-                        <span class="font-bold text-amber-500" x-text="lang.toUpperCase()"></span>
-                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-32 bg-slate-800 rounded shadow-lg border border-slate-700 py-1" x-cloak>
-                        <button @click="setLang('pt'); open = false" class="w-full text-left px-4 py-2 text-sm hover:bg-slate-700 flex items-center justify-between">Português <span class="text-xs text-slate-400">PT</span></button>
-                        <button @click="setLang('jp'); open = false" class="w-full text-left px-4 py-2 text-sm hover:bg-slate-700 flex items-center justify-between">日本語 <span class="text-xs text-slate-400">JP</span></button>
-                        <button @click="setLang('en'); open = false" class="w-full text-left px-4 py-2 text-sm hover:bg-slate-700 flex items-center justify-between">English <span class="text-xs text-slate-400">EN</span></button>
-                    </div>
-                </div>
-                <a href="#contact" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-semibold px-4 py-2 rounded text-sm transition" x-text="t[lang].ctaQuote"></a>
-            </div>
-
-            <div class="md:hidden flex items-center space-x-4">
-                <select @change="setLang($event.target.value)" class="bg-slate-800 text-white text-xs rounded px-2 py-1 border border-slate-700 focus:outline-none focus:border-amber-500">
-                    <option value="pt" :selected="lang === 'pt'">PT</option>
-                    <option value="jp" :selected="lang === 'jp'">JP</option>
-                    <option value="en" :selected="lang === 'en'">EN</option>
-                </select>
-                <button @click="mobileMenu = !mobileMenu" class="text-white focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                </button>
-            </div>
-        </div>
-
-        <div x-show="mobileMenu" class="md:hidden bg-slate-900 border-t border-slate-800 px-4 py-4 space-y-3" x-cloak>
-            <a href="#about" @click="mobileMenu = false" class="block text-slate-300 hover:text-white" x-text="t[lang].navAbout"></a>
-            <a href="#services" @click="mobileMenu = false" class="block text-slate-300 hover:text-white" x-text="t[lang].navServices"></a>
-            <a href="#careers" @click="mobileMenu = false" class="block text-slate-300 hover:text-white" x-text="t[lang].navCareers"></a>
-            <a href="#contact" @click="mobileMenu = false" class="block text-slate-300 hover:text-white" x-text="t[lang].navContact"></a>
-            <a href="#contact" @click="mobileMenu = false" class="block w-full text-center bg-amber-500 text-slate-950 font-semibold py-2 rounded" x-text="t[lang].ctaQuote"></a>
-        </div>
-    </header>
-
-    <section class="relative bg-slate-950 text-white h-[85vh] flex items-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=1920" alt="Industrial Construction" class="w-full h-full object-cover opacity-35 object-center">
-            <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent"></div>
-        </div>
-        
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div class="max-w-3xl">
-                <span class="text-amber-500 uppercase tracking-widest font-semibold text-sm block mb-3" x-text="t[lang].heroTag"></span>
-                <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mb-6 leading-tight" x-text="t[lang].heroTitle"></h1>
-                <p class="text-lg sm:text-xl text-slate-300 mb-8 font-light" x-text="t[lang].heroDesc"></p>
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#services" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-8 py-3.5 rounded shadow-lg text-center transition" x-text="t[lang].heroBtn1"></a>
-                    <a href="#careers" class="border border-white hover:bg-white hover:text-slate-950 font-bold px-8 py-3.5 rounded text-center transition" x-text="t[lang].heroBtn2"></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="py-20 bg-white">
+    <nav class="fixed w-full z-50 bg-slate-900/95 backdrop-blur-md shadow-lg border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <span class="text-amber-600 font-bold text-sm uppercase tracking-wider" x-text="t[lang].aboutSub"></span>
-                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mt-2 mb-6" x-text="t[lang].aboutTitle"></h2>
-                    <p class="text-slate-600 mb-6 leading-relaxed" x-text="t[lang].aboutP1"></p>
-                    <p class="text-slate-600 mb-8 leading-relaxed" x-text="t[lang].aboutP2"></p>
-                    
-                    <div class="grid grid-cols-3 gap-4 border-t border-slate-100 pt-6">
-                        <div>
-                            <span class="block text-2xl font-bold text-slate-900">100%</span>
-                            <span class="text-xs text-slate-500 uppercase tracking-wider" x-text="t[lang].stat1"></span>
-                        </div>
-                        <div>
-                            <span class="block text-2xl font-bold text-slate-900">10</span>
-                            <span class="text-xs text-slate-500 uppercase tracking-wider" x-text="t[lang].stat2"></span>
-                        </div>
-                        <div>
-                            <span class="block text-2xl font-bold text-slate-900">+500</span>
-                            <span class="text-xs text-slate-500 uppercase tracking-wider" x-text="t[lang].stat3"></span>
-                        </div>
-                    </div>
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl md:text-3xl font-black tracking-tighter text-white">CATE<span class="text-yellow-500">LI</span></span>
+                    <span class="text-[10px] text-slate-400 ml-2 tracking-widest border-l border-slate-700 pl-2 hidden sm:inline-block">CONSTRUCTION<br>SERVICES</span>
                 </div>
-                <div class="relative h-[450px] rounded-xl overflow-hidden shadow-2xl">
-                    <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&q=80&w=1200" alt="Industrial Team" class="w-full h-full object-cover">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="py-20 bg-slate-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold text-slate-900" x-text="t[lang].servicesTitle"></h2>
-                <p class="text-slate-600 mt-4" x-text="t[lang].servicesSub"></p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <div class="bg-white rounded-lg overflow-hidden shadow-md group hover:shadow-xl transition">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1541625602330-2277a4c46182?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Demolição Profissional">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-slate-900 mb-2" x-text="t[lang].s1_title"></h3>
-                        <ul class="text-sm text-slate-600 space-y-1" x-html="t[lang].s1_list"></ul>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-lg overflow-hidden shadow-md group hover:shadow-xl transition">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Prédio com Andaimes">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-slate-900 mb-2" x-text="t[lang].s2_title"></h3>
-                        <ul class="text-sm text-slate-600 space-y-1" x-html="t[lang].s2_list"></ul>
+                <div class="hidden md:flex space-x-8 items-center font-medium">
+                    <a href="#servicos" class="text-slate-300 hover:text-yellow-500 transition" x-text="lang === 'pt' ? 'Serviços' : (lang === 'jp' ? 'サービス' : 'Services')"></a>
+                    <a href="#carreira" class="text-slate-300 hover:text-yellow-500 transition" x-text="lang === 'pt' ? 'Trabalhe Conosco' : (lang === 'jp' ? '採用情報' : 'Careers')"></a>
+                    <a href="#contato" class="bg-yellow-500 text-slate-900 px-5 py-2 rounded-lg font-bold hover:bg-yellow-600 transition" x-text="lang === 'pt' ? 'Contato' : (lang === 'jp' ? 'お問い合わせ' : 'Contact')"></a>
+                    
+                    <div class="flex space-x-3 border-l pl-6 border-slate-700 text-sm">
+                        <button @click="lang = 'jp'" :class="lang === 'jp' ? 'text-yellow-500 font-bold' : 'text-slate-400 hover:text-white'">JP</button>
+                        <button @click="lang = 'en'" :class="lang === 'en' ? 'text-yellow-500 font-bold' : 'text-slate-400 hover:text-white'">EN</button>
+                        <button @click="lang = 'pt'" :class="lang === 'pt' ? 'text-yellow-500 font-bold' : 'text-slate-400 hover:text-white'">PT</button>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-lg overflow-hidden shadow-md group hover:shadow-xl transition">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Caminhão Dump de Entulho">
+                <div class="md:hidden flex items-center space-x-4">
+                    <div class="flex space-x-2 text-xs bg-slate-800 p-1.5 rounded-md">
+                        <button @click="lang = 'jp'" :class="lang === 'jp' ? 'text-yellow-500 font-bold' : 'text-slate-400'">JP</button>
+                        <button @click="lang = 'en'" :class="lang === 'en' ? 'text-yellow-500 font-bold' : 'text-slate-400'">EN</button>
+                        <button @click="lang = 'pt'" :class="lang === 'pt' ? 'text-yellow-500 font-bold' : 'text-slate-400'">PT</button>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-slate-900 mb-2" x-text="t[lang].s3_title"></h3>
-                        <ul class="text-sm text-slate-600 space-y-1" x-html="t[lang].s3_list"></ul>
+                    <button @click="mobileMenu = !mobileMenu" class="text-white hover:text-yellow-500 focus:outline-none">
+                        <i class="fas fa-bars text-2xl" x-show="!mobileMenu"></i>
+                        <i class="fas fa-times text-2xl" x-show="mobileMenu" x-cloak></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div x-show="mobileMenu" x-cloak class="md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#servicos" @click="mobileMenu = false" class="block text-slate-300 py-2 border-b border-slate-800" x-text="lang === 'pt' ? 'Serviços' : (lang === 'jp' ? 'サービス' : 'Services')"></a>
+            <a href="#carreira" @click="mobileMenu = false" class="block text-slate-300 py-2 border-b border-slate-800" x-text="lang === 'pt' ? 'Trabalhe Conosco' : (lang === 'jp' ? '採用情報' : 'Careers')"></a>
+            <a href="#contato" @click="mobileMenu = false" class="block text-center bg-yellow-500 text-slate-900 py-3 rounded-lg font-bold" x-text="lang === 'pt' ? 'Contato' : (lang === 'jp' ? 'お問い合わせ' : 'Contact')"></a>
+        </div>
+    </nav>
+
+    <section class="hero-gradient h-screen flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white w-full">
+            <div class="max-w-3xl">
+                <span class="text-yellow-500 font-bold tracking-widest text-sm uppercase block mb-3" x-text="lang === 'pt' ? 'Soluções Industriais & Construção' : (lang === 'jp' ? '産業ソリューション＆建設' : 'Industrial Solutions & Construction')"></span>
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+                    <span x-show="lang === 'pt'">Alta Performance em Engenharia Civil no Japão.</span>
+                    <span x-show="lang === 'jp'" x-cloak>日本における建設・解体工事のプロフェッショナル。</span>
+                    <span x-show="lang === 'en'" x-cloak>High Performance in Civil Engineering and Demolition in Japan.</span>
+                </h1>
+                <p class="text-lg md:text-xl mb-8 text-slate-300 leading-relaxed">
+                    <span x-show="lang === 'pt'">Do planejamento à execução: demolições complexas, montagem de andaimes, gerenciamento de resíduos e infraestrutura de ponta.</span>
+                    <span x-show="lang === 'jp'" x-cloak>計画から実行まで：複雑な解体、足場設置、廃棄物管理、そして最先端のインフラ対応。</span>
+                    <span x-show="lang === 'en'" x-cloak>From planning to execution: complex demolition, scaffolding assembly, waste management, and top-tier infrastructure.</span>
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#servicos" class="bg-yellow-500 hover:bg-yellow-600 text-slate-900 font-bold py-4 px-8 rounded-lg text-center transition duration-300 shadow-lg shadow-yellow-500/20">
+                        <span x-text="lang === 'pt' ? 'Conhecer Serviços' : (lang === 'jp' ? 'サービスを見る' : 'Explore Services')"></span>
+                    </a>
+                    <a href="#carreira" class="border border-slate-400 hover:border-white hover:bg-white/10 text-white font-bold py-4 px-8 rounded-lg text-center transition duration-300">
+                        <span x-text="lang === 'pt' ? 'Trabalhe Conosco' : (lang === 'jp' ? '求人に応募する' : 'Join Our Team')"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center mb-20">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">
+                    <span x-text="lang === 'pt' ? 'Nossas Especialidades' : (lang === 'jp' ? '事業内容' : 'Our Specializations')"></span>
+                </h2>
+                <p class="text-slate-600 max-w-2xl mx-auto text-sm md:text-base">
+                    <span x-show="lang === 'pt'">Oferecemos uma gama completa de serviços industriais e de construção civil com foco em segurança, agilidade e sustentabilidade.</span>
+                    <span x-show="lang === 'jp'" x-cloak>安全、迅速、持続可能性に焦点を当てた、多岐にわたる総合建設・産業サービス。</span>
+                    <span x-show="lang === 'en'" x-cloak>We offer a comprehensive range of construction and industrial services focused on safety, speed, and sustainability.</span>
+                </p>
+                <div class="w-16 h-1 bg-yellow-500 mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+                
+                <div class="bg-slate-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col h-full">
+                    <div class="relative h-56 bg-slate-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=800" alt="Demolição" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-slate-900/90 backdrop-blur-sm text-yellow-500 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">KAITAI</span>
+                    </div>
+                    <div class="p-6 md:p-8 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3" x-text="lang === 'pt' ? 'Demolição (Kaitai)' : (lang === 'jp' ? '解体工事 (Kaitai)' : 'Demolition (Kaitai)')"></h3>
+                            <ul class="text-slate-600 text-sm space-y-1.5 list-disc pl-4">
+                                <li x-text="lang === 'pt' ? 'Demolição residencial, comercial e industrial' : (lang === 'jp' ? '住宅・商業施設・工場の解体' : 'Residential, commercial & industrial demolition')"></li>
+                                <li x-text="lang === 'pt' ? 'Remoção de estruturas, concreto e fundações' : (lang === 'jp' ? '構造物・コンクリート・基礎の撤去' : 'Removal of structures, concrete & foundations')"></li>
+                                <li x-text="lang === 'pt' ? 'Preparação de terrenos para novas obras' : (lang === 'jp' ? '新築向けの土地造成・整地' : 'Site preparation for new construction')"></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-lg overflow-hidden shadow-md group hover:shadow-xl transition">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Reforma Comercial">
+                <div class="bg-slate-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col h-full">
+                    <div class="relative h-56 bg-slate-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1513251410403-1081a2575791?auto=format&fit=crop&q=80&w=800" alt="Andaimes" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-slate-900/90 backdrop-blur-sm text-yellow-500 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">SCAFFOLDING</span>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-slate-900 mb-2" x-text="t[lang].s4_title"></h3>
-                        <ul class="text-sm text-slate-600 space-y-1" x-html="t[lang].s4_list"></ul>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-lg overflow-hidden shadow-md group hover:shadow-xl transition">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Corte de Concreto Profissional">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-slate-900 mb-2" x-text="t[lang].s5_title"></h3>
-                        <ul class="text-sm text-slate-600 space-y-1" x-html="t[lang].s5_list"></ul>
+                    <div class="p-6 md:p-8 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3" x-text="lang === 'pt' ? 'Montagem de Andaimes' : (lang === 'jp' ? '足場設置工事' : 'Scaffolding Assembly')"></h3>
+                            <ul class="text-slate-600 text-sm space-y-1.5 list-disc pl-4">
+                                <li x-text="lang === 'pt' ? 'Montagem e desmontagem segura de andaimes' : (lang === 'jp' ? '足場の安全な組み立て・解体' : 'Safe scaffolding assembly & disassembly')"></li>
+                                <li x-text="lang === 'pt' ? 'Estruturas para construção, reforma e manutenção' : (lang === 'jp' ? '新築・改修・メンテナンス用足場' : 'Structures for construction, renovation & maintenance')"></li>
+                                <li x-text="lang === 'pt' ? 'Andaimes industriais e temporários' : (lang === 'jp' ? '工場用足場および仮設構造物' : 'Industrial and temporary project scaffolding')"></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-lg overflow-hidden shadow-md group hover:shadow-xl transition">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Logística Industrial">
+                <div class="bg-slate-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col h-full">
+                    <div class="relative h-56 bg-slate-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&q=80&w=800" alt="Resíduos" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-slate-900/90 backdrop-blur-sm text-yellow-500 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">CLEANING</span>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-slate-900 mb-2" x-text="t[lang].s6_title"></h3>
-                        <ul class="text-sm text-slate-600 space-y-1" x-html="t[lang].s6_list"></ul>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-lg overflow-hidden shadow-md group hover:shadow-xl transition">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Reciclagem de Metais">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-slate-900 mb-2" x-text="t[lang].s7_title"></h3>
-                        <ul class="text-sm text-slate-600 space-y-1" x-html="t[lang].s7_list"></ul>
+                    <div class="p-6 md:p-8 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3" x-text="lang === 'pt' ? 'Limpeza e Resíduos' : (lang === 'jp' ? '清掃・廃棄物回収' : 'Cleaning & Waste Removal')"></h3>
+                            <ul class="text-slate-600 text-sm space-y-1.5 list-disc pl-4">
+                                <li x-text="lang === 'pt' ? 'Retirada de entulho e limpeza pós-obra/terrenos' : (lang === 'jp' ? 'がれき撤去、工事後清掃、土地片付け' : 'Debris removal, post-construction & site cleaning')"></li>
+                                <li x-text="lang === 'pt' ? 'Transporte especializado de resíduos industriais' : (lang === 'jp' ? '産業廃棄物の専門輸送対応' : 'Specialized industrial waste transport')"></li>
+                                <li x-text="lang === 'pt' ? 'Separação rigorosa de materiais recicláveis' : (lang === 'jp' ? 'リサイクル素材の厳格な分別' : 'Strict sorting of recyclable materials')"></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-lg overflow-hidden shadow-md group hover:shadow-xl transition">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1584467541268-b040f83be3fd?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Remoção Especializada de Amianto">
+                <div class="bg-slate-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col h-full">
+                    <div class="relative h-56 bg-slate-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1503387762-592dea58dd2a?auto=format&fit=crop&q=80&w=800" alt="Reforma" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-slate-900/90 backdrop-blur-sm text-yellow-500 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">RENOVATION</span>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-slate-900 mb-2" x-text="t[lang].s8_title"></h3>
-                        <ul class="text-sm text-slate-600 space-y-1" x-html="t[lang].s8_list"></ul>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-lg overflow-hidden shadow-md group hover:shadow-xl transition">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1513828583835-c5417117a4d9?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Desmontagem de Linha Industrial">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-slate-900 mb-2" x-text="t[lang].s9_title"></h3>
-                        <ul class="text-sm text-slate-600 space-y-1" x-html="t[lang].s9_list"></ul>
+                    <div class="p-6 md:p-8 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3" x-text="lang === 'pt' ? 'Reforma e Manutenção' : (lang === 'jp' ? 'リフォーム・保全' : 'Renovation & Maintenance')"></h3>
+                            <ul class="text-slate-600 text-sm space-y-1.5 list-disc pl-4">
+                                <li x-text="lang === 'pt' ? 'Pintura, Drywall e instalação de pisos' : (lang === 'jp' ? '塗装、ドライウォール、床材施工' : 'Painting, Drywall, and flooring installation')"></li>
+                                <li x-text="lang === 'pt' ? 'Manutenção profissional de fachadas e telhados' : (lang === 'jp' ? '外壁および屋根の専門的なメンテナンス' : 'Professional facade and roof maintenance')"></li>
+                                <li x-text="lang === 'pt' ? 'Pequenas reformas e serviços de acabamento' : (lang === 'jp' ? '小規模リフォームおよび仕上げ・補修' : 'Small renovations and finishing services')"></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-lg overflow-hidden shadow-md group hover:shadow-xl transition md:col-span-2 lg:col-span-3 lg:max-w-md lg:mx-auto w-full">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Planejamento Operacional">
+                <div class="bg-slate-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col h-full">
+                    <div class="relative h-56 bg-slate-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800" alt="Corte Concreto" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-slate-900/90 backdrop-blur-sm text-yellow-500 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">CONCRETE CUTTING</span>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-slate-900 mb-2" x-text="t[lang].s10_title"></h3>
-                        <ul class="text-sm text-slate-600 space-y-1" x-html="t[lang].s10_list"></ul>
+                    <div class="p-6 md:p-8 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3" x-text="lang === 'pt' ? 'Corte e Perfuração' : (lang === 'jp' ? 'コンクリート切断・穿孔' : 'Concrete Cutting & Drilling')"></h3>
+                            <ul class="text-slate-600 text-sm space-y-1.5 list-disc pl-4">
+                                <li x-text="lang === 'pt' ? 'Corte de concreto e lajes de alta precisão' : (lang === 'jp' ? '高精度なコンクリートおよび床版の切断' : 'High-precision concrete and slab cutting')"></li>
+                                <li x-text="lang === 'pt' ? 'Perfuração diamantada e abertura para tubulações' : (lang === 'jp' ? 'ダイヤモンドコア穿孔・配管用開口' : 'Diamond core drilling & pipe openings')"></li>
+                                <li x-text="lang === 'pt' ? 'Ajustes estruturais conforme projeto civil' : (lang === 'jp' ? '設計図面に基づく構造物の調整・加工' : 'Structural adjustments according to blueprints')"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col h-full">
+                    <div class="relative h-56 bg-slate-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=800" alt="Logística" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-slate-900/90 backdrop-blur-sm text-yellow-500 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">LOGISTICS</span>
+                    </div>
+                    <div class="p-6 md:p-8 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3" x-text="lang === 'pt' ? 'Movimentação Industrial' : (lang === 'jp' ? '重量物・産業輸送' : 'Industrial Logistics')"></h3>
+                            <ul class="text-slate-600 text-sm space-y-1.5 list-disc pl-4">
+                                <li x-text="lang === 'pt' ? 'Transporte logístico de materiais e maquinários' : (lang === 'jp' ? '資材および大型機械のロジスティクス輸送' : 'Logistical transport of materials & machinery')"></li>
+                                <li x-text="lang === 'pt' ? 'Movimentação segura de equipamentos pesados' : (lang === 'jp' ? '工場・現場内の重量機器の安全な移動' : 'Safe movement of heavy industrial equipment')"></li>
+                                <li x-text="lang === 'pt' ? 'Apoio logístico completo para carga e descarga' : (lang === 'jp' ? '積込・荷降ろしの包括的なロジスティクスサポート' : 'Complete loading and unloading operational support')"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col h-full">
+                    <div class="relative h-56 bg-slate-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80&w=800" alt="Reciclagem" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-slate-900/90 backdrop-blur-sm text-yellow-500 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">RECYCLING</span>
+                    </div>
+                    <div class="p-6 md:p-8 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3" x-text="lang === 'pt' ? 'Reciclagem e Materiais' : (lang === 'jp' ? 'マテリアルリサイクル' : 'Recycling & Management')"></h3>
+                            <ul class="text-slate-600 text-sm space-y-1.5 list-disc pl-4">
+                                <li x-text="lang === 'pt' ? 'Separação e triagem de ferro, cobre e alumínio' : (lang === 'jp' ? '鉄、銅、アルミニウムの厳密な分別・選別' : 'Sorting and segregation of iron, copper & aluminum')"></li>
+                                <li x-text="lang === 'pt' ? 'Gerenciamento inteligente de resíduos de obras' : (lang === 'jp' ? '建設現場におけるスマートな廃棄物管理' : 'Intelligent management of construction waste')"></li>
+                                <li x-text="lang === 'pt' ? 'Organização e reuso de sucata industrial' : (lang === 'jp' ? '産業用スクラップの組織化と再利用支援' : 'Organization and reuse of industrial scrap metal')"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-red-50/40 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-red-100 flex flex-col h-full">
+                    <div class="relative h-56 bg-slate-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=800" alt="Amianto" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-red-700 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">HAZARDOUS</span>
+                    </div>
+                    <div class="p-6 md:p-8 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-red-900 mb-3" x-text="lang === 'pt' ? 'Remoção de Amianto' : (lang === 'jp' ? 'アスベスト除去' : 'Asbestos Removal')"></h3>
+                            <ul class="text-red-950/80 text-sm space-y-1.5 list-disc pl-4">
+                                <li x-text="lang === 'pt' ? 'Inspeção e laudo de materiais contaminados' : (lang === 'jp' ? '汚染物質の厳密な検査と報告書の作成' : 'Inspection and reporting of contaminated materials')"></li>
+                                <li x-text="lang === 'pt' ? 'Isolamento de áreas de risco e remoção segura' : (lang === 'jp' ? '危険エリアの隔離と安全なアスベスト除去' : 'Risk area isolation & safe asbestos abatement')"></li>
+                                <li x-text="lang === 'pt' ? 'Descarte especializado e controle ambiental' : (lang === 'jp' ? '専門的な廃棄処理と徹底した環境安全管理' : 'Specialized disposal & environmental safety control')"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col h-full">
+                    <div class="relative h-56 bg-slate-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800" alt="Limpeza Industrial" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-slate-900/90 backdrop-blur-sm text-yellow-500 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">PLANT MAINTENANCE</span>
+                    </div>
+                    <div class="p-6 md:p-8 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3" x-text="lang === 'pt' ? 'Desmontagem Industrial' : (lang === 'jp' ? '工場解体・機械撤去' : 'Industrial Disassembly')"></h3>
+                            <ul class="text-slate-600 text-sm space-y-1.5 list-disc pl-4">
+                                <li x-text="lang === 'pt' ? 'Desmontagem de máquinas pesadas e linhas fabris' : (lang === 'jp' ? '大型機械や工場の生産ラインの解体・撤去' : 'Disassembly of heavy machinery & production lines')"></li>
+                                <li x-text="lang === 'pt' ? 'Limpeza técnica profunda de fábricas e galpões' : (lang === 'jp' ? '工場や大型倉庫の専門的なディープクリーニング' : 'Technical deep cleaning of factories & warehouses')"></li>
+                                <li x-text="lang === 'pt' ? 'Organização e desimpedimento de áreas industriais' : (lang === 'jp' ? '産業エリアの整理整頓および障害物除去' : 'Organization and clearing of industrial areas')"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-800 flex flex-col h-full lg:col-span-3 lg:max-w-md lg:mx-auto">
+                    <div class="relative h-56 bg-slate-800 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1531834685032-c34bf0d432df?auto=format&fit=crop&q=80&w=800" alt="Gerenciamento" class="w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-yellow-500 text-slate-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">MANAGEMENT</span>
+                    </div>
+                    <div class="p-6 md:p-8 flex-grow flex flex-col justify-between text-white">
+                        <div>
+                            <h3 class="text-xl font-bold text-yellow-500 mb-3" x-text="lang === 'pt' ? 'Gerenciamento de Obras' : (lang === 'jp' ? '施工管理・現場マネジメント' : 'Site Management')"></h3>
+                            <ul class="text-slate-300 text-sm space-y-1.5 list-disc pl-4">
+                                <li x-text="lang === 'pt' ? 'Planejamento operacional e supervisão completa' : (lang === 'jp' ? '業務計画の策定と現場の完全なスーパービジョン' : 'Operational planning & complete site supervision')"></li>
+                                <li x-text="lang === 'pt' ? 'Coordenação de equipes multiculturais' : (lang === 'jp' ? '多国籍・多様なチームの連携と指揮調整' : 'Coordination of multicultural teams')"></li>
+                                <li x-text="lang === 'pt' ? 'Apoio total para grandes obras e reformas' : (lang === 'jp' ? '大規模工事および改修の包括的なバックアップサポート' : 'Full operational support for large scale projects')"></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
@@ -230,13 +277,127 @@
         </div>
     </section>
 
-    <section id="careers" class="py-20 bg-slate-900 text-white relative">
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1920" class="w-full h-full object-cover opacity-5" alt="Background recruitment">
+    <section id="carreira" class="py-24 bg-slate-900 text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                
+                <div class="lg:col-span-5">
+                    <span class="text-yellow-500 font-bold tracking-widest text-xs uppercase block mb-3" x-text="lang === 'pt' ? 'Recrutamento' : (lang === 'jp' ? '採用案内' : 'We are hiring')"></span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-6 tracking-tight">
+                        <span x-text="lang === 'pt' ? 'Construa seu futuro conosco na Cateli' : (lang === 'jp' ? 'Cateliで一緒に未来を築きませんか' : 'Build your future with us at Cateli')"></span>
+                    </h2>
+                    <p class="text-slate-400 mb-8 leading-relaxed text-sm md:text-base">
+                        <span x-show="lang === 'pt'">Valorizamos a diversidade e oferecemos suporte integral para trabalhadores estrangeiros no Japão. Segurança no trabalho, ambiente profissional estável e remuneração justa.</span>
+                        <span x-show="lang === 'jp'" x-cloak>私たちは多様性を重視し、日本で働く外国籍の従業員にも万全のサポートを提供しています。安全な労働環境、安定した職場、そして公正な待遇をお約束します。</span>
+                        <span x-show="lang === 'en'" x-cloak>We value diversity and offer full support for foreign workers in Japan. Workplace safety, a stable professional environment, and competitive compensation.</span>
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="mt-1 bg-slate-800 p-2 rounded-lg text-yellow-500"><i class="fas fa-shield-alt"></i></div>
+                            <div>
+                                <h4 class="font-bold text-sm md:text-base" x-text="lang === 'pt' ? 'Segurança em Primeiro Lugar' : (lang === 'jp' ? '安全第一の現場管理' : 'Safety First Protocol')"></h4>
+                                <p class="text-xs md:text-sm text-slate-400" x-text="lang === 'pt' ? 'Treinamentos rigorosos e equipamentos de proteção de última geração.' : (lang === 'jp' ? '徹底した安全訓練と最新の保護具の支給。' : 'Rigorous training and cutting-edge safety gear.')"></p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="mt-1 bg-slate-800 p-2 rounded-lg text-yellow-500"><i class="fas fa-globe"></i></div>
+                            <div>
+                                <h4 class="font-bold text-sm md:text-base" x-text="lang === 'pt' ? 'Suporte Multilíngue' : (lang === 'jp' ? '多言語サポート体制' : 'Multilingual Support')"></h4>
+                                <p class="text-xs md:text-sm text-slate-400" x-text="lang === 'pt' ? 'Auxílio com documentações e comunicação facilitada na sua língua.' : (lang === 'jp' ? '各種書類手続きのサポートと、母国語での円滑なコミュニケーション。' : 'Assistance with documentation and communication in your language.')"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 bg-white p-8 md:p-10 rounded-2xl text-slate-800 shadow-2xl relative">
+                    <div class="absolute top-0 right-8 transform -translate-y-1/2 bg-yellow-500 text-slate-900 font-bold px-4 py-1.5 rounded-full text-xs uppercase tracking-wider" x-text="lang === 'pt' ? 'Vagas Abertas' : (lang === 'jp' ? '募集中' : 'Active')"></div>
+                    
+                    <form action="#" method="POST" enctype="multipart/form-data" class="space-y-5">
+                        <div>
+                            <label class="block text-xs md:text-sm font-bold text-slate-700 mb-1" x-text="lang === 'pt' ? 'Nome Completo' : (lang === 'jp' ? 'お名前（フルネーム）' : 'Full Name')"></label>
+                            <input type="text" placeholder="John Doe" class="w-full border border-slate-200 p-3 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 outline-none transition text-sm" required>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs md:text-sm font-bold text-slate-700 mb-1" x-text="lang === 'pt' ? 'Telefone de Contato' : (lang === 'jp' ? '電話番号' : 'Phone Number')"></label>
+                                <input type="tel" placeholder="090-XXXX-XXXX" class="w-full border border-slate-200 p-3 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 outline-none transition text-sm" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs md:text-sm font-bold text-slate-700 mb-1" x-text="lang === 'pt' ? 'Idioma de Preferência' : (lang === 'jp' ? '希望言語' : 'Preferred Language')"></label>
+                                <select class="w-full border border-slate-200 p-3 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 outline-none transition text-sm bg-white">
+                                    <option value="pt">Português</option>
+                                    <option value="jp">日本語 (Japanese)</option>
+                                    <option value="en">English</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs md:text-sm font-bold text-slate-700 mb-1" x-text="lang === 'pt' ? 'Mensagem / Experiência Profissional' : (lang === 'jp' ? 'メッセージ・職務経歴' : 'Message / Work Experience')"></label>
+                            <textarea placeholder="..." class="w-full border border-slate-200 p-3 rounded-lg h-28 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 outline-none transition text-sm resize-none"></textarea>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs md:text-sm font-bold text-slate-700 mb-1" x-text="lang === 'pt' ? 'Documentações e Currículo' : (lang === 'jp' ? '履歴書・在留カード等書類の添付' : 'Documents & Resume')"></label>
+                            <div class="border-2 border-dashed border-slate-200 p-6 text-center rounded-lg hover:border-yellow-500 transition relative bg-slate-50">
+                                <label class="cursor-pointer block">
+                                    <i class="fas fa-cloud-upload-alt text-3xl text-slate-400 mb-2 block"></i>
+                                    <p class="text-xs font-medium text-slate-700 mb-1" x-text="lang === 'pt' ? 'Arraste ou selecione múltiplos arquivos de uma vez' : (lang === 'jp' ? '複数のファイルをまとめてドラッグまたは選択可能' : 'Drag or select multiple files at once')"></p>
+                                    <p class="text-[10px] text-slate-400 mb-3" x-text="lang === 'pt' ? '(Formatos aceitos: PDF, JPG, PNG - Máx 10MB por arquivo)' : (lang === 'jp' ? '（対応形式：PDF, JPG, PNG - 1ファイル最大10MB）' : '(Allowed formats: PDF, JPG, PNG - Max 10MB each)')"></p>
+                                    <input type="file" class="hidden" multiple name="attachments[]">
+                                    <span class="bg-slate-900 text-white px-4 py-2 rounded text-xs font-bold uppercase hover:bg-slate-800 transition shadow" x-text="lang === 'pt' ? 'Selecionar Arquivos' : (lang === 'jp' ? 'ファイルを選択' : 'Select Files')"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-yellow-500 hover:bg-yellow-600 text-slate-900 font-bold py-4 rounded-lg transition shadow-lg shadow-yellow-500/10 text-sm md:text-base uppercase tracking-wider">
+                            <span x-text="lang === 'pt' ? 'Enviar Candidatura' : (lang === 'jp' ? '応募フォームを送信する' : 'Submit Application')"></span>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
         </div>
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <span class="text-amber-500 font-bold text-sm uppercase tracking-wider" x-text="t[lang].recruitSub"></span>
-                    <h2 class="text-3xl sm:text-4xl font-bold mt-2 mb-6" x-text="t[lang].recruitTitle"></h2>
-                    <p class="text-slate-300 mb-8" x-text="t[lang].recruitDesc
+    </section>
+
+    <footer id="contato" class="bg-slate-950 text-slate-400 py-16 border-t border-slate-900 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+                
+                <div class="md:col-span-5">
+                    <span class="text-3xl font-black tracking-tighter text-white block mb-4">CATE<span class="text-yellow-500">LI</span></span>
+                    <p class="text-slate-400 max-w-sm leading-relaxed" x-text="lang === 'pt' ? 'Sua parceira estratégica em engenharia e infraestrutura no Japão. Compromisso inabalável com a excelência técnica e sustentabilidade industrial.' : (lang === 'jp' ? '日本における建設・インフラの戦略的パートナー。技術的卓越性と産業の持持続可能性に対する確固たるコミットメント。' : 'Your strategic partner in engineering and infrastructure in Japan. Unwavering commitment to technical excellence and industrial sustainability.')"></p>
+                </div>
+                
+                <div class="md:col-span-4">
+                    <h4 class="font-bold text-white mb-4 text-base tracking-wide" x-text="lang === 'pt' ? 'Contatos & Escritório' : (lang === 'jp' ? '連絡先・事務所' : 'Office Contact')"></h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start"><i class="fas fa-map-marker-alt text-yellow-500 w-5 mt-1"></i> <span>〒460-0001 Aichi-ken, Nagoya-shi, Naka-ku, Sakae 1-Chome 2-3, Japan</span></li>
+                        <li class="flex items-center"><i class="fas fa-phone text-yellow-500 w-5"></i> <span>+81 052-000-0000 (Fixo)</span></li>
+                        <li class="flex items-center"><i class="fas fa-mobile-alt text-yellow-500 w-5"></i> <span>+81 090-0000-0000 (Mobile)</span></li>
+                        <li class="flex items-center"><i class="fas fa-envelope text-yellow-500 w-5"></i> <span>contact@cateli-construction.co.jp</span></li>
+                    </ul>
+                </div>
+                
+                <div class="md:col-span-3">
+                    <h4 class="font-bold text-white mb-4 text-base tracking-wide" x-text="lang === 'pt' ? 'Conecte-se Conosco' : (lang === 'jp' ? 'ソーシャルメディア' : 'Connect With Us')"></h4>
+                    <div class="flex space-x-4 mb-6">
+                        <a href="#" class="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center text-slate-400 hover:text-yellow-500 hover:bg-slate-800 transition text-lg"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center text-slate-400 hover:text-yellow-500 hover:bg-slate-800 transition text-lg"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center text-slate-400 hover:text-yellow-500 hover:bg-slate-800 transition text-lg"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <p class="text-xs text-slate-500" x-text="lang === 'pt' ? 'Atendimento operacional de Segunda a Sábado das 08:00 às 17:00.' : (lang === 'jp' ? '営業時間：月曜日〜土曜日 08:00 〜 17:00' : 'Operational hours: Monday to Saturday from 08:00 to 17:00.')"></p>
+                </div>
+
+            </div>
+            
+            <div class="border-t border-slate-900 mt-12 pt-8 text-center text-xs text-slate-600">
+                &copy; 2026 CATELI CONSTRUCTION LTD. ALL RIGHTS RESERVED. / COMPLIANCE & SAFETY IND.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
