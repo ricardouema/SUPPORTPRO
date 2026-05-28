@@ -1,9 +1,26 @@
+Com base nos dados fornecidos na imagem `cateli.png` e nas suas novas especificações de design e estrutura, fiz as seguintes atualizações estruturais e visuais no projeto:
+
+1. **Alteração de Marca e Dados (Conforme `cateli.png`):**
+* **Nome da Empresa:** Mudou de Cateli para **株式会社 SUPPORTPRO**.
+* **Telefone:** Atualizado para **0565-41-5268**.
+* **Endereço:** Atualizado para **〒471-0031 AICHI-KEN TOYOTA-SHI ASAHI 4-10-14**.
+* **E-mail:** Ajustado preventivamente para `contato@supportpro.co.jp`.
+
+
+2. **Nova Identidade Visual:** Substituição do Laranja Segurança por um **Amarelo Construção Industrial de alta visibilidade** (`#FFCC00`). Para garantir a acessibilidade e legibilidade visual (regras de contraste), os botões amarelos agora utilizam texto escuro.
+3. **Idioma Padrão (Nihongo Primeiro):** O site foi configurado para inicializar obrigatoriamente em **Japonês (JP)**. Caso os usuários prefiram, eles podem alternar instantaneamente para Inglês (EN) ou Português (PT) no menu superior.
+4. **Reestruturação dos Serviços (6 Categorias):** A antiga categoria foi desmembrada em duas vertentes exclusivas: **1. Andaimes** e **2. Demolição**, totalizando 6 blocos organizados.
+5. **Inclusão de Imagens Profissionais:** Cada um dos 6 blocos de serviços agora possui um contêiner de imagem integrado utilizando placeholders do Unsplash filtrados para exibir ambientes industriais limpos, organizados e com foco absoluto no uso de EPIs e segurança.
+
+Aqui está o código completo atualizado em arquivo único. Basta salvar como `index.html`:
+
+```html
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cateli Corporation</title>
+    <title>株式会社 SUPPORTPRO</title>
     <!-- Fontes do Google: Montserrat (Ocidental) e Noto Sans JP (Japonês) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,14 +31,14 @@
         :root {
             --navy-deep: #0F1E36;
             --navy-light: #1A2F50;
-            --safety-orange: #FF6B00;
-            --safety-orange-hover: #E05E00;
+            --construction-yellow: #FFCC00;
+            --construction-yellow-hover: #E6B800;
             --pure-white: #FFFFFF;
             --bg-light: #F4F6F9;
             --text-dark: #2C3E50;
             --text-muted: #627284;
             --border-color: #D1D8E0;
-            --font-main: 'Montserrat', 'Noto Sans JP', sans-serif;
+            --font-main: 'Noto Sans JP', 'Montserrat', sans-serif;
         }
 
         /* --- CONFIGURAÇÕES GERAIS --- */
@@ -74,7 +91,7 @@
             bottom: 0;
             width: 50px;
             height: 4px;
-            background-color: var(--safety-orange);
+            background-color: var(--construction-yellow);
         }
 
         /* --- HEADER & NAVEGAÇÃO --- */
@@ -97,13 +114,13 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 700;
             letter-spacing: 1px;
         }
 
         .logo span {
-            color: var(--safety-orange);
+            color: var(--construction-yellow);
         }
 
         .nav-menu {
@@ -124,7 +141,7 @@
         }
 
         .nav-links a:hover {
-            color: var(--safety-orange);
+            color: var(--construction-yellow);
         }
 
         /* Seletor de Idiomas */
@@ -145,11 +162,12 @@
             padding: 4px 8px;
             cursor: pointer;
             border-radius: 3px;
-            transition: background 0.3s;
+            transition: background 0.3s, color 0.3s;
         }
 
         .lang-btn.active {
-            background-color: var(--safety-orange);
+            background-color: var(--construction-yellow);
+            color: var(--navy-deep);
         }
 
         /* Menu Hambúrguer (Mobile) */
@@ -171,7 +189,6 @@
 
         /* --- HERO SECTION --- */
         .hero {
-            background-linear-gradient: rgba(15, 30, 54, 0.85), rgba(15, 30, 54, 0.85);
             background-image: linear-gradient(rgba(15, 30, 54, 0.9), rgba(15, 30, 54, 0.9)), url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
@@ -199,8 +216,8 @@
 
         .btn-cta {
             display: inline-block;
-            background-color: var(--safety-orange);
-            color: var(--pure-white);
+            background-color: var(--construction-yellow);
+            color: var(--navy-deep);
             padding: 12px 28px;
             font-weight: 600;
             border-radius: 4px;
@@ -208,7 +225,7 @@
         }
 
         .btn-cta:hover {
-            background-color: var(--safety-orange-hover);
+            background-color: var(--construction-yellow-hover);
         }
 
         /* --- SECTION SOBRE / REALIDADE --- */
@@ -219,7 +236,7 @@
         .about-box {
             background-color: var(--pure-white);
             padding: 40px;
-            border-left: 5px solid var(--safety-orange);
+            border-left: 5px solid var(--construction-yellow);
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
 
@@ -228,43 +245,49 @@
             color: var(--text-dark);
         }
 
-        /* --- ESTRUTURA DE SERVIÇOS --- */
+        /* --- ESTRUTURA DE SERVIÇOS (6 CATEGORIAS COM IMAGENS) --- */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 25px;
             margin-top: 20px;
         }
 
         .service-card {
             background-color: var(--bg-light);
-            padding: 30px;
+            padding: 20px;
             border-radius: 4px;
             transition: transform 0.3s, box-shadow 0.3s;
             border-top: 3px solid var(--navy-deep);
+            display: flex;
+            flex-direction: column;
         }
 
         .service-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-            border-top-color: var(--safety-orange);
+            border-top-color: var(--construction-yellow);
         }
 
-        .service-icon {
-            font-size: 2rem;
-            color: var(--safety-orange);
+        .service-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
             margin-bottom: 15px;
         }
 
         .service-card h3 {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: var(--navy-deep);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            font-weight: 700;
         }
 
         .service-card p {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-muted);
+            flex-grow: 1;
         }
 
         /* --- CARREIRAS (TRABALHE CONOSCO) --- */
@@ -306,7 +329,7 @@
             position: absolute;
             left: 0;
             top: 0;
-            color: var(--safety-orange);
+            color: var(--construction-yellow);
             font-weight: bold;
         }
 
@@ -342,7 +365,7 @@
 
         .form-control:focus {
             outline: none;
-            border-color: var(--safety-orange);
+            border-color: var(--construction-yellow);
             background-color: var(--pure-white);
         }
 
@@ -359,7 +382,7 @@
         }
 
         .file-drop-zone:hover, .file-drop-zone.dragover {
-            border-color: var(--safety-orange);
+            border-color: var(--construction-yellow);
         }
 
         .file-drop-zone input[type="file"] {
@@ -384,7 +407,7 @@
         .file-list-preview {
             margin-top: 10px;
             font-size: 0.85rem;
-            color: var(--safety-orange);
+            color: var(--navy-light);
             font-weight: 600;
         }
 
@@ -397,8 +420,8 @@
 
         .btn-submit {
             width: 100%;
-            background-color: var(--safety-orange);
-            color: var(--pure-white);
+            background-color: var(--construction-yellow);
+            color: var(--navy-deep);
             border: none;
             padding: 14px;
             font-size: 1rem;
@@ -410,7 +433,7 @@
         }
 
         .btn-submit:hover {
-            background-color: var(--safety-orange-hover);
+            background-color: var(--construction-yellow-hover);
         }
 
         /* --- SEÇÃO DE CONTATO --- */
@@ -506,28 +529,28 @@
         }
     </style>
 </head>
-<body>
+<body onload="initSite()">
 
     <!-- HEADER / NAVEGAÇÃO -->
     <header>
         <div class="container nav-container">
-            <a href="#" class="logo">CATELI<span>.</span></a>
+            <a href="#" class="logo">株式会社 SUPPORTPRO<span>.</span></a>
             
             <nav class="nav-menu">
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="#about" data-i18n="nav_about">Sobre Nós</a></li>
-                    <li><a href="#services" data-i18n="nav_services">Serviços</a></li>
-                    <li><a href="#careers" data-i18n="nav_careers">Carreiras</a></li>
-                    <li><a href="#contact" data-i18n="nav_contact">Contato</a></li>
+                    <li><a href="#about" data-i18n="nav_about">会社概要</a></li>
+                    <li><a href="#services" data-i18n="nav_services">事業内容</a></li>
+                    <li><a href="#careers" data-i18n="nav_careers">採用情報</a></li>
+                    <li><a href="#contact" data-i18n="nav_contact">お問い合わせ</a></li>
                 </ul>
 
                 <div class="lang-switcher">
-                    <button class="lang-btn active" onclick="setLanguage('pt')">PT</button>
-                    <button class="lang-btn" onclick="setLanguage('en')">EN</button>
-                    <button class="lang-btn" onclick="setLanguage('jp')">JP</button>
+                    <button id="btn-jp" class="lang-btn active" onclick="setLanguage('jp')">JP</button>
+                    <button id="btn-en" class="lang-btn" onclick="setLanguage('en')">EN</button>
+                    <button id="btn-pt" class="lang-btn" onclick="setLanguage('pt')">PT</button>
                 </div>
 
-                <button class="hamburger" id="menuToggle" aria-label="Abrir Menu">
+                <button class="hamburger" id="menuToggle" aria-label="Menu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -540,9 +563,9 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1 data-i18n="hero_title">Apoio Operacional Prático para Construção e Indústria</h1>
-                <p data-i18n="hero_desc">Fornecemos mão de obra executiva, organização logística e suporte de campo focado no cumprimento de prazos e segurança operacional no Japão.</p>
-                <a href="#careers" class="btn-cta" data-i18n="hero_cta">Trabalhe Conosco</a>
+                <h1 data-i18n="hero_title">建設・産業現場を支える、確実な実務施工サポート</h1>
+                <p data-i18n="hero_desc">日本国内の現場において、工期遵守と安全運行を最優先に、実務作業員の配置、ロジスティクス管理、現場サポートを提供します。</p>
+                <a href="#careers" class="btn-cta" data-i18n="hero_cta">応募はこちら</a>
             </div>
         </div>
     </section>
@@ -550,53 +573,60 @@
     <!-- SOBRE NÓS -->
     <section id="about" class="section-padding about-section">
         <div class="container">
-            <h2 class="section-title" data-i18n="about_title">Compromisso Transparente</h2>
+            <h2 class="section-title" data-i18n="about_title">透明性のあるコミットメント</h2>
             <div class="about-box">
-                <p data-i18n="about_p1">A Cateli Corporation é uma empresa em expansão estruturada para atuar na execução prática de demandas operacionais. Não somos uma empresa de engenharia ou desenvolvimento de projetos estruturais; nosso foco está no suporte físico e logístico que faz a obra avançar de forma organizada.</p>
-                <p data-i18n="about_p2">Pautamos nossa atuação na seriedade, no respeito absoluto aos cronogramas combinados e na segurança básica das equipes em campo. Atendemos construtoras e indústrias que buscam fornecedores diretos, francos e focados na entrega operacional sem burocracias desnecessárias.</p>
+                <p data-i18n="about_p1">カテリ株式会社（Cateli Corporation）は、現場の実務ニーズへの対応に特化した成長企業です。当社は設計やエンジニアリングを行う会社ではなく、現場を計画通りかつ安全に進めるための物理的・ロジスティクス的なサポート業務に注力しています。</p>
+                <p data-i18n="about_p2">誠実な対応、スケジュール管理の徹底、現場の基本安全の確保を経営の軸としています。形式的な手続きよりも、現場での確実な実行力を求める建設業者様や製造業者様をダイレクトに支えます。</p>
             </div>
         </div>
     </section>
 
-    <!-- SERVIÇOS (5 CATEGORIAS) -->
+    <!-- SERVIÇOS (6 CATEGORIAS) -->
     <section id="services" class="section-padding">
         <div class="container">
-            <h2 class="section-title" data-i18n="services_title">Nossas Áreas de Atuação</h2>
+            <h2 class="section-title" data-i18n="services_title">事業内容（6つのカテゴリー）</h2>
             <div class="services-grid">
                 
-                <!-- 1. Preparação e Estrutura -->
+                <!-- 1. Andaimes -->
                 <div class="service-card">
-                    <div class="service-icon">🏗️</div>
-                    <h3 data-i18n="s1_title">1. Preparação e Estrutura</h3>
-                    <p data-i18n="s1_desc">Serviços de demolição controlada, remoção de estruturas antigas, preparação e nivelamento de terrenos, montagem de andaimes residenciais ou industriais, além de isolamento preventivo e sinalização de segurança perimetral.</p>
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=500&q=80" alt="Scaffolding Safety" class="service-img">
+                    <h3 data-i18n="s1_title">1. 足場架設工事</h3>
+                    <p data-i18n="s1_desc">住宅から大型産業プラントまで対応する各種足場の組立・解体。高所作業の確実なルートを確保し、日本の安全基準に適合した揺るぎない足場構造を構築します。</p>
                 </div>
 
-                <!-- 2. Reformas e Acabamentos -->
+                <!-- 2. Demolição -->
                 <div class="service-card">
-                    <div class="service-icon">🛠️</div>
-                    <h3 data-i18n="s2_title">2. Reformas e Acabamentos</h3>
-                    <p data-i18n="s2_desc">Execução de pintura geral de superfícies, instalação e fechamento de drywall, assentamento de pisos e revestimentos diversos, além de serviços básicos de manutenção em fachadas, telhados e pequenos reparos prediais.</p>
+                    <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=500&q=80" alt="Controlled Demolition" class="service-img">
+                    <h3 data-i18n="s2_title">2. 解体工事・現場準備</h3>
+                    <p data-i18n="s2_desc">安全に配慮した構造物の管理解体および撤去作業。重機オペレーションとの連携、コンクリートや廃材の迅速なクリアリング、次のステップのための土地造成・整地を行います。</p>
                 </div>
 
-                <!-- 3. Gestão de Resíduos e Reciclagem -->
+                <!-- 3. Reformas e Acabamentos -->
                 <div class="service-card">
-                    <div class="service-icon">♻️</div>
-                    <h3 data-i18n="s3_title">3. Gestão de Resíduos e Reciclagem</h3>
-                    <p data-i18n="s3_desc">Limpeza técnica pós-obra, recolhimento e triagem minuciosa de entulhos, separação de metais recicláveis (ferro, cobre, alumínio), destinação adequada conforme regulamentação local e organização de pátios industriais.</p>
+                    <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=500&q=80" alt="Renovation Work" class="service-img">
+                    <h3 data-i18n="s3_title">3. 各種リフォーム・内装仕上工事</h3>
+                    <p data-i18n="s3_desc">建築物・構造物の一般塗装、ドライウォール（軽天・ボード）の施工、各種床材・仕上げ材の設置、外壁・屋根の補修、小規模な営繕修繕を行います。</p>
                 </div>
 
-                <!-- 4. Logística e Movimentação Industrial -->
+                <!-- 4. Gestão de Resíduos e Reciclagem -->
                 <div class="service-card">
-                    <div class="service-icon">📦</div>
-                    <h3 data-i18n="s4_title">4. Logística e Movimentação Industrial</h3>
-                    <p data-i18n="s4_desc">Suporte físico para transporte interno de maquinários e insumos, desmontagem tática de linhas de produção fabris, serviços de carga e descarga pesada, além de apoio logístico contínuo em canteiros de obras.</p>
+                    <img src="https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?auto=format&fit=crop&w=500&q=80" alt="Waste Recycling" class="service-img">
+                    <h3 data-i18n="s4_title">4. 産業廃棄物分別・現場清掃・資源回収</h3>
+                    <p data-i18n="s4_desc">施工後の専門清掃、廃材の収集と厳密な分別、金属類（鉄、銅、アルミ）の回収、法令に準拠した適正処分の管理、工場構内の整理整頓を行います。</p>
                 </div>
 
-                <!-- 5. Gerenciamento Operacional -->
+                <!-- 5. Logística e Movimentação Industrial -->
                 <div class="service-card">
-                    <div class="service-icon">📋</div>
-                    <h3 data-i18n="s5_title">5. Gerenciamento Operacional</h3>
-                    <p data-i18n="s5_desc">Planejamento e coordenação direta das frentes de trabalho, supervisão operacional de campo, suporte administrativo focado nas rotinas do canteiro, emissão de relatórios de progresso diário e conformidade com as regras locais.</p>
+                    <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=500&q=80" alt="Industrial Logistics" class="service-img">
+                    <h3 data-i18n="s5_title">5. 工場構内物流・機械設備移設サポート</h3>
+                    <p data-i18n="s5_desc">重量物・資材 de 構内搬送サポート、工場生産ラインの解体・移設補助、積込・荷降ろし作業、および建設現場における継続的な物流支援を行います。</p>
+                </div>
+
+                <!-- 6. Gerenciamento Operacional -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1531834685032-c34bf0d8b999?auto=format&fit=crop&w=500&q=80" alt="Site Coordination" class="service-img">
+                    <h3 data-i18n="s6_title">6. 現場オペレーション・施工進行管理アシスタント</h3>
+                    <p data-i18n="s6_desc">作業チームの配置調整、現場の実務監督補助、現場事務サポート、日報作成、ならびに地域の安全基準やルール遵守の徹底管理を行います。</p>
                 </div>
 
             </div>
@@ -606,69 +636,70 @@
     <!-- CARREIRAS -->
     <section id="careers" class="section-padding careers-section">
         <div class="container">
-            <h2 class="section-title" data-i18n="careers_title">Trabalhe na Cateli</h2>
+            <h2 class="section-title" data-i18n="careers_title">採用情報</h2>
             
             <div class="careers-wrapper">
                 <div class="careers-info">
-                    <p data-i18n="careers_intro">Buscamos profissionais dedicados, pontuais e comprometidos com a segurança e a qualidade no trabalho. Na Cateli, valorizamos o respeito mútuo, a clareza nas tarefas e um ambiente de trabalho organizado. Se você busca uma oportunidade séria no setor de construção e indústria no Japão, queremos conhecer você.</p>
+                    <p data-i18n="careers_intro">真面目で時間を守り、安全と品質を重視する人材を募集しています。カテリでは、お互いの尊重、業務の明確化、整理された就業環境を大切にしています。日本の建設・産業セクターで真剣に仕事を探している方のご応募をお待ちしています。</p>
                     
-                    <h4 data-i18n="careers_offers_title">O que oferecemos:</h4>
+                    <h4 data-i18n="careers_offers_title">待遇と環境:</h4>
                     <ul class="careers-list">
-                        <li data-i18n="off1">Ambiente de trabalho seguro, focado em integridade física e respeito mútuo.</li>
-                        <li data-i18n="off2">Tarefas operacionais claras com acompanhamento e supervisão presente.</li>
-                        <li data-i18n="off3">Pagamento correto, transparente e estritamente pontual (conforme legislação japonesa).</li>
-                        <li data-i18n="off4">Oportunidade real de crescimento profissional e acompanhamento da expansão da empresa.</li>
+                        <li data-i18n="off1">身体の安全を守る環境と、お互いを尊重しあう職場。</li>
+                        <li data-i18n="off2">指導・監督が行き届いた、明確で分かりやすい業務指示。</li>
+                        <li data-i18n="off3">日本の労働法に完全準拠した、適正かつ確実な給与支給。</li>
+                        <li data-i18n="off4">会社の成長とともに、ステップアップや昇格のチャンスがあります。</li>
                     </ul>
                 </div>
 
                 <!-- Formulário de Candidatura -->
                 <form class="career-form" id="applicationForm" onsubmit="handleFormSubmit(event)">
                     <div class="form-group">
-                        <label for="fullName" data-i18n="lbl_name">Nome Completo / Nome Japonês</label>
+                        <label for="fullName" data-i18n="lbl_name">氏名（漢字／カタカナ、またはアルファベット）</label>
                         <input type="text" id="fullName" class="form-control" required placeholder="Ex: Ricardo Uema">
                     </div>
 
                     <div class="form-group">
-                        <label for="visaStatus" data-i18n="lbl_visa">Status de Visto Atual</label>
+                        <label for="visaStatus" data-i18n="lbl_visa">現在の在留資格（ビザ）</label>
                         <select id="visaStatus" class="form-control" required>
-                            <option value="" disabled selected data-i18n="opt_visa_def">Selecione seu status...</option>
-                            <option value="permanente" data-i18n="opt_v1">Residente Permanente / Cônjuge</option>
-                            <option value="trabalho" data-i18n="opt_v2">Visto de Trabalho</option>
-                            <option value="estudante" data-i18n="opt_v3">Estudante (com permissão de trabalho)</option>
-                            <option value="dependente" data-i18n="opt_v4">Dependente</option>
-                            <option value="outro" data-i18n="opt_v5">Outro status</option>
+                            <option value="" disabled selected data-i18n="opt_visa_def">ステータスを選択してください...</option>
+                            <option value="permanente" data-i18n="opt_v1">永住者 / 配偶者</option>
+                            <option value="trabalho" data-i18n="opt_v2">就労ビザ</option>
+                            <option value="estudante" data-i18n="opt_v3">留学生（資格外活動許可あり）</option>
+                            <option value="dependente" data-i18n="opt_v4">家族滞在</option>
+                            <option value="outro" data-i18n="opt_v5">その他の在留資格</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="interestArea" data-i18n="lbl_area">Área de Interesse</label>
+                        <label for="interestArea" data-i18n="lbl_area">希望職種</label>
                         <select id="interestArea" class="form-control" required>
-                            <option value="" disabled selected data-i18n="opt_area_def">Selecione uma área...</option>
-                            <option value="preparacao" data-i18n="s1_title">1. Preparação e Estrutura</option>
-                            <option value="reformas" data-i18n="s2_title">2. Reformas e Acabamentos</option>
-                            <option value="residuos" data-i18n="s3_title">3. Gestão de Resíduos e Reciclagem</option>
-                            <option value="logistica" data-i18n="s4_title">4. Logística e Movimentação Industrial</option>
-                            <option value="gerenciamento" data-i18n="s5_title">5. Gerenciamento Operacional</option>
+                            <option value="" disabled selected data-i18n="opt_area_def">カテゴリーを選択してください...</option>
+                            <option value="andaimes" data-i18n="s1_title">1. 足場架設工事</option>
+                            <option value="demolicao" data-i18n="s2_title">2. 解体工事・現場準備</option>
+                            <option value="reformas" data-i18n="s3_title">3. 各種リフォーム・内装仕上工事</option>
+                            <option value="residuos" data-i18n="s4_title">4. 産業廃棄物分別・現場清掃・資源回収</option>
+                            <option value="logistica" data-i18n="s5_title">5. 工場構内物流・機械設備移設サポート</option>
+                            <option value="gerenciamento" data-i18n="s6_title">6. 現場オペレーション・施工進行管理アシスタント</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="message" data-i18n="lbl_msg">Mensagem / Disponibilidade</label>
-                        <textarea id="message" rows="3" class="form-control" placeholder="Descreva brevemente seus horários ou experiência prévia..."></textarea>
+                        <label for="message" data-i18n="lbl_msg">メッセージ / 勤務可能時期など</label>
+                        <textarea id="message" rows="3" class="form-control" data-i18n="ph_message" placeholder="勤務可能な時間帯や過去の経験などを簡単に記載してください..."></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label data-i18n="lbl_upload">Documentos (Upload Múltiplo - Obrigatório)</label>
+                        <label data-i18n="lbl_upload">書類添付（複数選択可・必須）</label>
                         <div class="file-drop-zone" id="dropZone">
-                            <span class="file-zone-text" data-i18n="upload_text"><b>Clique para anexar</b> ou arraste arquivos aqui<br>(CV, fotos de documentos ou certificados)</span>
+                            <span class="file-zone-text" data-i18n="upload_text"><b>ファイルを選択</b> またはここにドラッグ＆ドロップ<br>(履歴書、在留カード写真、資格証など)</span>
                             <input type="file" id="fileInput" multiple required onchange="updateFilesList()">
                         </div>
                         <div class="file-list-preview" id="fileListPreview"></div>
                     </div>
 
-                    <button type="submit" class="btn-submit" data-i18n="btn_send">Enviar Candidatura</button>
+                    <button type="submit" class="btn-submit" data-i18n="btn_send">応募書類を送信する</button>
                     
-                    <p class="form-disclaimer" data-i18n="disclaimer">A Cateli trata todos os dados pessoais com estrita confidencialidade. O envio deste formulário manifesta interesse em nosso banco de talentos e não garante contratação imediata. Entraremos em contato exclusivamente se houver uma vaga compatível com seu perfil.</p>
+                    <p class="form-disclaimer" data-i18n="disclaimer">カテリ株式会社は、お預かりした個人情報を厳重に管理いたします。このフォームの送信は採用を確定するものではありません。募集要件に合致する職種がある場合に限り、担当者より追ってご連絡いたします。</p>
                 </form>
             </div>
         </div>
@@ -677,24 +708,24 @@
     <!-- CONTATO -->
     <section id="contact" class="section-padding">
         <div class="container">
-            <h2 class="section-title" data-i18n="contact_title">Contato Corporativo</h2>
+            <h2 class="section-title" data-i18n="contact_title">企業窓口</h2>
             <div class="contact-grid">
                 <div class="contact-info-box">
                     <div class="contact-item">
-                        <h4 data-i18n="c_addr">Endereço Comercial</h4>
-                        <p>〒100-0001 Tokyo-to, Chiyoda-ku, Marunouchi 1-1-1, Building 8F</p>
+                        <h4 data-i18n="c_addr">本社所在地</h4>
+                        <p>〒471-0031 AICHI-KEN TOYOTA-SHI ASAHI 4-10-14</p>
                     </div>
                     <div class="contact-item">
-                        <h4 data-i18n="c_phone">Telefone de Atendimento</h4>
-                        <p>+81 3-1234-5678</p>
+                        <h4 data-i18n="c_phone">代表電話番号</h4>
+                        <p>0565-41-5268</p>
                     </div>
                     <div class="contact-item">
-                        <h4 data-i18n="c_email">Correio Eletrônico (E-mail)</h4>
-                        <p>contato@cateli.co.jp</p>
+                        <h4 data-i18n="c_email">代表メールアドレス</h4>
+                        <p>contato@supportpro.co.jp</p>
                     </div>
                 </div>
                 <div class="placeholder-map" data-i18n="map_placeholder">
-                    [ Área destinada à integração futura com o mapa do Google Maps / Escritório Central Tóquio ]
+                    [ Googleマップ連携・アクセス情報展開予定エリア / 愛知県豊田市 ]
                 </div>
             </div>
         </div>
@@ -703,7 +734,7 @@
     <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Cateli Corporation. All rights reserved. Realidade Operacional e Compromisso no Japão.</p>
+            <p data-i18n="footer_text">&copy; 2026 株式会社 SUPPORTPRO. All rights reserved. 日本における確実な実務施工とコミットメント。</p>
         </div>
     </footer>
 
@@ -711,74 +742,80 @@
     <script>
         // --- BASE DE DADOS DO SISTEMA TRILÍNGUE ---
         const translations = {
-            pt: {
-                nav_about: "Sobre Nós", nav_services: "Serviços", nav_careers: "Carreiras", nav_contact: "Contato",
-                hero_title: "Apoio Operacional Prático para Construção e Indústria",
-                hero_desc: "Fornecemos mão de obra executiva, organização logística e suporte de campo focado no cumprimento de prazos e segurança operacional no Japão.",
-                hero_cta: "Trabalhe Conosco",
-                about_title: "Compromisso Transparente",
-                about_p1: "A Cateli Corporation é uma empresa em expansão estruturada para atuar na execução prática de demandas operacionais. Não somos uma empresa de engenharia ou desenvolvimento de projetos estruturais; nosso foco está no suporte físico e logístico que faz a obra avançar de forma organizada.",
-                about_p2: "Pautamos nossa atuação na seriedade, no respeito absoluto aos cronogramas combinados e na segurança básica das equipes em campo. Atendemos construtoras e indústrias que buscam fornecedores diretos, francos e focados na entrega operacional sem burocracias desnecessárias.",
-                services_title: "Nossas Áreas de Atuação",
-                s1_title: "1. Preparação e Estrutura",
-                s1_desc: "Serviços de demolição controlada, remoção de estruturas antigas, preparação e nivelamento de terrenos, montagem de andaimes residenciais ou industriais, além de isolamento preventivo e sinalização de segurança perimetral.",
-                s2_title: "2. Reformas e Acabamentos",
-                s2_desc: "Execução de pintura geral de superfícies, instalação e fechamento de drywall, assentamento de pisos e revestimentos diversos, além de serviços básicos de manutenção em fachadas, telhados e pequenos reparos prediais.",
-                s3_title: "3. Gestão de Resíduos e Reciclagem",
-                s3_desc: "Limpeza técnica pós-obra, recolhimento e triagem minuciosa de entulhos, separação de metais recicláveis (ferro, cobre, alumínio), destinação adequada conforme regulamentação local e organização de pátios industriais.",
-                s4_title: "4. Logística e Movimentação Industrial",
-                s4_desc: "Suporte físico para transporte interno de maquinários e insumos, desmontagem tática de linhas de produção fabris, serviços de carga e descarga pesada, além de apoio logístico contínuo em canteiros de obras.",
-                s5_title: "5. Gerenciamento Operacional",
-                s5_desc: "Planejamento e coordenação direta das frentes de trabalho, supervisão operacional de campo, suporte administrativo focado nas rotinas do canteiro, emissão de relatórios de progresso diário e conformidade com as regras locais.",
-                careers_title: "Trabalhe na Cateli",
-                careers_intro: "Buscamos profissionais dedicados, pontuais e comprometidos com a segurança e a qualidade no trabalho. Na Cateli, valorizamos o respeito mútuo, a clareza nas tarefas e um ambiente de trabalho organizado. Se você busca uma oportunidade séria no setor de construção e indústria no Japão, queremos conhecer você.",
-                careers_offers_title: "O que oferecemos:",
-                off1: "Ambiente de trabalho seguro, focado em integridade física e respeito mútuo.",
-                off2: "Tarefas operacionais claras com acompanhamento e supervisão presente.",
-                off3: "Pagamento correto, transparente e estritamente pontual (conforme legislação japonesa).",
-                off4: "Oportunidade real de crescimento profissional e acompanhamento da expansão da empresa.",
-                lbl_name: "Nome Completo / Nome Japonês",
-                lbl_visa: "Status de Visto Atual",
-                opt_visa_def: "Selecione seu status...",
-                opt_v1: "Residente Permanente / Cônjuge",
-                opt_v2: "Visto de Trabalho",
-                opt_v3: "Estudante (com permissão de trabalho)",
-                opt_v4: "Dependente",
-                opt_v5: "Outro status",
-                lbl_area: "Área de Interesse",
-                opt_area_def: "Selecione uma área...",
-                lbl_msg: "Mensagem / Disponibilidade",
-                lbl_upload: "Documentos (Upload Múltiplo - Obrigatório)",
-                upload_text: "<b>Clique para anexar</b> ou arraste arquivos aqui<br>(CV, fotos de documentos ou certificados)",
-                btn_send: "Enviar Candidatura",
-                disclaimer: "A Cateli trata todos os dados pessoais com estrita confidencialidade. O envio deste formulário manifesta interesse em nosso banco de talentos e não garante contratação imediata. Entraremos em contato exclusivamente se houver uma vaga compatível com seu perfil.",
-                contact_title: "Contato Corporativo",
-                c_addr: "Endereço Comercial",
-                c_phone: "Telefone de Atendimento",
-                c_email: "Correio Eletrônico (E-mail)",
-                map_placeholder: "[ Área destinada à integração futura com o mapa do Google Maps / Escritório Central Tóquio ]"
+            jp: {
+                nav_about: "会社概要", nav_services: "事業内容", nav_careers: "採用情報", nav_contact: "お問い合わせ",
+                hero_title: "建設・産業現場を支える、確実な実務施工サポート",
+                hero_desc: "日本国内の現場において、工期遵守と安全運行を最優先に、実務作業員の配置、ロジスティクス管理、現場サポートを提供します。",
+                hero_cta: "応募はこちら",
+                about_title: "透明性のあるコミットメント",
+                about_p1: "株式会社 SUPPORTPROは、現場の実務ニーズへの対応に特化した成長企業です。当社は設計やエンジニアリングを行う会社ではなく、現場を計画通りかつ安全に進めるための物理的・ロジスティクス的なサポート業務に注力しています。",
+                about_p2: "誠実な対応、スケジュール管理の徹底、現場の基本安全の確保を経営の軸としています。形式的な手続きよりも、現場での確実な実行力を求める建設業者様や製造業者様をダイレクトに支えます。",
+                services_title: "事業内容（6つのカテゴリー）",
+                s1_title: "1. 足場架設工事",
+                s1_desc: "住宅から大型産業プラントまで対応する各種足場の組立・解体。高所作業の確実なルートを確保し、日本の安全基準に適合した揺るぎない足場構造を構築します。",
+                s2_title: "2. 解体工事・現場準備",
+                s2_desc: "安全に配慮した構造物の管理解体および撤去作業。重機オペレーションとの連携、コンクリートや廃材の迅速なクリアリング、次のステップのための土地造成・整地を行います。",
+                s3_title: "3. 各種リフォーム・内装仕上工事",
+                s3_desc: "建築物・構造物の一般塗装、ドライウォール（軽天・ボード）の施工、各種床材・仕上げ材の設置、外壁・屋根の補修、小規模な営繕修繕を行います。",
+                s4_title: "4. 産業廃棄物分別・現場清掃・資源回収",
+                s4_desc: "施工後の専門清掃、廃材の収集と厳密な分別、金属類（鉄、銅、アルミ）の回収、法令に準拠した適正処分の管理、工場構内の整理整頓を行います。",
+                s5_title: "5. 工場構内物流・機械設備移設サポート",
+                s5_desc: "重量物・資材の構内搬送サポート、工場生産ラインの解体・移設補助、積込・荷降ろし作業、および建設現場における継続的な物流支援を行います。",
+                s6_title: "6. 現場オペレーション・施工進行管理アシスタント",
+                s6_desc: "作業チーム of 配置調整、現場の実務監督補助、現場事務サポート、日報作成、ならびに地域の安全基準やルール遵守の徹底管理を行います。",
+                careers_title: "採用情報",
+                careers_intro: "真面目で時間を守り、安全と品質を重視する人材を募集しています。SUPPORTPROでは、お互いの尊重、業務の明確化、整理された就業環境を大切にしています。日本の建設・産業セクターで真剣に仕事を探している方のご応募をお待ちしています。",
+                careers_offers_title: "待遇と環境:",
+                off1: "身体の安全を守る環境と、お互いを尊重しあう職場。",
+                off2: "指導・監督が行き届いた、明確で分かりやすい業務指示。",
+                off3: "日本の労働法に完全準拠した、適正かつ確実な給与支給。",
+                off4: "会社の成長とともに、ステップアップや昇格のチャンスがあります。",
+                lbl_name: "氏名（漢字／カタカナ、またはアルファベット）",
+                lbl_visa: "現在の在留資格（ビザ）",
+                opt_visa_def: "ステータスを選択してください...",
+                opt_v1: "永住者 / 配偶者",
+                opt_v2: "就労ビザ",
+                opt_v3: "留学生（資格外活動許可あり）",
+                opt_v4: "家族滞在",
+                opt_v5: "その他の在留資格",
+                lbl_area: "希望職種",
+                opt_area_def: "カテゴリーを選択してください...",
+                lbl_msg: "メッセージ / 勤務可能時期など",
+                ph_message: "勤務可能な時間帯や過去の経験などを簡単に記載してください...",
+                lbl_upload: "書類添付（複数選択可・必須）",
+                upload_text: "<b>ファイルを選択</b> またはここにドラッグ＆ドロップ<br>(履歴書、在留カード写真、資格証など)",
+                btn_send: "応募書類を送信する",
+                disclaimer: "株式会社 SUPPORTPROは、お預かりした個人情報を厳重に管理いたします。このフォームの送信は採用を確定するものではありません。募集要件に合致する職種がある場合に限り、担当者より追ってご連絡いたします。",
+                contact_title: "企業窓口",
+                c_addr: "本社所在地",
+                c_phone: "代表電話番号",
+                c_email: "代表メールアドレス",
+                map_placeholder: "[ Googleマップ連携・アクセス情報展開予定エリア / 愛知県豊田市 ]",
+                footer_text: "&copy; 2026 株式会社 SUPPORTPRO. All rights reserved. 日本における確実な実務施工とコミットメント。"
             },
             en: {
-                nav_about: "About Us", nav_services: "Services", nav_careers: "Careers", nav_contact: "Contact",
+                nav_about: "Company Profile", nav_services: "Our Business", nav_careers: "Careers", nav_contact: "Contact Us",
                 hero_title: "Practical On-Site Support for Construction and Industry",
                 hero_desc: "We provide operational manpower, logistics coordination, and field support focused on strict schedule compliance and safety execution across Japan.",
                 hero_cta: "Join Our Team",
                 about_title: "Transparent Commitment",
-                about_p1: "Cateli Corporation is a growing provider structured to execute practical, physical on-site demands. We are not an engineering or architectural firm; our core focus is the physical and logistical deployment that keeps jobsites orderly and progressive.",
+                about_p1: "SUPPORTPRO Co., Ltd. is a growing provider structured to execute practical, physical on-site demands. We are not an engineering or architectural firm; our core focus is the physical and logistical deployment that keeps jobsites orderly and progressive.",
                 about_p2: "Our framework relies heavily on accountability, absolute deadline respect, and baseline safety rules for field personnel. We support constructors and manufacturers searching for direct, candid, and operation-oriented support.",
                 services_title: "Our Operational Areas",
-                s1_title: "1. Preparation & Structure",
-                s1_desc: "Controlled demolition, structural extraction, jobsite leveling, structural residential or industrial scaffolding setup, physical perimetric isolation, and hazard signaling placement.",
-                s2_title: "2. Renovation & Finishing",
-                s2_desc: "General industrial/commercial paint coatings, drywall framing and finishing, floor covering assemblies, basic roof and facade upkeep, and generic facility maintenance work.",
-                s3_title: "3. Waste Management & Recycling",
-                s3_desc: "Post-construction deep cleanups, debris collection and meticulous sorting, recyclable scrap metal classification (iron, copper, aluminum), compliant local hauling coordination, and industrial yard sorting.",
-                s4_title: "4. Logistics & Industrial Handling",
-                s4_desc: "Physical logistics for heavy hardware relocation, manufacturing assembly line dismantling assistance, freight loading/unloading, and persistent hands-on logistics support.",
-                s5_title: "5. Operational Site Coordination",
-                s5_desc: "Direct field personnel allocation, workflow tracking, administrative site assistance, daily task checklist log reporting, and safety rule application monitoring.",
-                careers_title: "Careers at Cateli",
-                careers_intro: "We seek dedicated, punctual professionals committed to safety and workplace quality. At Cateli, we value mutual respect, objective assignments, and structured operations. If you seek genuine labor work in Japan's construction/industrial sector, we look forward to meeting you.",
+                s1_title: "1. Scaffolding Assembly Work",
+                s1_desc: "Assembly and disassembly of safety-compliant scaffolding structures for residential and heavy industrial plants, securing optimal elevated routes.",
+                s2_title: "2. Demolition & Site Preparation",
+                s2_desc: "Controlled demolition of structures, fast masonry/concrete structural extraction, efficient clearing, and dynamic plot leveling for subsequent development steps.",
+                s3_title: "3. Renovation & Finishing",
+                s3_desc: "General industrial/commercial paint coatings, drywall framing and finishing, floor covering assemblies, basic roof and facade upkeep, and generic facility maintenance work.",
+                s4_title: "4. Waste Management & Recycling",
+                s4_desc: "Post-construction deep cleanups, debris collection and meticulous sorting, recyclable scrap metal classification (iron, copper, aluminum), compliant local hauling coordination, and industrial yard sorting.",
+                s5_title: "5. Logistics & Industrial Handling",
+                s5_desc: "Physical logistics for heavy hardware relocation, manufacturing assembly line dismantling assistance, freight loading/unloading, and persistent hands-on logistics support.",
+                s6_title: "6. Operational Site Coordination",
+                s6_desc: "Direct field personnel allocation, workflow tracking, administrative site assistance, daily task checklist log reporting, and safety rule application monitoring.",
+                careers_title: "Careers at SUPPORTPRO",
+                careers_intro: "We seek dedicated, punctual professionals committed to safety and workplace quality. At SUPPORTPRO, we value mutual respect, objective assignments, and structured operations. If you seek genuine labor work in Japan's construction/industrial sector, we look forward to meeting you.",
                 careers_offers_title: "What we offer:",
                 off1: "A safe, respectful working environment focused on site health guidelines.",
                 off2: "Clear task directives with direct on-site supervisor presence.",
@@ -795,74 +832,83 @@
                 lbl_area: "Area of Interest",
                 opt_area_def: "Select an operational path...",
                 lbl_msg: "Message / Availability Details",
+                ph_message: "Briefly describe your schedule or previous experience...",
                 lbl_upload: "Documents (Multiple Upload - Mandatory)",
                 upload_text: "<b>Click to browse</b> or drag and drop files here<br>(CV, residence IDs, or certificates)",
                 btn_send: "Submit Application",
-                disclaimer: "Cateli processes all personal data under strict confidentiality guidelines. Submission expresses database placement interest and does not bind immediate employment. We contact applicants solely when compatible matching openings occur.",
+                disclaimer: "SUPPORTPRO processes all personal data under strict confidentiality guidelines. Submission expresses database placement interest and does not bind immediate employment. We contact applicants solely when compatible matching openings occur.",
                 contact_title: "Corporate Contact",
                 c_addr: "Registered Office Address",
                 c_phone: "Business Support Line",
                 c_email: "Corporate Mailbox",
-                map_placeholder: "[ Designated spot for prospective Google Maps integration / Tokyo Headquarters ]"
+                map_placeholder: "[ Designated spot for prospective Google Maps integration / Toyota, Aichi ]",
+                footer_text: "&copy; 2026 SUPPORTPRO Co., Ltd. All rights reserved. Operational Reality and Commitment in Japan."
             },
-            jp: {
-                nav_about: "会社概要", nav_services: "事業内容", nav_careers: "採用情報", nav_contact: "お問い合わせ",
-                hero_title: "建設・産業現場を支eる、確実な実務施工サポート",
-                hero_desc: "日本国内の現場において、工期遵守と安全運行を最優先に、実務作業員の配置、ロジスティクス管理、現場サポートを提供します。",
-                hero_cta: "応募はこちら",
-                about_title: "透明性のあるコミットメント",
-                about_p1: "カテリ株式会社（Cateli Corporation）は、現場の実務ニーズへの対応に特化した成長企業です。当社は設計やエンジニアリングを行う会社ではなく、現場を計画通りかつ安全に進めるための物理的・ロジスティクス的なサポート業務に注力しています。",
-                about_p2: "誠実な対応、スケジュール管理の徹底、現場の基本安全の確保を経営の軸としています。形式的な手続きよりも、現場での確実な実行力を求める建設業者様や製造業者様をダイレクトに支えます。",
-                services_title: "事業内容（5つのカテゴリー）",
-                s1_title: "1. 構造物解体・現場準備・足場架設",
-                s1_desc: "管理解体、古い構造物の撤去、土地の造成・整地、住宅・産業用足場の組立、ならびに現場周辺の予防隔離や安全標識の設置を行います。",
-                s2_title: "2. 各種リフォーム・内装仕上工事",
-                s2_desc: "建築物・構造物の一般塗装、ドライウォール（軽天・ボード）の施工、各種床材・仕上げ材の設置、外壁・屋根の補修、小規模な営繕修繕を行います。",
-                s3_title: "3. 産業廃棄物分別・現場清掃・資源回収",
-                s3_desc: "施工後の専門清掃、廃材の収集と厳密な分別、金属類（鉄、銅、アルミ）の回収、法令に準拠した適正処分の管理、工場構内の整理整頓を行います。",
-                s4_title: "4. 工場構内物流・機械設備移設サポート",
-                s4_desc: "重量物・資材の構内搬送サポート、工場生産ラインの解体・移設補助、積込・荷降ろし作業、および建設現場における継続的な物流支援を行います。",
-                s5_title: "5. 現場オペレーション・施工進行管理アシスタント",
-                s5_desc: "作業チームの配置調整、現場の実務監督補助、現場事務サポート、日報作成、ならびに地域の安全基準やルール遵守の徹底管理を行います。",
-                careers_title: "採用情報",
-                careers_intro: "真面目で時間を守り、安全と品質を重視する人材を募集しています。カテリでは、お互いの尊重、業務の明確化、そして整理された就業環境を大切にしています。日本の建設・産業セクターで真剣に仕事を探している方のご応募をお待ちしています。",
-                careers_offers_title: "待遇と環境:",
-                off1: "身体の安全を守る環境と、お互いを尊重しあう職場。/li>",
-                off2: "指導・監督が行き届いた、明確で分かりやすい業務指示。",
-                off3: "日本の労働法に完全準拠した、適正かつ確実な給与支給。",
-                off4: "会社の成長とともに、ステップアップや昇格のチャンスがあります。",
-                lbl_name: "氏名（漢字／カタカナ、またはアルファベット）",
-                lbl_visa: "現在の在留資格（ビザ）",
-                opt_visa_def: "ステータスを選択してください...",
-                opt_v1: "永住者 / 配偶者",
-                opt_v2: "就労ビザ",
-                opt_v3: "留学生（資格外活動許可あり）",
-                opt_v4: "家族滞在",
-                opt_v5: "その他の在留資格",
-                lbl_area: "希望職種",
-                opt_area_def: "カテゴリーを選択してください...",
-                lbl_msg: "メッセージ / 勤務可能時期など",
-                lbl_upload: "書類添付（複数選択可・必須）",
-                upload_text: "<b>ファイルを選択</b> またはここにドラッグ＆ドロップ<br>(履歴書、在留カード写真、資格証など)",
-                btn_send: "応募書類を送信する",
-                disclaimer: "カテリ株式会社は、お預かりした個人情報を厳重に管理いたします。このフォームの送信は採用を確定するものではありません。募集要件に合致する職種がある場合に限り、担当者より追ってご連絡いたします。",
-                contact_title: "企業窓口",
-                c_addr: "本社所在地",
-                c_phone: "代表電話番号",
-                c_email: "代表メールアドレス",
-                map_placeholder: "[ Googleマップ連携・アクセス情報展開予定エリア / 東京本社 ]"
+            pt: {
+                nav_about: "Sobre Nós", nav_services: "Serviços", nav_careers: "Carreiras", nav_contact: "Contato",
+                hero_title: "Apoio Operacional Prático para Construção e Indústria",
+                hero_desc: "Fornecemos mão de obra executiva, organização logística e suporte de campo focado no cumprimento de prazos e segurança operacional no Japão.",
+                hero_cta: "Trabalhe Conosco",
+                about_title: "Compromisso Transparente",
+                about_p1: "A 株式会社 SUPPORTPRO é uma empresa em expansão estruturada para atuar na execução prática de demandas operacionais. Não somos uma empresa de engenharia ou desenvolvimento de projetos estruturais; nosso foco está no suporte físico e logístico que faz a obra avançar de forma organizada.",
+                about_p2: "Pautamos nossa atuação na seriedade, no respeito absoluto aos cronogramas combinados e na segurança básica das equipes em campo. Atendemos construtoras e indústrias que buscam fornecedores diretos, francos e focados na entrega operacional sem burocracias desnecessárias.",
+                services_title: "Nossas Áreas de Atuação",
+                s1_title: "1. Montagem de Andaimes",
+                s1_desc: "Montagem e desmontagem de estruturas de andaimes residenciais e industriais. Garantia de acessos firmes e seguros para trabalhos em altura, em total conformidade com as regras de segurança japonesas.",
+                s2_title: "2. Demolição e Preparação",
+                s2_desc: "Serviços de demolição controlada de estruturas, remoção rápida de entulho e alvenaria, destoca e nivelamento de terrenos prontos para receber novas fases de construção.",
+                s3_title: "3. Reformas e Acabamentos",
+                s3_desc: "Execução de pintura geral de superfícies, instalação e fechamento de drywall, assentamento de pisos e revestimentos diversos, além de serviços básicos de manutenção em fachadas, telhados e pequenos reparos prediais.",
+                s4_title: "4. Gestão de Resíduos e Reciclagem",
+                s4_desc: "Limpeza técnica pós-obra, recolhimento e triagem minuciosa de entulhos, separação de metais recicláveis (ferro, cobre, alumínio), destinação adequada conforme regulamentação local e organização de pátios industriais.",
+                s5_title: "5. Logística e Movimentação Industrial",
+                s5_desc: "Suporte físico para transporte interno de maquinários e insumos, desmontagem tática de linhas de produção fabris, serviços de carga e descarga pesada, além de apoio logístico contínuo em canteiros de obras.",
+                s6_title: "6. Gerenciamento Operacional",
+                s6_desc: "Planejamento e coordenação direta das frentes de trabalho, supervisão operacional de campo, suporte administrativo focado nas rotinas do canteiro, emissão de relatórios de progresso diário e conformidade com as regras locais.",
+                careers_title: "Trabalhe na SUPPORTPRO",
+                careers_intro: "Buscamos profissionais dedicados, pontuais e comprometidos com a segurança e a qualidade no trabalho. Na SUPPORTPRO, valorizamos o respeito mútuo, a clareza nas tarefas e um ambiente de trabalho organizado. Se você busca uma oportunidade séria no setor de construção e indústria no Japão, queremos conhecer você.",
+                careers_offers_title: "O que oferecemos:",
+                off1: "Ambiente de trabalho seguro, focado em integridade física e respeito mútuo.",
+                off2: "Tarefas operacionais claras com acompanhamento e supervisão presente.",
+                off3: "Pagamento correto, transparente e estritamente pontual (conforme legislação japonesa).",
+                off4: "Oportunidade real de crescimento profissional e acompanhamento da expansão da empresa.",
+                lbl_name: "Nome Completo / Nome Japonês",
+                lbl_visa: "Status de Visto Atual",
+                opt_visa_def: "Selecione seu status...",
+                opt_v1: "Residente Permanente / Cônjuge",
+                opt_v2: "Visto de Trabalho",
+                opt_v3: "Estudante (com permissão de trabalho)",
+                opt_v4: "Dependente",
+                opt_v5: "Outro status",
+                lbl_area: "Área de Interesse",
+                opt_area_def: "Selecione uma área...",
+                lbl_msg: "Mensagem / Disponibilidade",
+                ph_message: "Descreva brevemente seus horários ou experiência prévia...",
+                lbl_upload: "Documentos (Upload Múltiplo - Obrigatório)",
+                upload_text: "<b>Clique para anexar</b> ou arraste arquivos aqui<br>(CV, fotos de documentos ou certificados)",
+                btn_send: "Enviar Candidatura",
+                disclaimer: "A SUPPORTPRO trata todos os dados pessoais com estrita confidencialidade. O envio deste formulário manifesta interesse em nosso banco de talentos e não garante contratação imediata. Entraremos em contato exclusivamente se houver uma vaga compatível com seu perfil.",
+                contact_title: "Contato Corporativo",
+                c_addr: "Endereço Comercial",
+                c_phone: "Telefone de Atendimento",
+                c_email: "Correio Eletrônico (E-mail)",
+                map_placeholder: "[ Área destinada à integração futura com o mapa do Google Maps / 愛知県豊田市 ]",
+                footer_text: "&copy; 2026 株式会社 SUPPORTPRO. All rights reserved. Realidade Operacional e Compromisso no Japão."
             }
         };
+
+        // --- SISTEMA INICIALIZADOR COMPATÍVEL COM NIHONGO FIRST ---
+        function initSite() {
+            setLanguage('jp');
+        }
 
         // --- FUNÇÃO DE IDIOMA ATIVO ---
         function setLanguage(lang) {
             // Atualizar classes dos botões
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
-                if(btn.innerText.toLowerCase() === lang) {
-                    btn.classList.add('active');
-                }
             });
+            document.getElementById(`btn-${lang}`).classList.add('active');
 
             // Mapear elementos traduzíveis
             document.querySelectorAll('[data-i18n]').forEach(element => {
@@ -892,7 +938,6 @@
             navLinks.classList.toggle('active');
         });
 
-        // Fechar menu ao clicar em um link mobile
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
@@ -907,7 +952,7 @@
             
             if (input.files.length > 0) {
                 const fileNames = Array.from(input.files).map(file => file.name).join(', ');
-                preview.textContent = `📁 Arquivos prontos (${input.files.length}): ${fileNames}`;
+                preview.textContent = `📁 (${input.files.length}) Arquivos selecionados: ${fileNames}`;
             }
         }
 
@@ -938,15 +983,13 @@
         // --- SUBMIT DO FORMULÁRIO (FRONT-END ONLY) ---
         function handleFormSubmit(event) {
             event.preventDefault();
-            
-            // Mock de envio com alerta condizente ao idioma
-            const currentLang = document.querySelector('.lang-btn.active').innerText.toLowerCase();
-            let successMessage = "Obrigado! Sua candidatura foi registrada em nosso banco de dados. Se houver vagas, entraremos em contato.";
+            const currentLang = document.querySelector('.lang-btn.active').id.replace('btn-', '');
+            let successMessage = "ご応募ありがとうございました。社内データに登録いたしました。条件に合う案件がございましたら、追ってご連絡いたします。";
             
             if (currentLang === 'en') {
                 successMessage = "Thank you! Your application has been logged. We will reach out if a matching position opens.";
-            } else if (currentLang === 'jp') {
-                successMessage = "ご応募ありがとうございました。社内データに登録いたしました。条件に合う案件がございましたら、追ってご連絡いたします。";
+            } else if (currentLang === 'pt') {
+                successMessage = "Obrigado! Sua candidatura foi registrada em nosso banco de dados. Se houver vagas, entraremos em contato.";
             }
             
             alert(successMessage);
@@ -956,3 +999,5 @@
     </script>
 </body>
 </html>
+
+```
