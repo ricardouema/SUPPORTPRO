@@ -172,7 +172,7 @@
 
         /* --- HERO SECTION --- */
         .hero {
-            background-image: linear-gradient(rgba(15, 30, 54, 0.9), rgba(15, 30, 54, 0.9)), url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80');
+            background-image: linear-gradient(rgba(15, 30, 54, 0.9), rgba(15, 30, 54, 0.9)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
             color: var(--pure-white);
@@ -224,11 +224,15 @@
         }
 
         .about-box p {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: var(--text-dark);
         }
+        
+        .about-box p:last-child {
+            margin-bottom: 0;
+        }
 
-        /* --- ESTRUTURA DE SERVIÇOS (6 CATEGORIAS COM IMAGENS) --- */
+        /* --- ESTRUTURA DE SERVIÇOS (6 CATEGORIAS) --- */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -254,7 +258,7 @@
 
         .service-img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
             border-radius: 4px;
             margin-bottom: 15px;
@@ -450,18 +454,13 @@
             font-size: 0.95rem;
         }
 
-        .placeholder-map {
+        .map-container {
+            width: 100%;
+            min-height: 300px;
             background-color: #E2E8F0;
             border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 250px;
-            color: var(--text-muted);
-            font-weight: 600;
-            text-align: center;
-            padding: 20px;
-            border: 1px solid var(--border-color);
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
 
         /* --- FOOTER --- */
@@ -558,8 +557,9 @@
         <div class="container">
             <h2 class="section-title" data-i18n="about_title">透明性のあるコミットメント</h2>
             <div class="about-box">
-                <p data-i18n="about_p1">カテリ株式会社（Cateli Corporation）は、現場の実務ニーズへの対応に特化した成長企業です。当社は設計やエンジニアリングを行う会社ではなく、現場を計画通りかつ安全に進めるための物理的・ロジスティクス的なサポート業務に注力しています。</p>
-                <p data-i18n="about_p2">誠実な対応、スケジュール管理の徹底、現場の基本安全の確保を経営の軸としています。形式的な手続きよりも、現場での確実な実行力を求める建設業者様や製造業者様をダイレクトに支えます。</p>
+                <p data-i18n="about_p1">株式会社 SUPPORTPROは、建築施工およびビルメンテナンスの各種実務サービスを専門とする企業です。業務の直接施工に携わり、結果にコミットするパートナーを求める建設会社、デベロッパー、現場管理者の皆様へ、効率的かつ安全なソリューションをお届けします。</p>
+                <p data-i18n="about_p2">当社の事業内容は、足場の組立・解体、管理解体、リフォーム（塗装、ドライウォール、床施工）、ビルメンテナンス、土地の造成・清掃、資材のリサイクル、機材物流まで多岐にわたります。また、サービスの進行管理も行い、施工のあらゆるフェーズにおいて組織化、工期管理、確実な連携を徹底します。</p>
+                <p data-i18n="about_p3">私たちは、安全基準の厳格な遵守、透明性のあるコミュニケーション、そして合意されたスケジュールの履行を徹底して各プロジェクトを進めます。オペレーショナル・エクセレンスは信頼から始まると信じており、それこそが私たちがすべてのお客様に提供する価値です。</p>
             </div>
         </div>
     </section>
@@ -572,42 +572,42 @@
                 
                 <!-- 1. Andaimes -->
                 <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=500&q=80" alt="Scaffolding Safety" class="service-img">
+                    <img src="https://images.unsplash.com/photo-1567954970774-58d6aa69905c?auto=format&fit=crop&w=500&q=80" alt="Scaffolding Assembly and Trucks" class="service-img">
                     <h3 data-i18n="s1_title">1. 足場架設工事</h3>
                     <p data-i18n="s1_desc">住宅から大型産業プラントまで対応する各種足場の組立・解体。高所作業の確実なルートを確保し、日本の安全基準に適合した揺るぎない足場構造を構築します。</p>
                 </div>
 
                 <!-- 2. Demolição -->
                 <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=500&q=80" alt="Controlled Demolition" class="service-img">
+                    <img src="https://images.unsplash.com/photo-1541625602330-2277a4c46182?auto=format&fit=crop&w=500&q=80" alt="Warehouse Demolition Safety" class="service-img">
                     <h3 data-i18n="s2_title">2. 解体工事・現場準備</h3>
                     <p data-i18n="s2_desc">安全に配慮した構造物の管理解体および撤去作業。重機オペレーションとの連携、コンクリートや廃材の迅速なクリアリング、次のステップのための土地造成・整地を行います。</p>
                 </div>
 
                 <!-- 3. Reformas e Acabamentos -->
                 <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=500&q=80" alt="Renovation Work" class="service-img">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=500&q=80" alt="Warehouse Renovation Work" class="service-img">
                     <h3 data-i18n="s3_title">3. 各種リフォーム・内装仕上工事</h3>
                     <p data-i18n="s3_desc">建築物・構造物の一般塗装、ドライウォール（軽天・ボード）の施工、各種床材・仕上げ材の設置、外壁・屋根の補修、小規模な営繕修繕を行います。</p>
                 </div>
 
                 <!-- 4. Gestão de Resíduos e Reciclagem -->
                 <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?auto=format&fit=crop&w=500&q=80" alt="Waste Recycling" class="service-img">
+                    <img src="https://images.unsplash.com/photo-1605647540924-852290f6b0d5?auto=format&fit=crop&w=500&q=80" alt="Construction Waste Sorting" class="service-img">
                     <h3 data-i18n="s4_title">4. 産業廃棄物分別・現場清掃・資源回収</h3>
-                    <p data-i18n="s4_desc">施工後の専門清掃、廃材の収集と厳密な分別、金属類（鉄、銅、アルミ）の回収、法令に準拠した適正処分の管理、工場構内の整理整頓を行います。</p>
+                    <p data-i18n="s4_desc">施工後の専門清掃、廃材の収集と厳密な分別、金属類（鉄, 銅, アルミ）の回収、法令に準拠した適正処分の管理、工場構内の整理整頓を行います。</p>
                 </div>
 
                 <!-- 5. Logística e Movimentação Industrial -->
                 <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=500&q=80" alt="Industrial Logistics" class="service-img">
+                    <img src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?auto=format&fit=crop&w=500&q=80" alt="Industrial Truck Yard Logistics" class="service-img">
                     <h3 data-i18n="s5_title">5. 工場構内物流・機械設備移設サポート</h3>
-                    <p data-i18n="s5_desc">重量物・資材 de 構内搬送サポート、工場生産ラインの解体・移設補助、積込・荷降ろし作業、および建設現場における継続的な物流支援を行います。</p>
+                    <p data-i18n="s5_desc">重量物・資材の構内搬送サポート、工場生産ラインの解体・移設補助、積込・荷降ろし作業、および建設現場における継続的な物流支援を行います。</p>
                 </div>
 
                 <!-- 6. Gerenciamento Operacional -->
                 <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1531834685032-c34bf0d8b999?auto=format&fit=crop&w=500&q=80" alt="Site Coordination" class="service-img">
+                    <img src="https://images.unsplash.com/photo-1541462608141-ad4979e408c9?auto=format&fit=crop&w=500&q=80" alt="Site Team and Supervisor Coordination" class="service-img">
                     <h3 data-i18n="s6_title">6. 現場オペレーション・施工進行管理アシスタント</h3>
                     <p data-i18n="s6_desc">作業チームの配置調整、現場の実務監督補助、現場事務サポート、日報作成、ならびに地域の安全基準やルール遵守の徹底管理を行います。</p>
                 </div>
@@ -623,7 +623,7 @@
             
             <div class="careers-wrapper">
                 <div class="careers-info">
-                    <p data-i18n="careers_intro">真面目で時間を守り、安全と品質を重視する人材を募集しています。カテリでは、お互いの尊重、業務の明確化、整理された就業環境を大切にしています。日本の建設・産業セクターで真剣に仕事を探している方のご応募をお待ちしています。</p>
+                    <p data-i18n="careers_intro">真面目で時間を守り、安全と品質を重視する人材を募集しています。SUPPORTPROでは、お互いの尊重、業務の明確化、整理された就業環境を大切にしています。日本の建設・産業セクターで真剣に仕事を探している方のご応募をお待ちしています。</p>
                     
                     <h4 data-i18n="careers_offers_title">待遇と環境:</h4>
                     <ul class="careers-list">
@@ -638,7 +638,8 @@
                 <form class="career-form" id="applicationForm" onsubmit="handleFormSubmit(event)">
                     <div class="form-group">
                         <label for="fullName" data-i18n="lbl_name">氏名（漢字／カタカナ、またはアルファベット）</label>
-                        <input type="text" id="fullName" class="form-control" required placeholder="Ex: Ricardo Uema">
+                        <!-- ATUALIZADO: Adicionado suporte dinâmico data-i18n="ph_name" -->
+                        <input type="text" id="fullName" class="form-control" required data-i18n="ph_name" placeholder="例：山田 太郎 (ヤマダ タロウ)">
                     </div>
 
                     <div class="form-group">
@@ -663,6 +664,8 @@
                             <option value="residuos" data-i18n="s4_title">4. 産業廃棄物分別・現場清掃・資源回収</option>
                             <option value="logistica" data-i18n="s5_title">5. 工場構内物流・機械設備移設サポート</option>
                             <option value="gerenciamento" data-i18n="s6_title">6. 現場オペレーション・施工進行管理アシスタント</option>
+                            <!-- ATUALIZADO: Sétima opção adicionada aqui -->
+                            <option value="outro_capacitacao" data-i18n="s7_title">7. その他（未定・複数の技能）</option>
                         </select>
                     </div>
 
@@ -674,7 +677,7 @@
                     <div class="form-group">
                         <label data-i18n="lbl_upload">書類添付（複数選択可・必須）</label>
                         <div class="file-drop-zone" id="dropZone">
-                            <span class="file-zone-text" data-i18n="upload_text"><b>ファイルを選択</b> またはここにドラッグ＆ドロップ<br>(履歴書、在留カード写真、資格証など)</span>
+                            <span class="file-zone-text" data-i18n="upload_text"><b>ファイルを選択</b> 或者ここにドラッグ＆ドロップ<br>(履歴書、在留カード写真、資格証など)</span>
                             <input type="file" id="fileInput" multiple required onchange="updateFilesList()">
                         </div>
                         <div class="file-list-preview" id="fileListPreview"></div>
@@ -682,7 +685,7 @@
 
                     <button type="submit" class="btn-submit" data-i18n="btn_send">応募書類を送信する</button>
                     
-                    <p class="form-disclaimer" data-i18n="disclaimer">カテリ株式会社は、お預かりした個人情報を厳重に管理いたします。このフォームの送信は採用を確定するものではありません。募集要件に合致する職種がある場合に限り、担当者より追ってご連絡いたします。</p>
+                    <p class="form-disclaimer" data-i18n="disclaimer">株式会社 SUPPORTPROは、お預かりした個人情報を厳重に管理いたします。このフォームの送信は採用を確定するものではありません。募集要件に合致する職種がある場合に限り、担当者より追ってご連絡いたします。</p>
                 </form>
             </div>
         </div>
@@ -707,8 +710,9 @@
                         <p>contato@supportpro.co.jp</p>
                     </div>
                 </div>
-                <div class="placeholder-map" data-i18n="map_placeholder">
-                    [ Googleマップ連携・アクセス情報展開予定エリア / 愛知県豊田市 ]
+                <!-- ATUALIZADO: Substituído o mapa estático cinza por um iframe real e funcional do Google Maps -->
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3264.4442111001884!2d137.1423403!3d35.0956275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6004a046c8257007%3A0xe5eb6c42a2202613!2z4CruNDcxLTAwMzEg5oSb5bed55yM6LGK55Sw5biC5pyd5pel55S677yR77yQ4oiS77yR77yU!5e0!3m2!1sja!2sjp!4v1716940000000!5m2!1sja!2sjp" width="100%" height="100%" style="border:0; min-height: 300px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
@@ -731,8 +735,9 @@
                 hero_desc: "日本国内の現場において、工期遵守と安全運行を最優先に、実務作業員の配置、ロジスティクス管理、現場サポートを提供します。",
                 hero_cta: "応募はこちら",
                 about_title: "透明性のあるコミットメント",
-                about_p1: "株式会社 SUPPORTPROは、現場の実務ニーズへの対応に特化した成長企業です。当社は設計やエンジニアリングを行う会社ではなく、現場を計画通りかつ安全に進めるための物理的・ロジスティクス的なサポート業務に注力しています。",
-                about_p2: "誠実な対応、スケジュール管理の徹底、現場の基本安全の確保を経営の軸としています。形式的な手続きよりも、現場での確実な実行力を求める建設業者様や製造業者様をダイレクトに支えます。",
+                about_p1: "株式会社 SUPPORTPROは、建築施工およびビルメンテナンスの各種実務サービスを専門とする enterprise です。業務の直接施工に携わり、結果にコミットするパートナーを求める建設会社、デベロッパー、現場管理者の皆様へ、効率的かつ安全なソリューションをお届けします。",
+                about_p2: "当社の事業内容は、足場の組立・解体、管理解体、リフォーム（塗装、ドライウォール、床施工）、ビルメンテナンス、土地の造成・清掃、資材のリサイクル、機材物流まで多岐にわたります。また、サービスの進行管理も行い、施工のあらゆるフェーズにおいて組織化、工期管理、確実な連携を徹底します。",
+                about_p3: "私たちは、安全基準の厳格な遵守、透明性のあるコミュニケーション、そして合意されたスケジュールの履行を徹底して各プロジェクトを進めます。オペレーショナル・エクセレンスは信頼から始まると信じており、それこそが私たちがすべてのお客様に提供する価値です。",
                 services_title: "事業内容（6つのカテゴリー）",
                 s1_title: "1. 足場架設工事",
                 s1_desc: "住宅から大型産業プラントまで対応する各種足場の組立・解体。高所作業の確実なルートを確保し、日本の安全基準に適合した揺るぎない足場構造を構築します。",
@@ -745,7 +750,7 @@
                 s5_title: "5. 工場構内物流・機械設備移設サポート",
                 s5_desc: "重量物・資材の構内搬送サポート、工場生産ラインの解体・移設補助、積込・荷降ろし作業、および建設現場における継続的な物流支援を行います。",
                 s6_title: "6. 現場オペレーション・施工進行管理アシスタント",
-                s6_desc: "作業チーム of 配置調整、現場の実務監督補助、現場事務サポート、日報作成、ならびに地域の安全基準やルール遵守の徹底管理を行います。",
+                s6_desc: "作業チームの配置調整、現場の実務監督補助、現場事務サポート、日報作成、ならびに地域の安全基準やルール遵守の徹底管理を行います。",
                 careers_title: "採用情報",
                 careers_intro: "真面目で時間を守り、安全と品質を重視する人材を募集しています。SUPPORTPROでは、お互いの尊重、業務の明確化、整理された就業環境を大切にしています。日本の建設・産業セクターで真剣に仕事を探している方のご応募をお待ちしています。",
                 careers_offers_title: "待遇と環境:",
@@ -754,6 +759,7 @@
                 off3: "日本の労働法に完全準拠した、適正かつ確実な給与支給。",
                 off4: "会社の成長とともに、ステップアップや昇格のチャンスがあります。",
                 lbl_name: "氏名（漢字／カタカナ、またはアルファベット）",
+                ph_name: "例：山田 太郎 (ヤマダ タロウ)",
                 lbl_visa: "現在の在留資格（ビザ）",
                 opt_visa_def: "ステータスを選択してください...",
                 opt_v1: "永住者 / 配偶者",
@@ -763,6 +769,7 @@
                 opt_v5: "その他の在留資格",
                 lbl_area: "希望職種",
                 opt_area_def: "カテゴリーを選択してください...",
+                s7_title: "7. その他（未定・複数の技能）",
                 lbl_msg: "メッセージ / 勤務可能時期など",
                 ph_message: "勤務可能な時間帯や過去の経験などを簡単に記載してください...",
                 lbl_upload: "書類添付（複数選択可・必須）",
@@ -773,7 +780,6 @@
                 c_addr: "本社所在地",
                 c_phone: "代表電話番号",
                 c_email: "代表メールアドレス",
-                map_placeholder: "[ Googleマップ連携・アクセス情報展開予定エリア / 愛知県豊田市 ]",
                 footer_text: "&copy; 2026 株式会社 SUPPORTPRO. All rights reserved. 日本における確実な実務施工とコミットメント。"
             },
             en: {
@@ -782,8 +788,9 @@
                 hero_desc: "We provide operational manpower, logistics coordination, and field support focused on strict schedule compliance and safety execution across Japan.",
                 hero_cta: "Join Our Team",
                 about_title: "Transparent Commitment",
-                about_p1: "SUPPORTPRO Co., Ltd. is a growing provider structured to execute practical, physical on-site demands. We are not an engineering or architectural firm; our core focus is the physical and logistical deployment that keeps jobsites orderly and progressive.",
-                about_p2: "Our framework relies heavily on accountability, absolute deadline respect, and baseline safety rules for field personnel. We support constructors and manufacturers searching for direct, candid, and operation-oriented support.",
+                about_p1: "SUPPORTPRO Co., Ltd. is a company specialized in operational services for civil construction and building maintenance. Working directly in the execution of activities, we deliver efficient and safe solutions for construction companies, developers, and site managers looking for partners committed to results.",
+                about_p2: "Our service portfolio covers scaffolding assembly and disassembly, controlled demolition, renovations (painting, drywall, and flooring), building maintenance, land preparation and clearing, material recycling, and equipment logistics. We also operate in the operational management of services, ensuring organization, schedule control, and alignment in all phases of the project.",
+                about_p3: "We guide each project by rigorous respect for safety regulations, transparency in communication, and compliance with agreed schedules. We believe that operational excellence begins with trust — and that is what we deliver to every client.",
                 services_title: "Our Operational Areas",
                 s1_title: "1. Scaffolding Assembly Work",
                 s1_desc: "Assembly and disassembly of safety-compliant scaffolding structures for residential and heavy industrial plants, securing optimal elevated routes.",
@@ -805,6 +812,7 @@
                 off3: "Accurate, lawful, and strictly punctual payroll tracking under Japanese labor compliance.",
                 off4: "Real path for internal organic growth alongside our business expansion scale.",
                 lbl_name: "Full Name / Japanese Name",
+                ph_name: "Ex: Taro Yamada",
                 lbl_visa: "Current Visa Status",
                 opt_visa_def: "Select your status...",
                 opt_v1: "Permanent Resident / Spouse",
@@ -814,6 +822,7 @@
                 opt_v5: "Other status",
                 lbl_area: "Area of Interest",
                 opt_area_def: "Select an operational path...",
+                s7_title: "7. Other / Multiple Qualifications",
                 lbl_msg: "Message / Availability Details",
                 ph_message: "Briefly describe your schedule or previous experience...",
                 lbl_upload: "Documents (Multiple Upload - Mandatory)",
@@ -824,7 +833,6 @@
                 c_addr: "Registered Office Address",
                 c_phone: "Business Support Line",
                 c_email: "Corporate Mailbox",
-                map_placeholder: "[ Designated spot for prospective Google Maps integration / Toyota, Aichi ]",
                 footer_text: "&copy; 2026 SUPPORTPRO Co., Ltd. All rights reserved. Operational Reality and Commitment in Japan."
             },
             pt: {
@@ -833,8 +841,9 @@
                 hero_desc: "Fornecemos mão de obra executiva, organização logística e suporte de campo focado no cumprimento de prazos e segurança operacional no Japão.",
                 hero_cta: "Trabalhe Conosco",
                 about_title: "Compromisso Transparente",
-                about_p1: "A 株式会社 SUPPORTPRO é uma empresa em expansão estruturada para atuar na execução prática de demandas operacionais. Não somos uma empresa de engenharia ou desenvolvimento de projetos estruturais; nosso foco está no suporte físico e logístico que faz a obra avançar de forma organizada.",
-                about_p2: "Pautamos nossa atuação na seriedade, no respeito absoluto aos cronogramas combinados e na segurança básica das equipes em campo. Atendemos construtoras e indústrias que buscam fornecedores diretos, francos e focados na entrega operacional sem burocracias desnecessárias.",
+                about_p1: "A 株式会社 SUPPORTPRO é uma empresa especializada em serviços operacionais para a construção civil e manutenção predial. Com atuação direta na execução das atividades, entregamos soluções eficientes e seguras para construtoras, incorporadoras e gestores de obra que buscam parceiros comprometidos com resultado.",
+                about_p2: "Nossa carteira de serviços abrange montagem e desmontagem de andaimes, demolições controladas, reformas (pintura, drywall e pisos), manutenção predial, preparação e limpeza de terrenos, reciclagem de materiais e logística de equipamentos. Atuamos também no gerenciamento operacional dos serviços, assegurando organização, controle de prazo e alinhamento em todas as fases da obra.",
+                about_p3: "Pautamos cada projeto pelo respeito rigoroso às normas de segurança, pela transparência na comunicação e pelo cumprimento dos cronogramas acordados. Acreditamos que a excelência operacional começa na confiança — e é isso que entregamos a cada cliente.",
                 services_title: "Nossas Áreas de Atuação",
                 s1_title: "1. Montagem de Andaimes",
                 s1_desc: "Montagem e desmontagem de estruturas de andaimes residenciais e industriais. Garantia de acessos firmes e seguros para trabalhos em altura, em total conformidade com as regras de segurança japonesas.",
@@ -856,6 +865,7 @@
                 off3: "Pagamento correto, transparente e estritamente pontual (conforme legislação japonesa).",
                 off4: "Oportunidade real de crescimento profissional e acompanhamento da expansão da empresa.",
                 lbl_name: "Nome Completo / Nome Japonês",
+                ph_name: "Ex: Tanaka Taro",
                 lbl_visa: "Status de Visto Atual",
                 opt_visa_def: "Selecione seu status...",
                 opt_v1: "Residente Permanente / Cônjuge",
@@ -865,6 +875,7 @@
                 opt_v5: "Outro status",
                 lbl_area: "Área de Interesse",
                 opt_area_def: "Selecione uma área...",
+                s7_title: "7. Outro / Múltiplas Capacitações",
                 lbl_msg: "Mensagem / Disponibilidade",
                 ph_message: "Descreva brevemente seus horários ou experiência prévia...",
                 lbl_upload: "Documentos (Upload Múltiplo - Obrigatório)",
@@ -875,7 +886,6 @@
                 c_addr: "Endereço Comercial",
                 c_phone: "Telefone de Atendimento",
                 c_email: "Correio Eletrônico (E-mail)",
-                map_placeholder: "[ Área destinada à integração futura com o mapa do Google Maps / 愛知県豊田市 ]",
                 footer_text: "&copy; 2026 株式会社 SUPPORTPRO. All rights reserved. Realidade Operacional e Compromisso no Japão."
             }
         };
@@ -901,7 +911,7 @@
                     // Verificar se é input/select com placeholder
                     if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                         element.setAttribute('placeholder', translations[lang][key]);
-                    } else if (element.tagName === 'OPTION' && key.startsWith('opt_')) {
+                    } else if (element.tagName === 'OPTION' && (key.startsWith('opt_') || key.startsWith('s') || key.startsWith('s7_'))) {
                         element.textContent = translations[lang][key];
                     } else {
                         element.innerHTML = translations[lang][key];
