@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>株式会社 SUPPORTPRO</title>
-    <!-- Fontes do Google: Montserrat (Ocidental) e Noto Sans JP (Japonês) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -172,7 +171,7 @@
 
         /* --- HERO SECTION --- */
         .hero {
-            background-image: linear-gradient(rgba(15, 30, 54, 0.9), rgba(15, 30, 54, 0.9)), url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80');
+            background-image: linear-gradient(rgba(15, 30, 54, 0.9), rgba(15, 30, 54, 0.9)), url('images/1.png');
             background-size: cover;
             background-position: center;
             color: var(--pure-white);
@@ -181,7 +180,7 @@
         }
 
         .hero-content {
-            max-width: 700px;
+            max-width: 750px;
         }
 
         .hero h1 {
@@ -197,6 +196,12 @@
             color: #E2E8F0;
         }
 
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
         .btn-cta {
             display: inline-block;
             background-color: var(--construction-yellow);
@@ -204,11 +209,24 @@
             padding: 12px 28px;
             font-weight: 600;
             border-radius: 4px;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+            border: 2px solid var(--construction-yellow);
         }
 
         .btn-cta:hover {
             background-color: var(--construction-yellow-hover);
+            border-color: var(--construction-yellow-hover);
+        }
+
+        .btn-cta.btn-outline {
+            background-color: transparent;
+            color: var(--construction-yellow);
+            border: 2px solid var(--construction-yellow);
+        }
+
+        .btn-cta.btn-outline:hover {
+            background-color: var(--construction-yellow);
+            color: var(--navy-deep);
         }
 
         /* --- SECTION SOBRE / REALIDADE --- */
@@ -232,7 +250,7 @@
             margin-bottom: 0;
         }
 
-        /* --- ESTRUTURA DE SERVIÇOS (6 CATEGORIAS CORRIGIDAS E VISUALMENTE ESTÁVEIS) --- */
+        /* --- ESTRUTURA DE SERVIÇOS --- */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -320,7 +338,7 @@
             font-weight: bold;
         }
 
-        /* Formulário */
+        /* Formulários Geral */
         .career-form {
             background-color: var(--pure-white);
             color: var(--text-dark);
@@ -423,12 +441,13 @@
             background-color: var(--construction-yellow-hover);
         }
 
-        /* --- SEÇÃO DE CONTATO --- */
+        /* --- SEÇÃO DE CONTATO (3 COLUNAS) --- */
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
             margin-top: 20px;
+            align-items: start;
         }
 
         .contact-info-box {
@@ -456,7 +475,8 @@
 
         .map-container {
             width: 100%;
-            min-height: 300px;
+            height: 100%;
+            min-height: 380px;
             background-color: #E2E8F0;
             border-radius: 4px;
             overflow: hidden;
@@ -496,7 +516,7 @@
                 display: flex;
             }
 
-            .careers-wrapper, .contact-grid {
+            .careers-wrapper {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
@@ -508,12 +528,15 @@
             .section-title {
                 font-size: 1.5rem;
             }
+
+            .map-container {
+                min-height: 250px;
+            }
         }
     </style>
 </head>
 <body onload="initSite()">
 
-    <!-- HEADER / NAVEGAÇÃO -->
     <header>
         <div class="container nav-container">
             <a href="#" class="logo">株式会社 SUPPORTPRO<span>.</span></a>
@@ -541,73 +564,67 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <h1 data-i18n="hero_title">建設・産業現場を支える、確実な実務施工サポート</h1>
                 <p data-i18n="hero_desc">日本国内の現場において、工期遵守と安全運行を最優先に、実務作業員の配置、ロジスティクス管理、現場サポートを提供します。</p>
-                <a href="#careers" class="btn-cta" data-i18n="hero_cta">応募はこちら</a>
+                <div class="btn-group">
+                    <a href="#careers" class="btn-cta" data-i18n="hero_cta">応募はこちら</a>
+                    <a href="#contact" class="btn-cta btn-outline" data-i18n="hero_cta_contact">お問い合わせ</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- SOBRE NÓS -->
     <section id="about" class="section-padding about-section">
         <div class="container">
             <h2 class="section-title" data-i18n="about_title">透明性のあるコミットメント</h2>
             <div class="about-box">
-                <p data-i18n="about_p1">株式会社 SUPPORTPROは、建築施工およびビルメンテナンスの各種実務サービスを専門とする enterprise です。業務の直接施工に携わり、結果にコミットするパートナーを求める建設会社、デベロッパー、現場管理者の皆様へ、効率的かつ安全なソリューションをお届けします。</p>
+                <p data-i18n="about_p1">株式会社 SUPPORTPROは、建築施工およびビルメンテナンスの各種実務サービスを専門とする企業です。業務 de 直接施工に携わり、結果にコミットするパートナーを求める建設会社、デベロッパー、現場管理者の皆様へ、効率的かつ安全なソリューションをお届けします。</p>
                 <p data-i18n="about_p2">当社の事業内容は、足場の組立・解体、管理解体、リフォーム（塗装、ドライウォール、床施工）、ビルメンテナンス、土地の造成・清掃、資材のリサイクル、機材物流まで多岐にわたります。また、サービスの進行管理も行い、施工のあらゆるフェーズにおいて組織化、工期管理、確実な連携を徹底します。</p>
-                <p data-i18n="about_p3">私たちは、安全基準の厳格な遵守、透明性のあるコミュニケーション、友情および合意されたスケジュールの履行を徹底して各プロジェクトを進めます。オペレーショナル・エクセレンスは信頼から始まると信じており、それこそ que 私たちがすべてのお客様に提供する価値です。</p>
+                <p data-i18n="about_p3">私たちは、安全基準の厳格な遵守、透明性のあるコミュニケーション、そして合意されたスケジュールの履行を徹底して各プロジェクトを進めます。オペレーショナル・エクセレンスは信頼から始まると信じており、それこそが私たちがすべてのお客様に提供する価値です。</p>
             </div>
         </div>
     </section>
 
-    <!-- SERVIÇOS (6 CATEGORIAS CORRIGIDAS - COM IDs ESTÁVEIS) -->
     <section id="services" class="section-padding">
         <div class="container">
             <h2 class="section-title" data-i18n="services_title">事業内容（6つのカテゴリー）</h2>
             <div class="services-grid">
                 
-                <!-- 1. Andaimes -->
                 <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1547683905-f686c993aae5?auto=format&fit=crop&w=600&q=80" alt="Trabalhadores montando andaime de metal em prédio com veículos de suporte abaixo" class="service-img">
+                    <img src="images/1.png" alt="Scaffolding Assembly" class="service-img">
                     <h3 data-i18n="s1_title">1. 足場架設工事</h3>
                     <p data-i18n="s1_desc">住宅から大型産業プラントまで対応する各種足場の組立・解体。高所作業の確実なルートを確保し、日本の安全基準に適合した揺るぎない足場構造を構築します。</p>
                 </div>
 
-                <!-- 2. Demolição -->
                 <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&w=600&q=80" alt="Maquinário pesado e funcionários demolindo galpão antigo de forma organizada e segura" class="service-img">
+                    <img src="images/2.png" alt="Warehouse Demolition Safety" class="service-img">
                     <h3 data-i18n="s2_title">2. 解体工事・現場準備</h3>
                     <p data-i18n="s2_desc">安全に配慮した構造物の管理解体および撤去作業。重機オペレーションとの連携、コンクリートや廃材の迅速なクリアリング、次のステップのための土地造成・整地を行います。</p>
                 </div>
 
-                <!-- 3. Reformas e Acabamentos -->
                 <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80" alt="Funcionários trabalhando na reforma e pintura interna de um amplo galpão industrial com EPIs" class="service-img">
+                    <img src="images/3.png" alt="Warehouse Renovation Work" class="service-img">
                     <h3 data-i18n="s3_title">3. 各種リフォーム・内装仕上工事</h3>
-                    <p data-i18n="s3_desc">建築物・構造物の一般塗装、ドライウォール（軽天・ボード）の施工、各種床材・仕上げ材の設置、外壁・屋根の補修、小規模な営繕修繕を行います。</p>
+                    <p data-i18n="s3_desc">建築物・構造物の一般塗装、ドライウォール（軽天・ボード）の施工、各種床材・仕上げ材 of 設置、外壁・屋根の補修、小規模な営繕修繕を行います。</p>
                 </div>
 
-                <!-- 4. Gestão de Resíduos e Reciclagem -->
                 <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=600&q=80" alt="Funcionários em canteiro fazendo a triagem e separação correta de alumínio, entulho e resíduos com luvas e capacetes" class="service-img">
+                    <img src="images/4.png" alt="Construction Waste Sorting" class="service-img">
                     <h3 data-i18n="s4_title">4. 産業廃棄物分別・現場清掃・資源回収</h3>
                     <p data-i18n="s4_desc">施工後の専門清掃、廃材の収集と厳密な分別、金属類（鉄, 銅, アルミ）の回収、法令に準拠した適正処分の管理、工場構内の整理整頓を行います。</p>
                 </div>
 
-                <!-- 5. Logística e Movimentação Industrial -->
                 <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=600&q=80" alt="Caminhão pesado de grande porte estacionado em pátio de ambiente fabril ou logístico" class="service-img">
+                    <img src="images/5.png" alt="Industrial Truck Yard Logistics" class="service-img">
                     <h3 data-i18n="s5_title">5. 工場構内物流・機械設備移設サポート</h3>
                     <p data-i18n="s5_desc">重量物・資材の構内搬送サポート、工場生産ラインの解体・移設補助、積込・荷降ろし作業、および建設現場における継続的な物流支援を行います。</p>
                 </div>
 
-                <!-- 6. Gerenciamento Operacional -->
                 <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1541462608141-ad4979e408c9?auto=format&fit=crop&w=600&q=80" alt="Supervisor com roupa social e capacete orientando equipe de operários ao ar livre" class="service-img">
+                    <img src="images/6.png" alt="Site Team Coordination" class="service-img">
                     <h3 data-i18n="s6_title">6. 現場オペレーション・施工進行管理アシスタント</h3>
                     <p data-i18n="s6_desc">作業チームの配置調整、現場の実務監督補助、現場事務サポート、日報作成、ならびに地域の安全基準やルール遵守の徹底管理を行います。</p>
                 </div>
@@ -616,7 +633,6 @@
         </div>
     </section>
 
-    <!-- CARREIRAS -->
     <section id="careers" class="section-padding careers-section">
         <div class="container">
             <h2 class="section-title" data-i18n="careers_title">採用情報</h2>
@@ -634,7 +650,6 @@
                     </ul>
                 </div>
 
-                <!-- Formulário de Candidatura -->
                 <form class="career-form" id="applicationForm" onsubmit="handleFormSubmit(event)">
                     <div class="form-group">
                         <label for="fullName" data-i18n="lbl_name">氏名（漢字／カタカナ、またはアルファベット）</label>
@@ -689,11 +704,11 @@
         </div>
     </section>
 
-    <!-- CONTATO -->
     <section id="contact" class="section-padding">
         <div class="container">
             <h2 class="section-title" data-i18n="contact_title">企業窓口</h2>
             <div class="contact-grid">
+                
                 <div class="contact-info-box">
                     <div class="contact-item">
                         <h4 data-i18n="c_addr">本社所在地</h4>
@@ -708,21 +723,43 @@
                         <p>contato@supportpro.co.jp</p>
                     </div>
                 </div>
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3264.4442111001884!2d137.1423403!3d35.0956275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6004a046c8257007%3A0xe5eb6c42a2202613!2z4CruNDcxLTAwMzEg5oSb5bed55yM6LGK55Sw5biC5pyd5pel55S677yR77yQ4oiS77yR77yU!5e0!3m2!1sja!2sjp!4v1716940000000!5m2!1sja!2sjp" width="100%" height="100%" style="border:0; min-height: 300px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                <div class="contact-form-container">
+                    <form id="contactForm" onsubmit="handleContactSubmit(event)" class="career-form" style="padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid var(--border-color);">
+                        <div class="form-group">
+                            <label for="clientName" data-i18n="lbl_cname">お名前 / 御社名 (必須)</label>
+                            <input type="text" id="clientName" class="form-control" required data-i18n="ph_cname" placeholder="例：山田 太郎">
+                        </div>
+                        <div class="form-group">
+                            <label for="clientEmail" data-i18n="lbl_cemail">メールアドレス (必須)</label>
+                            <input type="email" id="clientEmail" class="form-control" required data-i18n="ph_cemail" placeholder="example@supportpro.co.jp">
+                        </div>
+                        <div class="form-group">
+                            <label for="clientPhone" data-i18n="lbl_cphone">電話番号 (任意)</label>
+                            <input type="tel" id="clientPhone" class="form-control" data-i18n="ph_cphone" placeholder="0565-41-5268">
+                        </div>
+                        <div class="form-group">
+                            <label for="clientMessage" data-i18n="lbl_cmessage">お問い合わせ内容 (必須)</label>
+                            <textarea id="clientMessage" rows="4" class="form-control" required data-i18n="ph_cmessage" placeholder="ご質問や業務のご依頼内容をご記入ください..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit" data-i18n="btn_csend">メッセージを送信する</button>
+                    </form>
                 </div>
+
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3264.4442111001884!2d137.1423403!3d35.0956275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6004a046c8257007%3A0xe5eb6c42a2202613!2z4CruNDcxLTAwMzEg5oSb5bed55yM6LGK55Sw5biC5pyd5pel55S677yR77yQ4oiS77yR77yU!5e0!3m2!1sja!2sjp!4v1716940000000!5m2!1sja!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p data-i18n="footer_text">&copy; 2026 株式会社 SUPPORTPRO. All rights reserved. 日本における確実な実務施工とコミットメント。</p>
+            <p data-i18n="footer_text">© 2026 株式会社 SUPPORTPRO. All rights reserved. 日本における確実な実務施工とコミットメント。</p>
         </div>
     </footer>
 
-    <!-- LOGICA JAVASCRIPT (TRADUÇÃO E UTILS) -->
     <script>
         // --- BASE DE DADOS DO SISTEMA TRILÍNGUE ---
         const translations = {
@@ -731,6 +768,7 @@
                 hero_title: "建設・産業現場を支える、確実な実務施工サポート",
                 hero_desc: "日本国内の現場において、工期遵守と安全運行を最優先に、実務作業員の配置、ロジスティクス管理、現場サポートを提供します。",
                 hero_cta: "応募はこちら",
+                hero_cta_contact: "お問い合わせ",
                 about_title: "透明性のあるコミットメント",
                 about_p1: "株式会社 SUPPORTPROは、建築施工およびビルメンテナンスの各種実務サービスを専門とする企業です。業務の直接施工に携わり、結果にコミットするパートナーを求める建設会社、デベロッパー、現場管理者の皆様へ、効率的かつ安全なソリューションをお届けします。",
                 about_p2: "当社の事業内容は、足場の組立・解体、管理解体、リフォーム（塗装、ドライウォール、床施工）、ビルメンテナンス、土地の造成・清掃、資材のリサイクル、機材物流まで多岐にわたります。また、サービスの進行管理も行い、施工のあらゆるフェーズにおいて組織化、工期管理、確実な連携を徹底します。",
@@ -743,11 +781,11 @@
                 s3_title: "3. 各種リフォーム・内装仕上工事",
                 s3_desc: "建築物・構造物の一般塗装、ドライウォール（軽天・ボード）の施工、各種床材・仕上げ材の設置、外壁・屋根の補修、小規模な営繕修繕を行います。",
                 s4_title: "4. 産業廃棄物分別・現場清掃・資源回収",
-                s4_desc: "施工後の専門清掃、廃材の収集と厳密な分、金属類（鉄、銅、アルミ）の回収、法令に準拠した適正処分の管理、工場構内の整理整頓を行います。",
+                s4_desc: "施工後の専門清掃、廃材の収集と厳密な分別、金属類（鉄、銅、アルミ）の回収、法令に準拠した適正処分の管理、工場構内の整理整頓を行います。",
                 s5_title: "5. 工場構内物流・機械設備移設サポート",
                 s5_desc: "重量物・資材の構内搬送サポート、工場生産ラインの解体・移設補助、積込・荷降ろし作業、および建設現場における継続的な物流支援を行います。",
                 s6_title: "6. 現場オペレーション・施工進行管理アシスタント",
-                s6_desc: "作業チームの配置調整、現場の実務監督補助、現場事務サポート、日報作成、ならびに地域の安全基準やルール遵守の徹底管理を行います。",
+                s6_desc: "作業チームの配置調整、現場の実務監督補助、現場事務サポート、日報作成、ならびに地域の安全基準やルール遵守の徹底管理を行います。/p>",
                 careers_title: "採用情報",
                 careers_intro: "真面目で時間を守り、安全と品質を重視する人材を募集しています。SUPPORTPROでは、お互いの尊重、業務の明確化、整理された就業環境を大切にしています。日本の建設・産業セクターで真剣に仕事を探している方のご応募をお待ちしています。",
                 careers_offers_title: "待遇と環境:",
@@ -777,13 +815,23 @@
                 c_addr: "本社所在地",
                 c_phone: "代表電話番号",
                 c_email: "代表メールアドレス",
-                footer_text: "&copy; 2026 株式会社 SUPPORTPRO. All rights reserved. 日本における確実な実務施工とコミットメント。"
+                lbl_cname: "お名前 / 御社名 (必須)",
+                ph_cname: "例：山田 太郎",
+                lbl_cemail: "メールアドレス (必須)",
+                ph_cemail: "example@supportpro.co.jp",
+                lbl_cphone: "電話番号 (任意)",
+                ph_cphone: "0565-41-5268",
+                lbl_cmessage: "お問い合わせ内容 (必須)",
+                ph_cmessage: "ご質問や業務のご依頼内容をご記入ください...",
+                btn_csend: "メッセージを送信する",
+                footer_text: "© 2026 株式会社 SUPPORTPRO. All rights reserved. 日本における確実な実務施工とコミットメント。"
             },
             en: {
                 nav_about: "Company Profile", nav_services: "Our Business", nav_careers: "Careers", nav_contact: "Contact Us",
                 hero_title: "Practical On-Site Support for Construction and Industry",
                 hero_desc: "We provide operational manpower, logistics coordination, and field support focused on strict schedule compliance and safety execution across Japan.",
                 hero_cta: "Join Our Team",
+                hero_cta_contact: "Contact Us",
                 about_title: "Transparent Commitment",
                 about_p1: "SUPPORTPRO Co., Ltd. is a company specialized in operational services for civil construction and building maintenance. Working directly in the execution of activities, we deliver efficient and safe solutions for construction companies, developers, and site managers looking for partners committed to results.",
                 about_p2: "Our service portfolio covers scaffolding assembly and disassembly, controlled demolition, renovations (painting, drywall, and flooring), building maintenance, land preparation and clearing, material recycling, and equipment logistics. We also operate in the operational management of services, ensuring organization, schedule control, and alignment in all phases of the project.",
@@ -830,13 +878,23 @@
                 c_addr: "Registered Office Address",
                 c_phone: "Business Support Line",
                 c_email: "Corporate Mailbox",
-                footer_text: "&copy; 2026 SUPPORTPRO Co., Ltd. All rights reserved. Operational Reality and Commitment in Japan."
+                lbl_cname: "Full Name / Company Name (Required)",
+                ph_cname: "Ex: John Doe",
+                lbl_cemail: "Email Address (Required)",
+                ph_cemail: "example@supportpro.co.jp",
+                lbl_cphone: "Phone Number (Optional)",
+                ph_cphone: "0565-41-5268",
+                lbl_cmessage: "Message / Inquiries (Required)",
+                ph_cmessage: "Type your questions or service requests here...",
+                btn_csend: "Send Message",
+                footer_text: "© 2026 SUPPORTPRO Co., Ltd. All rights reserved. Operational Reality and Commitment in Japan."
             },
             pt: {
                 nav_about: "Sobre Nós", nav_services: "Serviços", nav_careers: "Carreiras", nav_contact: "Contato",
                 hero_title: "Apoio Operacional Prático para Construção e Indústria",
                 hero_desc: "Fornecemos mão de obra executiva, organização logística e suporte de campo focado no cumprimento de prazos e segurança operacional no Japão.",
                 hero_cta: "Trabalhe Conosco",
+                hero_cta_contact: "Entre em Contato",
                 about_title: "Compromisso Transparente",
                 about_p1: "A 株式会社 SUPPORTPRO é uma empresa especializada em serviços operacionais para a construção civil e manutenção predial. Com atuação direta na execução das atividades, entregamos soluções eficientes e seguras para construtoras, incorporadoras e gestores de obra que buscam parceiros comprometidos com resultado.",
                 about_p2: "Nossa carteira de serviços abrange montagem e desmontagem de andaimes, demolições controladas, reformas (pintura, drywall e pisos), manutenção predial, preparação e limpeza de terrenos, reciclagem de materiais e logística de equipamentos. Atuamos também no gerenciamento operacional dos serviços, assegurando organização, controle de prazo e alinhamento em todas as fases da obra.",
@@ -883,8 +941,16 @@
                 c_addr: "Endereço Comercial",
                 c_phone: "Telefone de Atendimento",
                 c_email: "Correio Eletrônico (E-mail)",
-                map_placeholder: "[ Área destinada à integração futura com o mapa do Google Maps / 愛知県豊田市 ]",
-                footer_text: "&copy; 2026 株式会社 SUPPORTPRO. All rights reserved. Realidade Operacional e Compromisso no Japão."
+                lbl_cname: "Nome Completo / Empresa (Obrigatório)",
+                ph_cname: "Ex: Ricardo Uema",
+                lbl_cemail: "E-mail (Obrigatório)",
+                ph_cemail: "contato@supportpro.co.jp",
+                lbl_cphone: "Telefone (Opcional)",
+                ph_cphone: "0565-41-5268",
+                lbl_cmessage: "Mensagem / Detalhes (Obrigatório)",
+                ph_cmessage: "Escreva suas dúvidas ou solicitações de serviço aqui...",
+                btn_csend: "Enviar Mensagem",
+                footer_text: "© 2026 株式会社 SUPPORTPRO. All rights reserved. Realidade Operacional e Compromisso no Japão."
             }
         };
 
@@ -895,18 +961,14 @@
 
         // --- FUNÇÃO DE IDIOMA ATIVO ---
         function setLanguage(lang) {
-            // Atualizar classes dos botões
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             document.getElementById(`btn-${lang}`).classList.add('active');
 
-            // Mapear elementos traduzíveis
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
                 if (translations[lang] && translations[lang][key]) {
-                    
-                    // Verificar se é input/select com placeholder
                     if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                         element.setAttribute('placeholder', translations[lang][key]);
                     } else if (element.tagName === 'OPTION' && (key.startsWith('opt_') || key.startsWith('s') || key.startsWith('s7_'))) {
@@ -916,12 +978,10 @@
                     }
                 }
             });
-            
-            // Definir idioma no HTML tag para acessibilidade
             document.documentElement.lang = lang === 'jp' ? 'ja' : (lang === 'en' ? 'en' : 'pt-BR');
         }
 
-        // --- COMPORTAMENTO MENU HAMBÚRGUER (MOBILE) ---
+        // --- COMPORTAMENTO MENU HAMBÚRGUER ---
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
 
@@ -971,7 +1031,7 @@
             updateFilesList();
         });
 
-        // --- SUBMIT DO FORMULÁRIO (FRONT-END ONLY) ---
+        // --- SUBMIT DO FORMULÁRIO DE CARREIRAS ---
         function handleFormSubmit(event) {
             event.preventDefault();
             const currentLang = document.querySelector('.lang-btn.active').id.replace('btn-', '');
@@ -986,6 +1046,22 @@
             alert(successMessage);
             document.getElementById('applicationForm').reset();
             document.getElementById('fileListPreview').innerHTML = '';
+        }
+
+        // --- SUBMIT DO FORMULÁRIO DE CONTATO (CLIENTES) ---
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            const currentLang = document.querySelector('.lang-btn.active').id.replace('btn-', '');
+            let successMessage = "お問い合わせありがとうございました。メッセージは正常に送信されました。担当者より折り返しご連絡いたします。";
+            
+            if (currentLang === 'en') {
+                successMessage = "Thank you for contacting us! Your message has been sent successfully. Our team will get back to you shortly.";
+            } else if (currentLang === 'pt') {
+                successMessage = "Obrigado pelo contato! Sua mensagem foi enviada com sucesso. Nossa equipe responderá o mais breve possível.";
+            }
+            
+            alert(successMessage);
+            document.getElementById('contactForm').reset();
         }
     </script>
 </body>
