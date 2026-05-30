@@ -250,7 +250,7 @@
             margin-bottom: 0;
         }
 
-        /* --- ESTRUTURA DE SERVIÇOS (MUDADO PARA .PNG MAIÚSCULO) --- */
+        /* --- ESTRUTURA DE SERVIÇOS --- */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -584,7 +584,7 @@
             <h2 class="section-title" data-i18n="about_title">透明性のあるコミットメント</h2>
             <div class="about-box">
                 <p data-i18n="about_p1">株式会社 SUPPORTPRO é uma empresa especializada em serviços operacionais para a construção civil e manutenção predial. Com atuação direta na execução das atividades, entregamos soluções eficientes e seguras para construtoras, incorporadoras e gestores de obra que buscam parceiros comprometidos com resultado.</p>
-                <p data-i18n="about_p2">Nossa carteira de serviços abrange montagem e担当者の分解 de andaimes, demolições controladas, reformas (pintura, drywall e pisos), manutenção predial, preparação e limpeza de terrenos, reciclagem de materiais e logística de equipamentos. Atuamos também no gerenciamento operacional dos serviços, assegurando organização, controle de prazo e alinhamento em todas as fases da obra.</p>
+                <p data-i18n="about_p2">Nossa carteira de serviços abrange montagem e desmontagem de andaimes, demolições controladas, reformas (pintura, drywall e pisos), manutenção predial, preparação e limpeza de terrenos, reciclagem de materiais e logística de equipamentos. Atuamos também no gerenciamento operacional dos serviços, assegurando organização, controle de prazo e alinhamento em todas as fases da obra.</p>
                 <p data-i18n="about_p3">Pautamos cada projeto pelo respeito rigoroso às normas de segurança, pela transparência na comunicação e pelo cumprimento dos cronogramas acordados. Acreditamos que a excelência operacional começa na confiança — e é isso que entregamos a cada cliente.</p>
             </div>
         </div>
@@ -692,7 +692,7 @@
                     <div class="form-group">
                         <label data-i18n="lbl_upload">書類添付（複数選択可・必須）</label>
                         <div class="file-drop-zone" id="dropZone">
-                            <span class="file-zone-text" data-i18n="upload_text"><b>ファイルを選択</b> またはここにドラッグ＆ドロップ<br>(履歴書、在留カード写真、資格証など)</span>
+                            <span class="file-zone-text" data-i18n="upload_text"><b>ファイルを選択</b> 或者ここにドラッグ＆ドロップ<br>(履歴書、在留カード写真、資格証など)</span>
                             <input type="file" id="fileInput" multiple required onchange="updateFilesList()">
                         </div>
                         <div class="file-list-preview" id="fileListPreview"></div>
@@ -749,7 +749,7 @@
                 </div>
 
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m4!2s35.093375!4d137.147285!5m2!1sja!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://maps.google.com/maps?q=471-0031%20愛知県豊田市朝日町4-10-14&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
 
             </div>
@@ -774,7 +774,7 @@
                 about_title: "透明性のあるコミットメント",
                 about_p1: "株式会社 SUPPORTPROは、建築施工およびビルメンテナンスの各種実務サービスを専門とする企業です。業務の直接施工に携わり、結果にコミットするパートナーを求める建設会社、デベロッパー、現場管理者の皆様へ、効率的かつ安全なソリューションをお届けします。",
                 about_p2: "当社の事業内容は、足場の組立・解体、管理解体、リフォーム（塗装、ドライウォール、床施工）、ビルメンテナンス、土地の造成・清掃、資材のリサイクル、機材物流まで多岐にわたります。また、サービスの進行管理も行い、施工のあらゆるフェーズにおいて組織化、工期管理、確実な連携を徹底します。",
-                about_p3: "私たちは、安全基準の厳格な遵守、透明性のあるコミュニケーション、そして合意されたスケジュールの履行を徹底して各プロジェクトを進めます。オペレーショナル・エクセレンスは信頼から始まると信じており、それこそが私たちがすべてのお客様に提供する価値です。",
+                about_p3: "私たちは、安全基準の厳格な遵守、透明性のあるコミュニケーション、保持および合意されたスケジュールの履行を徹底して各プロジェクトを進めます。オペレーショナル・エクセレンスは信頼から始まると信じており、それこそが私たちがすべてのお客様に提供する価値です。",
                 services_title: "事業内容（6つのカテゴリー）",
                 s1_title: "1. 足場架設工事",
                 s1_desc: "住宅から大型産業プラントまで対応する各種足場の組立・解体。高所作業の確実なルートを確保し、日本の安全基準に適合した揺るぎない足場構造を構築します。",
@@ -956,12 +956,12 @@
             }
         };
 
-        // --- SISTEMA INICIALIZADOR ---
+        // --- SISTEMA INICIALIZADOR COMPATÍVEL ---
         function initSite() {
             setLanguage('jp');
         }
 
-        // --- FUNÇÃO DE TRADUÇÃO ATIVA ---
+        // --- FUNÇÃO DE IDIOMA ATIVA ---
         function setLanguage(lang) {
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
